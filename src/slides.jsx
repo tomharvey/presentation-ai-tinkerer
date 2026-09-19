@@ -13,32 +13,40 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-/* ---------------------------------------------------------------- slide 2 */
-function LoopDiagram() {
-  const [lit, setLit] = useState(0)
+/* Replay a staged animation every time its slide becomes the visible one, so
+   stepping back to a slide shows the build again rather than the end state. */
+function useSlideStages(count, gap) {
+  const [stage, setStage] = useState(0)
   const ref = useRef(null)
 
   useEffect(() => {
-    const el = ref.current?.closest('section')
-    if (!el) return
+    const section = ref.current?.closest('section')
+    if (!section) return
     let timers = []
     const run = () => {
-      setLit(0)
       timers.forEach(clearTimeout)
-      timers = [1, 2, 3, 4].map((n) => setTimeout(() => setLit(n), n * 620))
+      setStage(0)
+      timers = Array.from({ length: count }, (_, i) =>
+        setTimeout(() => setStage(i + 1), (i + 1) * gap)
+      )
     }
-    // Replay whenever this slide becomes the visible one.
-    const onIn = () => run()
-    el.addEventListener('slidetransitionend', onIn)
-    document.addEventListener('slidechanged', (e) => {
-      if (e.currentSlide === el) run()
-    })
-    if (el.classList.contains('present')) run()
+    const onChange = (e) => {
+      if (e.currentSlide === section) run()
+    }
+    document.addEventListener('slidechanged', onChange)
+    if (section.classList.contains('present')) run()
     return () => {
       timers.forEach(clearTimeout)
-      el.removeEventListener('slidetransitionend', onIn)
+      document.removeEventListener('slidechanged', onChange)
     }
-  }, [])
+  }, [count, gap])
+
+  return [stage, ref]
+}
+
+/* ---------------------------------------------------------------- slide 2 */
+function LoopDiagram() {
+  const [lit, ref] = useSlideStages(4, 620)
 
   return (
     <svg
@@ -91,23 +99,49 @@ function LoopDiagram() {
 }
 
 /* ---------------------------------------------------------------- slide 6 */
+/* Left: people are stations ON the loop. Each one added is another thing the
+   work must pass through, and the loop visibly slows until it stalls. Right:
+   people sit outside it and change its shape instead — the loop never slows,
+   it just stops being a circle. Which is the point: a loop doesn't have to be
+   a circle to be a loop. */
 function InOrAbove() {
-  return (
-    <svg className="schematic" viewBox="0 0 620 150" role="img"
-         aria-label="Left: a person inside the loop, every pass coming back to them. Right: a person above the loop, which runs on its own.">
-      <text x="0" y="14">In it</text>
-      <rect x="0" y="34" width="250" height="78" rx="3" />
-      <circle className="you" cx="125" cy="73" r="9" />
-      <path d="M40 73 L112 73" /><path d="M104 68 L114 73 L104 78 Z" className="you" />
-      <path d="M210 73 L138 73" /><path d="M146 68 L136 73 L146 78 Z" className="you" />
-      <path d="M125 46 L125 60" /><path d="M120 54 L125 64 L130 54 Z" className="you" />
-      <path d="M125 100 L125 86" /><path d="M120 92 L125 82 L130 92 Z" className="you" />
+  const [stage, ref] = useSlideStages(3, 1150)
 
-      <text x="340" y="14">Above it</text>
-      <circle className="you" cx="465" cy="26" r="9" />
-      <path d="M465 40 L465 56" /><path d="M460 50 L465 60 L470 50 Z" className="you" />
-      <rect x="340" y="62" width="250" height="50" rx="3" />
-      <path d="M380 87 L540 87" /><path d="M532 82 L542 87 L532 92 Z" className="you" />
+  return (
+    <svg
+      ref={ref}
+      className={`schematic st-${stage}`}
+      viewBox="0 0 620 210"
+      role="img"
+      aria-label="Left: as more people are added onto the loop it slows and stalls. Right: people added outside it change its shape, and it keeps running."
+    >
+      {/* ---- in it: every person added is another station ---- */}
+      <text x="18" y="16">In it</text>
+      <circle className="ring ring-left" cx="130" cy="112" r="56" />
+      <path className="head" d="M181 108 L191 108 L186 120 Z" />
+      <circle className="you" cx="130" cy="56" r="10" />
+      <circle className="dot d1" cx="178" cy="140" r="9" />
+      <circle className="dot d2" cx="82" cy="140" r="9" />
+      <circle className="dot d3" cx="130" cy="168" r="9" />
+      <text className="tiny" x="130" y="197" textAnchor="middle">
+        every pass comes through you
+      </text>
+      <text className="stalled" x="130" y="116" textAnchor="middle">
+        stalled
+      </text>
+
+      {/* ---- above it: shape changes, speed doesn't ---- */}
+      <text x="338" y="16">Above it</text>
+      <ellipse className="ghost" cx="452" cy="116" rx="56" ry="56" />
+      <ellipse className="ring ring-right" cx="452" cy="116" />
+      <path className="head head-right" d="M503 112 L513 112 L508 124 Z" />
+      <circle className="you" cx="452" cy="30" r="10" />
+      <circle className="dot d2" cx="386" cy="34" r="9" />
+      <path className="pull" d="M438 38 Q404 54 392 84" />
+      <path className="pull" d="M466 38 Q506 54 520 88" />
+      <text className="tiny" x="452" y="197" textAnchor="middle">
+        you change its shape
+      </text>
     </svg>
   )
 }
@@ -119,14 +153,13 @@ export default function Slides() {
       <section>
         <p className="kicker">AI Tinkerers · Tom Harvey</p>
         <h1>Your software doesn&rsquo;t know why it exists</h1>
-        <p className="lede">
-          It knows what colour the button is. It has never once found out
-          whether anybody bought anything.
-        </p>
-        <div className="message">
-          <p className="who">A customer, last month</p>
-          Just give me a CSV of this. What do you mean you can&rsquo;t do that?
-          That&rsquo;s ridiculous.
+        <div className="selfknow">
+          <p className="head">Everything it can tell you about itself</p>
+          <div className="line"><span>What it looks like on a phone</span><span className="val">yes</span></div>
+          <div className="line"><span>What colour the button is</span><span className="val">yes</span></div>
+          <div className="line"><span>How quickly it loads</span><span className="val">yes</span></div>
+          <div className="line"><span>Who visited yesterday</span><span className="val">yes</span></div>
+          <div className="line unknown"><span>Why it exists</span><span className="val"><span className="caret" /></span></div>
         </div>
         <aside className="notes">
           0:00–1:30 · NEVER CUT{'\n\n'}
@@ -134,15 +167,18 @@ export default function Slides() {
           what it looks like on a phone. It knows what colour the button is. It
           does not know it is a salesperson — nobody told it, and it has never
           once found out whether anybody bought anything.{'\n\n'}
-          "I think people will want to hear this." → READ THE MESSAGE OUT. This
-          is a real customer, about our product.{'\n\n'}
-          THE TURN — and this is the whole talk in one move: our product knows
-          how to draw that table. Perfectly. What it has never known is that the
-          table is only there so somebody can go and DO something with the
-          numbers. Nobody ever told it what it was for.{'\n\n'}
-          "And the honest version is that somebody's job was to read that message
-          and write down 'maybe we should add an export'. That's a real job. I
-          don't think it's a job any more."{'\n\n'}
+          WALK THE CARD. Every one of those it can answer instantly, and has
+          been able to for twenty years. The last one it has never been able to
+          answer, and — this is the part — nobody ever thought that was strange.
+          {'\n\n'}
+          THEN THE REAL ONE, SPOKEN. "Last month a customer wrote to us: just
+          give me a CSV of this, what do you mean you can't do that, that's
+          ridiculous. Our product knows how to draw that table. Perfectly. What
+          it has never known is that the table is only there so somebody can go
+          and DO something with the numbers."{'\n\n'}
+          "And somebody's job was to read that and write down 'maybe we should
+          add an export'. That is a real job. I don't think it's a job any
+          more."{'\n\n'}
           The intent existed once — written somewhere nobody kept, a chat thread,
           someone's head, a job closed eighteen months ago. It never travelled
           with the thing that got built.{'\n\n'}
@@ -150,9 +186,9 @@ export default function Slides() {
           something you shipped and stopped asking questions about."{'\n\n'}
           10 sec on Flock, INCLUDING: "Admiral liked it enough to pay £109m for
           the business." Then straight into slide 2.{'\n\n'}
-          ⚠ SWAP IN THE REAL SCREENSHOT if you can — you have it, and a genuine
-          capture beats a rendering here. Wording on screen is softened; the
-          original is blunter. Your call which one a public room gets.
+          ⚠ The customer message is SPOKEN, not shown — the screen carries the
+          idea, not the anecdote. If you'd rather show the real screenshot, it
+          belongs as a second beat after the card, not instead of it.
         </aside>
       </section>
 
@@ -280,11 +316,17 @@ export default function Slides() {
         <p className="punch">Both are judgement. Only one is a job you can do at volume.</p>
         <aside className="notes">
           5:35–6:30 · NEVER CUT. This is the hinge of the whole talk.{'\n\n'}
+          LET THE LEFT SIDE PLAY. "Watch what happens when you add a second
+          person. And a third." It slows, and then it stops. Every person you
+          put inside the loop is another thing the work has to pass through.{'\n\n'}
           In it: you interrupt. "No — do it this way." Every pass comes back to
           you. That scales with your attention, and your attention does not
           scale.{'\n\n'}
-          Above it: you change the shape of the thing so it does that by default.
-          That scales with the loop.{'\n\n'}
+          NOW THE RIGHT. Same thing — add a person. It doesn't slow down. It
+          changes shape. "And notice it stopped being a circle. It's still a
+          loop. A loop doesn't have to be a neat circle to be a loop."{'\n\n'}
+          Above it: you change the shape of the thing so it does the right thing
+          by default. That scales with the loop.{'\n\n'}
           Both are judgement. Only one is a job you can do at volume.{'\n\n'}
           NO BRIDGE HERE — this beat is already about them. Adding one is talking
           down.
@@ -293,35 +335,45 @@ export default function Slides() {
 
       {/* 7 ────────────────────────────────────── 6:30–7:50 */}
       <section>
-        <p className="kicker muted">So which is it?</p>
-        <h2>Nobody can tell you where the line is — including the person standing on it</h2>
+        <p className="kicker muted">One person, one default</p>
+        <h2>She changed one default and never made that decision again</h2>
         <div className="promptline">
-          <span className="dim">…every prompt she writes ends the same way</span>
+          <span className="dim">every instruction she writes ends the same way</span>
           <br />
-          <span className="always">&ldquo;spin up sub-agents if you think that&rsquo;s appropriate&rdquo;</span>
+          <span className="always">
+            &ldquo;…and if this is big enough to split up, split it up and run the
+            parts at the same time&rdquo;
+          </span>
         </div>
         <div className="ratio">
           <div>
             <div className="fig">9 in 10</div>
-            <p className="who">Their sessions</p>
+            <p className="who">Of her work</p>
           </div>
           <div>
             <div className="fig mine">1 in 30</div>
-            <p className="who">Mine</p>
+            <p className="who">Of mine</p>
           </div>
         </div>
+        <p className="ratio-caption">
+          …now gets split up and run in parallel. She never once decided to do
+          that. She changed the conditions, and the machine decides.
+        </p>
         <aside className="notes">
-          6:30–7:50 · NEVER CUT{'\n\n'}
-          ASK IT OUT LOUD: "are they in it, or above it?"{'\n\n'}
-          FOR — someone on our product team mentioned almost in passing that
-          every prompt she writes ends with THAT LINE. Nine sessions in ten of
-          hers now split the work up and run it in parallel. Mine were closer to
-          one in thirty. She has never once decided when to do that — she changed
-          the conditions so the machine decides.{'\n\n'}
-          AGAINST — she still checks what comes out. Still picks the target.
-          There's still a person working through the list at the other end.{'\n\n'}
-          HONEST ANSWER — both, and the line keeps moving. "I asked her and she
-          said that's how she'd say she's currently operating. I believed her,
+          6:30–7:50 · NEVER CUT — this is the proof for slide 6{'\n\n'}
+          "I want to show you what that looks like on an actual person."{'\n\n'}
+          Someone on our product team ends every instruction she writes with that
+          sentence. Every single one. It is the laziest possible place to put an
+          instruction — the weakest, cheapest position there is.{'\n\n'}
+          And it worked. Nine tenths of her work now gets broken up and run in
+          parallel. Mine was closer to one in thirty.{'\n\n'}
+          THE POINT — she is not deciding when to do that. She never decides. She
+          changed the conditions once, and now the machine makes the call every
+          time. THAT is what being above it looks like in practice.{'\n\n'}
+          NOW MUDDY IT, DELIBERATELY — "so is she above it? Partly. She still
+          checks what comes out. She still picks the target. There's still a
+          person working through the list at the other end. I asked her directly
+          and she said that's how she'd describe how she works. I believed her,
           and I still couldn't tell you where the boundary sits. I made this
           distinction up on a call last week. Nobody knows."{'\n\n'}
           THE RHYME, ONCE — "I asked the system why it put something top of the
@@ -330,7 +382,12 @@ export default function Slides() {
           BRIDGE — "you don't need any of this tooling. The move is: stop
           remembering to do the good thing, and change the default so you don't
           have to."{'\n\n'}
-          ⚠ HER DATA — must be cleared with her before this is shown.
+          IF BEHIND: cut the muddying. Keep the default, the numbers and the
+          bridge.{'\n\n'}
+          ⚠ HER DATA — must be cleared with her before this is shown.{'\n'}
+          ⚠ The sentence on screen is her instruction in plain English; the
+          original names the tooling. Say it either way, but the room needs the
+          plain one.
         </aside>
       </section>
 
