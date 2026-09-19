@@ -920,6 +920,66 @@ body,
 .reveal .board .tk .who { color: var(--dark-grey); }
 .reveal .board .tk .ref { margin-left: auto; }
 
+/* The four cards hold, then collapse into one signal that is simply
+   stronger. Both layers sit in the same grid cell so nothing reflows. */
+.reveal .board-stack { display: grid; }
+.reveal .board-stack > * { grid-area: 1 / 1; }
+
+.reveal .board-stack .cards {
+  animation: cardsOut 0.45s 4.3s ease-in forwards;
+}
+@keyframes cardsOut { to { opacity: 0; transform: translateY(-6px); } }
+
+.reveal .board .compounded {
+  opacity: 0;
+  align-self: start;
+  animation: tkIn 0.4s 4.6s ease-out forwards;
+  background: #223136;
+  border: 1px solid var(--flock-yellow);
+  border-radius: 4px;
+  padding: 0.5rem 0.7rem 0.45rem;
+  display: grid;
+  gap: 0.34rem;
+}
+
+.reveal .board .compounded .title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-size: 0.42em;
+  color: var(--white);
+  line-height: 1.3;
+}
+.reveal .board .compounded .pri {
+  flex: 0 0 auto;
+  width: 0.42em;
+  height: 0.42em;
+  border-radius: 50%;
+  background: var(--flock-yellow);
+  transform: translateY(-0.06em);
+}
+.reveal .board .compounded .foot {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.28em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-grey);
+}
+.reveal .board .compounded .strength {
+  background: var(--flock-yellow);
+  color: var(--dark-coal);
+  border-radius: 2px;
+  padding: 0.08rem 0.32rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .board-stack .cards { animation: none; opacity: 0; }
+  .reveal .board .compounded { animation: none; opacity: 1; }
+}
+
 /* =====================================================================
    What vs why (slide 7)
    ===================================================================== */

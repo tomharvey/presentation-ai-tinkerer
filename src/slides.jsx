@@ -96,7 +96,12 @@ function useSlideStages(count, gap) {
 /* The interrogation. Every question gets an instant answer and they arrive
    faster and faster — the thing is showing off — then a long silence, and the
    last line lands with nothing after it but a cursor. Hold the pause. If you
-   talk over it, it dies. */
+   talk over it, it dies.
+
+   Everything it CAN answer is about its own form: size, layout, colour. Load
+   times and visitor counts were here and were cut deliberately — a system that
+   knows those already holds outcome data, which undercuts the whole argument
+   that it is blind to its own effect. Keep this list to shape only. */
 function SelfKnowledge() {
   const [run, ref] = useReplayOnEnter()
   return (
@@ -105,8 +110,8 @@ function SelfKnowledge() {
         <p className="head">Everything it can tell you about itself</p>
         <div className="line"><span>What it looks like on a phone</span><span className="val">yes</span></div>
         <div className="line"><span>What colour the button is</span><span className="val">yes</span></div>
-        <div className="line"><span>How quickly it loads</span><span className="val">yes</span></div>
-        <div className="line"><span>Who visited yesterday</span><span className="val">yes</span></div>
+        <div className="line"><span>Where everything sits on the page</span><span className="val">yes</span></div>
+        <div className="line"><span>What size every word is</span><span className="val">yes</span></div>
         <div className="line unknown"><span>Why it exists</span><span className="val"><span className="caret" /></span></div>
       </div>
     </div>
@@ -168,10 +173,14 @@ function LoopDiagram() {
 }
 
 /* ---------------------------------------------------------------- slide 3 */
-/* A tracker column, not a list of sentences — header with a count, priority
-   marks, type chips, references and who opened them. Cards land one at a
-   time, and the build replays on slide entry (a plain CSS animation here
-   fires once at page load and is over long before anyone reaches slide 3). */
+/* Four cards arrive, hold, then collapse into one signal that is simply
+   stronger — because that is what they always were. The repetition wasn't the
+   system being forgetful; it was the same finding confirmed four times with no
+   way to add it up.
+
+   A tracker column rather than a list of sentences, so it reads as tickets at
+   a glance. The build replays on slide entry (a plain CSS animation fires once
+   at page load and is over long before anyone gets here). */
 function TicketBoard() {
   const [run, ref] = useReplayOnEnter()
   const rows = [
@@ -188,20 +197,32 @@ function TicketBoard() {
           <span className="count">4 new</span>
           <span className="rule" />
         </p>
-        <div className="cards">
-          {rows.map(([title, ref_, dupe]) => (
-            <div className={dupe ? 'tk dupe' : 'tk'} key={ref_}>
-              <div className="title">
-                <span className="pri" />
-                <span>{title}</span>
+        <div className="board-stack">
+          <div className="cards">
+            {rows.map(([title, ref_, dupe]) => (
+              <div className={dupe ? 'tk dupe' : 'tk'} key={ref_}>
+                <div className="title">
+                  <span className="pri" />
+                  <span>{title}</span>
+                </div>
+                <div className="foot">
+                  <span className="type">Feature</span>
+                  <span className="who">Opened by the loop</span>
+                  <span className="ref">{ref_}</span>
+                </div>
               </div>
-              <div className="foot">
-                <span className="type">Feature</span>
-                <span className="who">Opened by the loop</span>
-                <span className="ref">{ref_}</span>
-              </div>
+            ))}
+          </div>
+          <div className="compounded">
+            <div className="title">
+              <span className="pri" />
+              <span>People can&rsquo;t get their own data out</span>
             </div>
-          ))}
+            <div className="foot">
+              <span className="strength">Signal &times;4</span>
+              <span>and still climbing</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -330,15 +351,19 @@ export default function Slides() {
               self-portrait. Or open the deck with ?open=belt / ?open=portrait.
               Nothing to edit.{'\n\n'}
               "Your landing page. Does it know that its job is to sell?" It knows
-              what it looks like on a phone. It knows what colour the button is. It
-              does not know it is a salesperson — nobody told it, and it has never
-              once found out whether anybody bought anything.{'\n\n'}
+              what colour the button is. It knows where everything sits and how big
+              every word is. It knows its own shape perfectly, down to the pixel.
+              {'\n\n'}
+              WHAT IT HAS NO IDEA ABOUT IS WHETHER ANY OF IT IS FOR ANYTHING. It has
+              never once found out whether a single person bought a single thing.
+              {'\n\n'}
               LET IT PLAY. The answers come back faster and faster — it is showing
               off — and then they stop. DO NOT FILL THE SILENCE. The last line
               takes about a second and a half longer than you will want it to.
               {'\n\n'}
-              WALK THE CARD. Every one of those it can answer instantly, and has
-              been able to for twenty years. The last one it has never been able to
+              WALK THE CARD. Notice every one of those is about its own shape —
+              size, layout, colour. It answers them instantly, and has been able to
+              for twenty years. The last one it has never been able to
               answer, and — this is the part — nobody ever thought that was strange.
               {'\n\n'}
               THEN THE REAL ONE, SPOKEN. "Last month a customer wrote to us: just
@@ -422,9 +447,9 @@ export default function Slides() {
               <line className="frame" x1="290" y1="57" x2="316" y2="57" />
               <text x="320" y="60">#F6F404</text>
               <line className="frame" x1="290" y1="89" x2="316" y2="89" />
-              <text x="320" y="92">loads in 240ms</text>
+              <text x="320" y="92">1240 &times; 820</text>
               <line className="frame" x1="290" y1="131" x2="316" y2="131" />
-              <text x="320" y="134">18,402 visits</text>
+              <text x="320" y="134">16 / 24 / 48px</text>
 
               <path className="lead" d="M150 18 L150 6" />
               <text className="q" x="150" y="0" textAnchor="middle">why does this exist?</text>
@@ -432,9 +457,10 @@ export default function Slides() {
             <h1>Your software doesn&rsquo;t know why it exists</h1>
             <aside className="notes">
               COLD OPEN — ALTERNATE B · the self-portrait{'\n\n'}
-              "This is our homepage. Ask it anything about itself and it will tell
-              you. What colour is that button — it knows. How fast does it load —
-              it knows. How many people came yesterday — it knows that too."{'\n\n'}
+              "This is our homepage. Ask it anything about how it's put together
+              and it will tell you. What colour is that button — it knows. How big
+              is the heading — it knows. Where does everything sit — it knows that
+              too."{'\n\n'}
               POINT AT THE LABEL WITH NOTHING UNDER IT.{'\n\n'}
               "That one it has never been able to answer. And the strange part
               isn't that it can't. It's that nobody ever thought that was odd."{'\n\n'}
@@ -474,24 +500,31 @@ export default function Slides() {
       {/* 3 ────────────────────────────────────── 2:45–3:35 */}
       <section>
         <p className="kicker muted">What broke, one</p>
-        <h2>It didn&rsquo;t make things up — it forgot what it had already said</h2>
+        <h2>It couldn&rsquo;t tell a new idea from more evidence</h2>
         <TicketBoard />
         <p className="punch">
-          Most of these failures are memory failures wearing a scary mask.
+          The same finding four times should get louder, not longer.
         </p>
         <aside className="notes">
           2:45–3:35 · NEVER CUT — this is the credibility beat{'\n\n'}
           CALLBACK — "remember our angry customer? It heard them." Everyone
-          braces for made-up work. What we actually got was THAT — the same
-          request, four times, phrased four ways, because it had no view of what
-          it had already asked for.{'\n\n'}
-          The joke lands on its own: it was right every single time.{'\n\n'}
-          The fix wasn't a cleverer model. It was teaching it to look at what
-          already existed before opening its mouth.{'\n\n'}
+          braces for made-up work. What we got was THAT — the same request, four
+          times, phrased four ways.{'\n\n'}
+          AND HERE IS THE THING — it was right every single time. Four different
+          people, four different sets of words, one finding. That isn't the
+          system being forgetful. That is evidence.{'\n\n'}
+          WAIT FOR THE COLLAPSE — "what it should have done is this." One item,
+          with four times the weight behind it.{'\n\n'}
+          "The failure wasn't that it was wrong. It was that it couldn't add its
+          own evidence up. It treated the fourth person saying the same thing as
+          a fourth job, instead of as the reason to believe the first one."{'\n\n'}
+          The fix wasn't a cleverer model. It was letting it see what it had
+          already concluded.{'\n\n'}
           END THE STORY — "now the person reviewing them finds almost nothing
           worth throwing away." Result, no figure needed.{'\n\n'}
-          BRIDGE — "if your AI keeps repeating itself, it doesn't need to be
-          cleverer. It needs to be shown what it already told you."{'\n\n'}
+          BRIDGE — "wherever you're doing this: hearing the same thing twice
+          should raise your confidence, not your workload. If your setup turns
+          it into more work, that's the bit to fix."{'\n\n'}
           ⚠ Illustrative wording, real failure mode. Don't present the ticket
           numbers as exact.
         </aside>
