@@ -367,3 +367,243 @@ body,
 .reveal .loop-svg path.back {
   stroke: var(--flock-yellow);
 }
+
+/* =====================================================================
+   Grounding artefacts
+   Deck-native renderings of real content — deliberately NOT mock
+   screenshots. The talk's credibility rests on these having happened,
+   so they are styled as slide elements, never as forged captures.
+   ===================================================================== */
+
+.reveal .artefact {
+  width: 100%;
+  max-width: 40ch;
+  border: 1px solid var(--light-coal);
+  border-radius: 3px;
+  padding: 0.75rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.4em;
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: var(--dark-grey);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.reveal .artefact .row {
+  display: flex;
+  gap: 0.9rem;
+  white-space: nowrap;
+}
+
+.reveal .artefact .when {
+  color: var(--light-coal);
+  flex: 0 0 auto;
+}
+
+.reveal .artefact .bad {
+  color: var(--signal-red);
+  flex: 0 0 auto;
+}
+
+.reveal .artefact .dim {
+  color: var(--light-coal);
+}
+
+.reveal .artefact .gap {
+  color: var(--light-coal);
+  padding: 0.15rem 0;
+  font-style: italic;
+}
+
+/* repeated items — the duplicate stack */
+.reveal .stack {
+  width: 100%;
+  max-width: 40ch;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.reveal .stack .card {
+  border-left: 3px solid var(--light-coal);
+  background: rgba(0, 0, 0, 0.18);
+  padding: 0.45rem 0.8rem;
+  font-size: 0.42em;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+  white-space: nowrap;
+}
+
+.reveal .stack .card .id {
+  font-family: var(--font-mono);
+  color: var(--light-coal);
+}
+
+.reveal .stack .card .what {
+  color: var(--dark-grey);
+}
+
+.reveal .stack .card.dupe {
+  border-left-color: var(--signal-orange);
+}
+
+/* waiting pile — the queue that moved */
+.reveal .pile {
+  width: 100%;
+  max-width: 40ch;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.reveal .pile .bar {
+  height: 0.55rem;
+  background: var(--light-coal);
+  border-radius: 2px;
+}
+.reveal .pile .bar.done {
+  background: var(--flock-yellow);
+  width: 18%;
+}
+.reveal .pile .bar.waiting {
+  width: 100%;
+}
+.reveal .pile .label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono-caps);
+  font-size: 0.34em;
+  color: var(--light-coal);
+  margin: 0.15rem 0 0.5rem;
+}
+
+/* a said/answered exchange — auditability, made concrete */
+.reveal .exchange {
+  width: 100%;
+  max-width: 38ch;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.reveal .exchange .ask,
+.reveal .exchange .reply {
+  padding: 0.55rem 0.85rem;
+  border-radius: 3px;
+  font-size: 0.46em;
+  line-height: 1.45;
+}
+
+.reveal .exchange .ask {
+  background: var(--light-coal);
+  color: var(--white);
+  justify-self: start;
+  max-width: 24ch;
+}
+
+.reveal .exchange .reply {
+  background: rgba(246, 244, 4, 0.12);
+  border-left: 3px solid var(--flock-yellow);
+  color: var(--light-grey);
+}
+
+/* the literal line she appends to every prompt */
+.reveal .promptline {
+  width: 100%;
+  max-width: 40ch;
+  border: 1px solid var(--light-coal);
+  border-radius: 3px;
+  padding: 0.6rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.4em;
+  line-height: 1.5;
+  color: var(--light-coal);
+  background: rgba(0, 0, 0, 0.18);
+}
+.reveal .promptline .always {
+  color: var(--flock-yellow);
+}
+
+/* in-the-loop vs above-the-loop schematic */
+.reveal .schematic {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+}
+.reveal .schematic line,
+.reveal .schematic path,
+.reveal .schematic circle,
+.reveal .schematic rect {
+  fill: none;
+  stroke: rgba(25, 40, 45, 0.45);
+  stroke-width: 2;
+}
+.reveal .schematic .you {
+  fill: var(--dark-coal);
+  stroke: none;
+}
+.reveal .schematic text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono-caps);
+  fill: var(--light-coal);
+  stroke: none;
+}
+
+/* loop diagram — animated reveal, stage by stage */
+.reveal .loop-svg .stage {
+  opacity: 0;
+  transition: opacity 340ms ease;
+}
+.reveal .loop-svg.lit-1 .s1,
+.reveal .loop-svg.lit-2 .s1,
+.reveal .loop-svg.lit-2 .s2,
+.reveal .loop-svg.lit-3 .s1,
+.reveal .loop-svg.lit-3 .s2,
+.reveal .loop-svg.lit-3 .s3,
+.reveal .loop-svg.lit-4 .s1,
+.reveal .loop-svg.lit-4 .s2,
+.reveal .loop-svg.lit-4 .s3,
+.reveal .loop-svg.lit-4 .s4 {
+  opacity: 1;
+}
+
+.reveal .loop-svg .flow {
+  stroke-dasharray: 7 7;
+  animation: flow 900ms linear infinite;
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .loop-svg .flow {
+    animation: none;
+  }
+  .reveal .loop-svg .stage {
+    transition: none;
+  }
+}
+
+/* a real customer message — the product not knowing what it's for */
+.reveal .message {
+  width: 100%;
+  max-width: 34ch;
+  background: var(--light-coal);
+  border-radius: 3px 3px 3px 0;
+  padding: 0.7rem 0.95rem;
+  font-size: 0.5em;
+  line-height: 1.4;
+  color: var(--white);
+  position: relative;
+}
+.reveal .message .who {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono-caps);
+  font-size: 0.55em;
+  color: var(--dark-grey);
+  margin: 0 0 0.35rem;
+}
