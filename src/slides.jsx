@@ -99,47 +99,43 @@ function LoopDiagram() {
 }
 
 /* ---------------------------------------------------------------- slide 6 */
-/* Left: people are stations ON the loop. Each one added is another thing the
-   work must pass through, and the loop visibly slows until it stalls. Right:
-   people sit outside it and change its shape instead — the loop never slows,
-   it just stops being a circle. Which is the point: a loop doesn't have to be
-   a circle to be a loop. */
-function InOrAbove() {
-  const [stage, ref] = useSlideStages(3, 1150)
+/* The same loop twice. On the left the person is a station on it — every
+   revolution has to pass through them. On the right the loop runs closed and
+   the person is outside it, bending its shape; the ghost circle is the shape
+   it used to be. Boxes would say "process". A circle says "this comes round
+   again", which is the entire point.
 
+   Deliberately NOT staged. A staged build was tried and reverted — the motion
+   fought the spoken beat instead of supporting it. Continuous flow, one stable
+   picture, talk over it. */
+function InOrAbove() {
   return (
     <svg
-      ref={ref}
-      className={`schematic st-${stage}`}
-      viewBox="0 0 620 210"
+      className="schematic"
+      viewBox="0 0 620 200"
       role="img"
-      aria-label="Left: as more people are added onto the loop it slows and stalls. Right: people added outside it change its shape, and it keeps running."
+      aria-label="Left: a person standing on the loop, so every revolution passes through them. Right: the loop runs closed while the person, outside it, changes its shape."
     >
-      {/* ---- in it: every person added is another station ---- */}
+      {/* ---- in it ---- */}
       <text x="18" y="16">In it</text>
-      <circle className="ring ring-left" cx="130" cy="112" r="56" />
-      <path className="head" d="M181 108 L191 108 L186 120 Z" />
-      <circle className="you" cx="130" cy="56" r="10" />
-      <circle className="dot d1" cx="178" cy="140" r="9" />
-      <circle className="dot d2" cx="82" cy="140" r="9" />
-      <circle className="dot d3" cx="130" cy="168" r="9" />
-      <text className="tiny" x="130" y="197" textAnchor="middle">
+      <circle className="ring flow" cx="130" cy="108" r="56" />
+      <path className="head" d="M181 104 L191 104 L186 116 Z" />
+      <path className="head" d="M69 112 L79 112 L74 100 Z" />
+      <circle className="you" cx="130" cy="52" r="10" />
+      <text className="tiny" x="130" y="190" textAnchor="middle">
         every pass comes through you
       </text>
-      <text className="stalled" x="130" y="116" textAnchor="middle">
-        stalled
-      </text>
 
-      {/* ---- above it: shape changes, speed doesn't ---- */}
+      {/* ---- above it ---- */}
       <text x="338" y="16">Above it</text>
-      <ellipse className="ghost" cx="452" cy="116" rx="56" ry="56" />
-      <ellipse className="ring ring-right" cx="452" cy="116" />
-      <path className="head head-right" d="M503 112 L513 112 L508 124 Z" />
+      <ellipse className="ghost" cx="452" cy="112" rx="56" ry="56" />
+      <ellipse className="ring flow" cx="452" cy="116" rx="76" ry="42" />
+      <path className="head" d="M523 112 L533 112 L528 124 Z" />
+      <path className="head" d="M371 120 L381 120 L376 108 Z" />
       <circle className="you" cx="452" cy="30" r="10" />
-      <circle className="dot d2" cx="386" cy="34" r="9" />
-      <path className="pull" d="M438 38 Q404 54 392 84" />
-      <path className="pull" d="M466 38 Q506 54 520 88" />
-      <text className="tiny" x="452" y="197" textAnchor="middle">
+      <path className="pull" d="M436 38 Q400 50 388 82" />
+      <path className="pull" d="M468 38 Q504 50 516 82" />
+      <text className="tiny" x="452" y="190" textAnchor="middle">
         you change its shape
       </text>
     </svg>
@@ -316,15 +312,12 @@ export default function Slides() {
         <p className="punch">Both are judgement. Only one is a job you can do at volume.</p>
         <aside className="notes">
           5:35–6:30 · NEVER CUT. This is the hinge of the whole talk.{'\n\n'}
-          LET THE LEFT SIDE PLAY. "Watch what happens when you add a second
-          person. And a third." It slows, and then it stops. Every person you
-          put inside the loop is another thing the work has to pass through.{'\n\n'}
           In it: you interrupt. "No — do it this way." Every pass comes back to
           you. That scales with your attention, and your attention does not
           scale.{'\n\n'}
-          NOW THE RIGHT. Same thing — add a person. It doesn't slow down. It
-          changes shape. "And notice it stopped being a circle. It's still a
-          loop. A loop doesn't have to be a neat circle to be a loop."{'\n\n'}
+          POINT AT THE RIGHT-HAND SHAPE — "notice that isn't a circle any more.
+          It's still a loop. A loop doesn't have to be a neat circle to be a
+          loop."{'\n\n'}
           Above it: you change the shape of the thing so it does the right thing
           by default. That scales with the loop.{'\n\n'}
           Both are judgement. Only one is a job you can do at volume.{'\n\n'}
