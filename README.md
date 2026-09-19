@@ -32,7 +32,7 @@ Nine slides. Read the titles alone and you get the whole thing:
 4. Speeding up one stage just moves the queue
 5. A loop has to explain itself, or you'll end up babysitting it
 6. Judgement moves from inside the loop to above it
-7. Our best PM is doing both, and the line keeps moving
+7. Our product team is doing both, and the line keeps moving
 8. Handing over the *what* makes the *why* your job
 9. Does your software know why it exists? Do you?
 

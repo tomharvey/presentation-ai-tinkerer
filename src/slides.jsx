@@ -196,12 +196,12 @@ export default function Slides() {
 
       {/* 7 ────────────────────────────────────── 6:30–7:50 */}
       <section>
-        <p className="kicker muted">So which one is she?</p>
-        <h2>Our best PM is doing both, and the line keeps moving</h2>
+        <p className="kicker muted">So which is it?</p>
+        <h2>Our product team is doing both, and the line keeps moving</h2>
         <div className="ratio">
           <div>
             <div className="fig">9 in 10</div>
-            <p className="who">Her sessions</p>
+            <p className="who">Their sessions</p>
           </div>
           <div>
             <div className="fig mine">1 in 30</div>
@@ -209,14 +209,14 @@ export default function Slides() {
           </div>
         </div>
         <p className="lede">
-          She writes the same line into every prompt she sends. She never decides
-          when to parallelise — she changed the conditions.
+          Someone there writes the same line into every prompt they send. They
+          never decide when to parallelise — they changed the conditions.
         </p>
         <aside className="notes">
           6:30–7:50 · NEVER CUT{'\n\n'}
-          ASK IT OUT LOUD: "is she in the loop, or is she shaping it?"{'\n\n'}
-          FOR — she mentioned almost in passing that she writes the same line
-          into every single prompt she sends: "spin up sub-agents if you think
+          ASK IT OUT LOUD: "are they in the loop, or shaping it?"{'\n\n'}
+          FOR — someone on the product team mentioned almost in passing that she
+          writes the same line into every single prompt she sends: "spin up sub-agents if you think
           that's appropriate." Nine sessions in ten of hers lean on sub-agents.
           Mine were closer to one in thirty. She has never once decided when to
           parallelise — she changed the conditions so the machine decides.{'\n\n'}
