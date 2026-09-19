@@ -130,12 +130,42 @@ function InOrAbove() {
 
       {/* ---- above it ---- */}
       <text x="338" y="16">Above it</text>
-      <ellipse className="ghost" cx="452" cy="112" rx="56" ry="56" />
       <ellipse className="ring flow ring-right" cx="452" cy="116" rx="72" ry="46" />
-      <path className="head head-right" d="M519 110 L529 110 L524 122 Z" />
       <circle className="you" cx="452" cy="30" r="10" />
-      <path className="pull" d="M436 38 Q400 50 388 82" />
-      <path className="pull" d="M468 38 Q504 50 516 82" />
+      {/* The two arcs anchor to the ellipse's left and right extremes, which
+          sit at (cx ∓ rx, cy). SMIL rather than CSS because the endpoint has
+          to travel with the morph, and `d` is not dependably animatable in
+          CSS across browsers. Timings mirror the `reshape` keyframes. */}
+      <path className="pull" d="M438 38 Q404 60 396 116">
+        <animate
+          attributeName="d"
+          dur="7s"
+          repeatCount="indefinite"
+          calcMode="spline"
+          keyTimes="0;0.3;0.55;0.8;1"
+          keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1"
+          values="M438 38 Q404 60 396 116;
+                  M438 38 Q380 58 364 116;
+                  M438 38 Q412 62 406 116;
+                  M438 38 Q388 59 374 116;
+                  M438 38 Q404 60 396 116"
+        />
+      </path>
+      <path className="pull" d="M466 38 Q500 60 508 116">
+        <animate
+          attributeName="d"
+          dur="7s"
+          repeatCount="indefinite"
+          calcMode="spline"
+          keyTimes="0;0.3;0.55;0.8;1"
+          keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1"
+          values="M466 38 Q500 60 508 116;
+                  M466 38 Q524 58 540 116;
+                  M466 38 Q492 62 498 116;
+                  M466 38 Q516 59 530 116;
+                  M466 38 Q500 60 508 116"
+        />
+      </path>
       <text className="tiny" x="452" y="190" textAnchor="middle">
         you change its shape
       </text>

@@ -541,14 +541,6 @@ body,
   stroke-width: 2.5;
 }
 
-/* the shape it used to be */
-.reveal .schematic .ghost {
-  fill: none;
-  stroke: rgba(25, 40, 45, 0.28);
-  stroke-width: 2;
-  stroke-dasharray: 3 6;
-}
-
 /* not part of the flow — influence on the outline */
 .reveal .schematic .pull {
   fill: none;
@@ -611,28 +603,6 @@ body,
   }
 }
 
-/* the arrowhead rides the rightmost point as the shape moves */
-.reveal .schematic .head-right {
-  animation: headride 7s ease-in-out infinite;
-}
-
-@keyframes headride {
-  0% {
-    transform: translateX(0);
-  }
-  30% {
-    transform: translateX(32px);
-  }
-  55% {
-    transform: translateX(-10px);
-  }
-  80% {
-    transform: translateX(22px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
 
 .reveal .schematic .tiny {
   font-size: 11px;
@@ -641,8 +611,7 @@ body,
 
 @media (prefers-reduced-motion: reduce) {
   .reveal .schematic .ring-left,
-  .reveal .schematic .ring-right,
-  .reveal .schematic .head-right {
+  .reveal .schematic .ring-right {
     animation: none;
   }
 }
