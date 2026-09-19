@@ -109,7 +109,12 @@ function LoopDiagram() {
    because the motion fought the spoken beat. The difference is speed and
    shape: the left one is slower, because every pass has to get through a
    person. The right one runs faster and never settles on a shape, which is the
-   argument — still one closed loop, just not a circle. */
+   argument — still one closed loop, just not a circle.
+
+   The ellipse and the two arms are ALL driven by SMIL off one clock. They were
+   previously split between a CSS keyframe and SMIL, which ran on separate
+   timebases and drifted into near-opposite phase — the arms swung out while the
+   loop pulled in. Keep them together; don't move the ellipse back to CSS. */
 function InOrAbove() {
   return (
     <svg
@@ -130,7 +135,26 @@ function InOrAbove() {
 
       {/* ---- above it ---- */}
       <text x="338" y="16">Above it</text>
-      <ellipse className="ring flow ring-right" cx="452" cy="116" rx="72" ry="46" />
+      <ellipse className="ring flow ring-right" cx="452" cy="116" rx="56" ry="56">
+        <animate
+          attributeName="rx"
+          dur="7s"
+          repeatCount="indefinite"
+          calcMode="spline"
+          keyTimes="0;0.3;0.55;0.8;1"
+          keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1"
+          values="56;88;46;78;56"
+        />
+        <animate
+          attributeName="ry"
+          dur="7s"
+          repeatCount="indefinite"
+          calcMode="spline"
+          keyTimes="0;0.3;0.55;0.8;1"
+          keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1"
+          values="56;32;64;40;56"
+        />
+      </ellipse>
       <circle className="you" cx="452" cy="30" r="10" />
       {/* The two arcs anchor to the ellipse's left and right extremes, which
           sit at (cx ∓ rx, cy). SMIL rather than CSS because the endpoint has
@@ -177,46 +201,136 @@ export default function Slides() {
   return (
     <>
       {/* 1 ────────────────────────────────────── 0:00–1:30 */}
+      {/* Three candidate cold opens, stacked vertically — press DOWN to compare.
+          Horizontal flow stays 1..9, so the run sheet is unaffected. Delete the
+          two you don't use before the talk. */}
       <section>
-        <p className="kicker">AI Tinkerers · Tom Harvey</p>
-        <h1>Your software doesn&rsquo;t know why it exists</h1>
-        <div className="selfknow">
-          <p className="head">Everything it can tell you about itself</p>
-          <div className="line"><span>What it looks like on a phone</span><span className="val">yes</span></div>
-          <div className="line"><span>What colour the button is</span><span className="val">yes</span></div>
-          <div className="line"><span>How quickly it loads</span><span className="val">yes</span></div>
-          <div className="line"><span>Who visited yesterday</span><span className="val">yes</span></div>
-          <div className="line unknown"><span>Why it exists</span><span className="val"><span className="caret" /></span></div>
-        </div>
-        <aside className="notes">
-          0:00–1:30 · NEVER CUT{'\n\n'}
-          "Your landing page. Does it know that its job is to sell?" It knows
-          what it looks like on a phone. It knows what colour the button is. It
-          does not know it is a salesperson — nobody told it, and it has never
-          once found out whether anybody bought anything.{'\n\n'}
-          WALK THE CARD. Every one of those it can answer instantly, and has
-          been able to for twenty years. The last one it has never been able to
-          answer, and — this is the part — nobody ever thought that was strange.
-          {'\n\n'}
-          THEN THE REAL ONE, SPOKEN. "Last month a customer wrote to us: just
-          give me a CSV of this, what do you mean you can't do that, that's
-          ridiculous. Our product knows how to draw that table. Perfectly. What
-          it has never known is that the table is only there so somebody can go
-          and DO something with the numbers."{'\n\n'}
-          "And somebody's job was to read that and write down 'maybe we should
-          add an export'. That is a real job. I don't think it's a job any
-          more."{'\n\n'}
-          The intent existed once — written somewhere nobody kept, a chat thread,
-          someone's head, a job closed eighteen months ago. It never travelled
-          with the thing that got built.{'\n\n'}
-          BRIDGE — "you don't need a product for this to be true. You need
-          something you shipped and stopped asking questions about."{'\n\n'}
-          10 sec on Flock, INCLUDING: "Admiral liked it enough to pay £109m for
-          the business." Then straight into slide 2.{'\n\n'}
-          ⚠ The customer message is SPOKEN, not shown — the screen carries the
-          idea, not the anecdote. If you'd rather show the real screenshot, it
-          belongs as a second beat after the card, not instead of it.
-        </aside>
+        <section>
+          <p className="kicker">AI Tinkerers · Tom Harvey</p>
+          <h1>Your software doesn&rsquo;t know why it exists</h1>
+          <div className="selfknow">
+            <p className="head">Everything it can tell you about itself</p>
+            <div className="line"><span>What it looks like on a phone</span><span className="val">yes</span></div>
+            <div className="line"><span>What colour the button is</span><span className="val">yes</span></div>
+            <div className="line"><span>How quickly it loads</span><span className="val">yes</span></div>
+            <div className="line"><span>Who visited yesterday</span><span className="val">yes</span></div>
+            <div className="line unknown"><span>Why it exists</span><span className="val"><span className="caret" /></span></div>
+          </div>
+          <aside className="notes">
+            0:00–1:30 · NEVER CUT{'\n\n'}
+            "Your landing page. Does it know that its job is to sell?" It knows
+            what it looks like on a phone. It knows what colour the button is. It
+            does not know it is a salesperson — nobody told it, and it has never
+            once found out whether anybody bought anything.{'\n\n'}
+            WALK THE CARD. Every one of those it can answer instantly, and has
+            been able to for twenty years. The last one it has never been able to
+            answer, and — this is the part — nobody ever thought that was strange.
+            {'\n\n'}
+            THEN THE REAL ONE, SPOKEN. "Last month a customer wrote to us: just
+            give me a CSV of this, what do you mean you can't do that, that's
+            ridiculous. Our product knows how to draw that table. Perfectly. What
+            it has never known is that the table is only there so somebody can go
+            and DO something with the numbers."{'\n\n'}
+            "And somebody's job was to read that and write down 'maybe we should
+            add an export'. That is a real job. I don't think it's a job any
+            more."{'\n\n'}
+            The intent existed once — written somewhere nobody kept, a chat thread,
+            someone's head, a job closed eighteen months ago. It never travelled
+            with the thing that got built.{'\n\n'}
+            BRIDGE — "you don't need a product for this to be true. You need
+            something you shipped and stopped asking questions about."{'\n\n'}
+            10 sec on Flock, INCLUDING: "Admiral liked it enough to pay £109m for
+            the business." Then straight into slide 2.{'\n\n'}
+            ⚠ The customer message is SPOKEN, not shown — the screen carries the
+            idea, not the anecdote. If you'd rather show the real screenshot, it
+            belongs as a second beat after the card, not instead of it.
+          </aside>
+        </section>
+
+        {/* ---- ALTERNATE A: the feature factory ---- */}
+        <section>
+          <div className="beltbox">
+            <div className="rail" />
+            <div className="crate">Dark mode</div>
+            <div className="crate">CSV export</div>
+            <div className="crate">Notifications</div>
+            <div className="crate">New onboarding</div>
+            <div className="crate">Search filters</div>
+            <div className="fog" />
+            <p className="stamp">Feature factory &middot; est. long before any of this</p>
+          </div>
+          <h1>Your software doesn&rsquo;t know why it exists</h1>
+          <aside className="notes">
+            COLD OPEN — ALTERNATE A · the feature factory{'\n\n'}
+            Let it run in silence for a few seconds before you say anything.{'\n\n'}
+            "This is a feature factory. Things come down the line, they're
+            perfectly well made, they get shipped, and they disappear. Nobody
+            standing at the line can tell you why any of them were built."{'\n\n'}
+            THE MOVE — AND THIS IS THE WHOLE REASON TO USE THIS OPENER:{'\n\n'}
+            "Now — none of this is about AI. We invented the feature factory
+            decades ago. We were doing this when the roadmap was a spreadsheet
+            and the tickets were index cards. Nobody needed a language model to
+            lose track of why they were building something."{'\n\n'}
+            "All the machines did was speed the line up."{'\n\n'}
+            That reframe is the point. The room arrives braced for another talk
+            about what AI is doing to us, and you tell them the problem is
+            thirty years older than the tools — which buys you their attention
+            for the next nine minutes.{'\n\n'}
+            THEN the title lands, and go to the loop.
+          </aside>
+        </section>
+
+        {/* ---- ALTERNATE B: the self-portrait ---- */}
+        <section>
+          <svg className="portrait-svg" viewBox="0 -18 400 228" role="img"
+               aria-label="A wireframe of a homepage labelling everything it knows about itself, and one label — why does this exist — attached to nothing.">
+            <rect className="frame" x="40" y="26" width="250" height="160" rx="3" />
+            <line className="frame" x1="40" y1="42" x2="290" y2="42" />
+            <circle className="fill" cx="50" cy="34" r="2.6" />
+            <circle className="fill" cx="59" cy="34" r="2.6" />
+            <circle className="fill" cx="68" cy="34" r="2.6" />
+            <text x="80" y="37">flockcover.com</text>
+
+            <rect className="fill" x="52" y="54" width="34" height="7" rx="1.5" />
+            <rect className="fill" x="212" y="54" width="20" height="7" rx="1.5" />
+            <rect className="fill" x="238" y="54" width="20" height="7" rx="1.5" />
+            <rect className="cta" x="262" y="52" width="18" height="11" rx="2" />
+
+            <rect className="fill" x="52" y="82" width="150" height="13" rx="2" />
+            <rect className="fill" x="52" y="100" width="112" height="13" rx="2" />
+            <rect className="cta" x="52" y="124" width="46" height="14" rx="2" />
+
+            <rect className="frame" x="52" y="152" width="68" height="24" rx="2" />
+            <rect className="frame" x="128" y="152" width="68" height="24" rx="2" />
+            <rect className="frame" x="204" y="152" width="68" height="24" rx="2" />
+
+            <line className="frame" x1="290" y1="57" x2="316" y2="57" />
+            <text x="320" y="60">#F6F404</text>
+            <line className="frame" x1="290" y1="89" x2="316" y2="89" />
+            <text x="320" y="92">loads in 240ms</text>
+            <line className="frame" x1="290" y1="131" x2="316" y2="131" />
+            <text x="320" y="134">18,402 visits</text>
+
+            <path className="lead" d="M150 18 L150 6" />
+            <text className="q" x="150" y="0" textAnchor="middle">why does this exist?</text>
+          </svg>
+          <h1>Your software doesn&rsquo;t know why it exists</h1>
+          <aside className="notes">
+            COLD OPEN — ALTERNATE B · the self-portrait{'\n\n'}
+            "This is our homepage. Ask it anything about itself and it will tell
+            you. What colour is that button — it knows. How fast does it load —
+            it knows. How many people came yesterday — it knows that too."{'\n\n'}
+            POINT AT THE LABEL WITH NOTHING UNDER IT.{'\n\n'}
+            "That one it has never been able to answer. And the strange part
+            isn't that it can't. It's that nobody ever thought that was odd."{'\n\n'}
+            ⚠ THE WIREFRAME IS A GUESS. I could not reach flockcover.com from
+            here — no outbound network — so this is the shape every B2B homepage
+            shares: nav, hero, one call to action, three cards. CHECK IT AGAINST
+            THE REAL PAGE before you show it. If it doesn't match, the room full
+            of people who have seen your site will notice and it undercuts you.
+            The three labels are illustrative too.
+          </aside>
+        </section>
       </section>
 
       {/* 2 ────────────────────────────────────── 1:30–2:45 */}
@@ -245,11 +359,27 @@ export default function Slides() {
       <section>
         <p className="kicker muted">What broke, one</p>
         <h2>It didn&rsquo;t make things up — it forgot what it had already said</h2>
-        <div className="stack">
-          <div className="card"><span className="what">Add CSV export to the table</span><span className="id">#1042</span></div>
-          <div className="card dupe"><span className="what">Let people download the data</span><span className="id">#1071</span></div>
-          <div className="card dupe"><span className="what">Export button on the table</span><span className="id">#1090</span></div>
-          <div className="card dupe"><span className="what">Add CSV export to the table</span><span className="id">#1118</span></div>
+        <div className="tickets go">
+          <div className="tk">
+            <span className="chip">New</span>
+            <span className="tt">Add CSV export to the table</span>
+            <span className="ref">#1042</span>
+          </div>
+          <div className="tk dupe">
+            <span className="chip">New</span>
+            <span className="tt">Let people download the data</span>
+            <span className="ref">#1071</span>
+          </div>
+          <div className="tk dupe">
+            <span className="chip">New</span>
+            <span className="tt">Export button on the table</span>
+            <span className="ref">#1090</span>
+          </div>
+          <div className="tk dupe">
+            <span className="chip">New</span>
+            <span className="tt">Add CSV export to the table</span>
+            <span className="ref">#1118</span>
+          </div>
         </div>
         <p className="punch">
           Most of these failures are memory failures wearing a scary mask.
@@ -358,68 +488,61 @@ export default function Slides() {
       </section>
 
       {/* 7 ────────────────────────────────────── 6:30–7:50 */}
+      {/* The bridge. Slide 6 argues capacity; slide 8 argues purpose; nothing
+          connects them on its own. This is the connection: from above the loop
+          a "what" instruction is no longer available to you, so a "why" is the
+          only kind left. The why isn't something you graduate to once you have
+          spare time — it's forced on you. */}
       <section>
-        <p className="kicker muted">How you actually get above it</p>
-        <h2>Change the default and you never make that decision again</h2>
-        <div className="standing">
-          <div className="job">
-            <span className="task">Draft the launch email.</span>{' '}
-            <span className="always">
-              And if this is big enough to split up, split it up and do the parts
-              at the same time.
-            </span>
+        <p className="kicker muted">What changes when you move</p>
+        <h2>You can&rsquo;t shape a loop without knowing what it&rsquo;s for</h2>
+        <div className="versus">
+          <div className="side">
+            <p className="where">Standing in it</p>
+            <p className="said">&ldquo;Move that button to the left.&rdquo;</p>
+            <p className="life">Works once. Then it&rsquo;s gone.</p>
           </div>
-          <div className="job">
-            <span className="task">Pull together last quarter&rsquo;s numbers.</span>{' '}
-            <span className="always">
-              And if this is big enough to split up, split it up and do the parts
-              at the same time.
-            </span>
+          <div className="side up">
+            <p className="where">Standing above it</p>
+            <p className="said">
+              &ldquo;People should be able to get at their own data without
+              asking us.&rdquo;
+            </p>
+            <p className="life">Still working after you&rsquo;ve left the room.</p>
           </div>
-          <div className="job">
-            <span className="task">Go through this contract.</span>{' '}
-            <span className="always">
-              And if this is big enough to split up, split it up and do the parts
-              at the same time.
-            </span>
-          </div>
-          <p className="note">Written once. Never decided again.</p>
         </div>
-        <p className="punch">The work changes every time. The instruction doesn&rsquo;t.</p>
         <aside className="notes">
-          6:30–7:50 · NEVER CUT — this is the "so what do I do" beat{'\n\n'}
-          "So how do you actually get above it? Not by being more disciplined.
-          I've tried that. It doesn't work, because you forget."{'\n\n'}
-          WALK THE THREE JOBS. Completely different work. Identical last
-          sentence. Somebody on our team writes that line onto the end of
-          everything they ask for — and the important bit is where they put it.
-          Not a rule, not a process, not a checklist somebody has to consult. The
-          laziest, cheapest, weakest possible position: the end of the
-          instruction.{'\n\n'}
-          THE POINT — and say this slowly — "they are not deciding when to do
-          that. They decided once. Now it happens without them. That is the
-          whole difference between standing in it and standing above it."{'\n\n'}
-          MUDDY IT, BRIEFLY — "and I still couldn't tell you whether that counts
-          as above the loop or in it. They still check what comes back. They
-          still pick what matters. I made this distinction up on a call last
-          week. Nobody knows where the line is yet."{'\n\n'}
-          THE THING TO TAKE HOME — "so here's the only homework in this talk.
-          Think of one thing you keep meaning to do and keep forgetting. Stop
-          meaning to do it. Go and put it in the instructions, once, and let it
-          happen without you."{'\n\n'}
-          NO NAMES. NO NUMBERS. This is about what a team can do, not about any
-          individual — attributing it to a person makes the room admire someone
-          instead of copying something.
+          6:30–7:50 · NEVER CUT — this is the turn the whole talk hinges on{'\n\n'}
+          "Here's the bit I didn't expect. Moving above the loop doesn't just
+          free you up. It takes something away from you."{'\n\n'}
+          LEFT — inside the loop, every instruction you give is a WHAT. Not that
+          one, this one. Move it left. Precise, effective, and dead the second
+          it's carried out. It works because you were standing there.{'\n\n'}
+          RIGHT — from above it you aren't standing there. You can't give that
+          kind of instruction any more; you're not present when each one happens.
+          The only lever you've got left is changing the conditions.{'\n\n'}
+          THE POINT, SLOWLY — "and you cannot change the conditions sensibly
+          without a definition of better. A definition of better is a why. So
+          the why isn't the thing you get to think about once you've got spare
+          time. It's the only instruction that still works from up there. It is
+          forced on you."{'\n\n'}
+          THE CALLBACK — "which is the same sentence I opened with. That system
+          couldn't improve itself without knowing what it was for." Beat.
+          "Neither can you."{'\n\n'}
+          NO NAMES, NO NUMBERS, NO TOOLING. This slide is an argument, not
+          evidence.{'\n\n'}
+          ⚠ The right-hand instruction should be something you'd genuinely say.
+          Swap it for your own wording if it rings false — it's carrying a lot.
         </aside>
       </section>
 
       {/* 8 ────────────────────────────────────── 7:50–9:15 */}
       <section>
         <p className="kicker muted">What&rsquo;s left</p>
-        <h2>Hand over the <span className="accent">what</span> and the <span className="accent">why</span> becomes your whole job</h2>
+        <h2>This is a bigger job than the one it replaced</h2>
         <p className="punch">
           You don&rsquo;t write the list any more. You build the thing that writes
-          the list.
+          the list &mdash; and that never stops needing you.
         </p>
         <aside className="notes">
           7:50–9:15 · NEVER CUT the why-becomes-the-job beat{'\n\n'}
@@ -427,11 +550,13 @@ export default function Slides() {
           Understanding what people are actually struggling with, applying
           judgement to THAT, and building the systems that surface which thing
           matters most.{'\n\n'}
-          THE SECOND-ORDER EFFECT — getting lost in the what was a TRAP, and for
-          thirty years it was COMPULSORY. Everybody fell into it, because the job
-          genuinely required somebody down there. Hand the what over and the why
-          becomes the only thing left to do. The tool doesn't only produce value
-          — it moves you up a level, whether or not you meant to go.{'\n\n'}
+          "So if the why is now the job — is that a smaller job? It is not."{'\n\n'}
+          Getting lost in the what was a TRAP, and for thirty years it was
+          COMPULSORY. Everybody fell into it, because the job genuinely required
+          somebody down there. What's changed is that it's optional now — and
+          what's left when you climb out is the harder half.{'\n\n'}
+          The tool doesn't only produce value. It moves you up a level, whether
+          or not you meant to go.{'\n\n'}
           ⚠ TONE — this is the slide that can go wrong in the room. The weeds
           were compulsory and YOU WERE IN THEM TOO. Never "people were doing it
           wrong."{'\n\n'}

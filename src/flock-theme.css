@@ -799,3 +799,137 @@ body,
   margin: 0.15rem 0 0;
   max-width: none;
 }
+
+/* =====================================================================
+   Tickets (slide 3) — has to read as a ticket, not a line of text
+   ===================================================================== */
+
+.reveal .tickets { width: 100%; max-width: 42ch; display: grid; gap: 0.4rem; }
+
+.reveal .tickets .tk {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--light-coal);
+  border-left: 3px solid var(--light-coal);
+  border-radius: 3px;
+  padding: 0.5rem 0.8rem;
+  opacity: 0;
+  transform: translateY(8px);
+}
+.reveal .tickets.go .tk { animation: tkIn 0.34s ease-out forwards; }
+.reveal .tickets.go .tk:nth-child(1) { animation-delay: 0.15s; }
+.reveal .tickets.go .tk:nth-child(2) { animation-delay: 0.85s; }
+.reveal .tickets.go .tk:nth-child(3) { animation-delay: 1.4s; }
+.reveal .tickets.go .tk:nth-child(4) { animation-delay: 1.85s; }
+@keyframes tkIn { to { opacity: 1; transform: none; } }
+
+.reveal .tickets .tk.dupe { border-left-color: var(--signal-orange); }
+
+.reveal .tickets .chip {
+  font-family: var(--font-mono);
+  font-size: 0.3em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-coal);
+  background: var(--dark-grey);
+  border-radius: 2px;
+  padding: 0.12rem 0.34rem;
+}
+.reveal .tickets .tk.dupe .chip { background: var(--signal-orange); }
+
+.reveal .tickets .tt { font-size: 0.42em; color: var(--light-grey); }
+.reveal .tickets .ref { font-family: var(--font-mono); font-size: 0.34em; color: var(--light-coal); }
+
+/* =====================================================================
+   What vs why (slide 7)
+   ===================================================================== */
+
+.reveal .versus { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; width: 100%; max-width: 46ch; }
+@media (max-width: 700px) { .reveal .versus { grid-template-columns: 1fr; } }
+
+.reveal .versus .side { border-top: 2px solid var(--light-coal); padding-top: 0.7rem; }
+.reveal .versus .side.up { border-top-color: var(--flock-yellow); }
+
+.reveal .versus .where {
+  font-family: var(--font-mono);
+  font-size: 0.32em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--light-coal);
+  margin: 0 0 0.5rem;
+  max-width: none;
+}
+.reveal .versus .side.up .where { color: var(--flock-yellow); }
+
+.reveal .versus .said { font-size: 0.5em; line-height: 1.35; color: var(--light-grey); margin: 0 0 0.7rem; max-width: none; }
+.reveal .versus .side.up .said { color: var(--white); }
+
+.reveal .versus .life {
+  font-family: var(--font-mono);
+  font-size: 0.32em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-grey);
+  margin: 0;
+  max-width: none;
+}
+
+/* =====================================================================
+   Cold-open alternates
+   ===================================================================== */
+
+/* the belt — a feature factory, which is older than any of this */
+.reveal .beltbox { position: relative; width: 100%; max-width: 780px; height: 230px; overflow: hidden; }
+.reveal .beltbox .rail { position: absolute; left: 0; right: 0; top: 148px; height: 2px; background: var(--light-coal); }
+.reveal .beltbox .fog { position: absolute; top: 0; bottom: 0; right: 0; width: 30%; background: linear-gradient(90deg, rgba(25,40,45,0), var(--dark-coal) 76%); z-index: 2; }
+.reveal .beltbox .crate {
+  position: absolute;
+  top: 118px;
+  left: -140px;
+  border: 2px solid var(--dark-grey);
+  border-radius: 2px;
+  padding: 0.3rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.3em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-grey);
+  white-space: nowrap;
+  animation: rollby 7s linear infinite;
+}
+.reveal .beltbox .crate:nth-of-type(2) { animation-delay: 1.4s; }
+.reveal .beltbox .crate:nth-of-type(3) { animation-delay: 2.8s; }
+.reveal .beltbox .crate:nth-of-type(4) { animation-delay: 4.2s; }
+.reveal .beltbox .crate:nth-of-type(5) { animation-delay: 5.6s; }
+@keyframes rollby { to { left: 108%; } }
+
+.reveal .beltbox .stamp {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  max-width: none;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.34em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--flock-yellow);
+  z-index: 3;
+}
+
+/* the self-portrait — a homepage describing itself */
+.reveal .portrait-svg { width: 100%; max-width: 560px; height: auto; }
+.reveal .portrait-svg .frame { fill: none; stroke: var(--light-coal); stroke-width: 1.6; }
+.reveal .portrait-svg .fill { fill: rgba(59, 72, 76, 0.45); stroke: none; }
+.reveal .portrait-svg .cta { fill: var(--flock-yellow); stroke: none; }
+.reveal .portrait-svg text { font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.04em; fill: var(--dark-grey); }
+.reveal .portrait-svg text.q { fill: var(--flock-yellow); font-size: 10px; }
+.reveal .portrait-svg .lead { stroke: var(--flock-yellow); stroke-width: 1.4; stroke-dasharray: 3 3; fill: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .tickets .tk { opacity: 1; transform: none; animation: none; }
+  .reveal .beltbox .crate { animation: none; }
+}
