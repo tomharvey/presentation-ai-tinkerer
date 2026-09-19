@@ -27,9 +27,11 @@ npm run build    # static bundle in dist/
 
 ## Choosing the cold open
 
-Three openers are built. One renders at a time — set `COLD_OPEN` at the top of
-`src/slides.jsx` to `'card'`, `'belt'` or `'portrait'`. The deck is always nine
-slides whichever you pick.
+Three openers are built. One shows at a time, so the deck is always nine slides.
+Switch without touching the code:
+
+- **Press `C`** while the deck has focus — cycles card → belt → portrait
+- or open the deck with **`?open=belt`** / **`?open=portrait`**
 
 | Value | What it opens on |
 |---|---|

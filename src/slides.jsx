@@ -13,12 +13,36 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-/* Which cold open is live: 'card' | 'belt' | 'portrait'.
+/* Three cold opens are built. One shows at a time, so the deck is always 9
+   slides and the counter tells the truth.
+
+   Switch between them WITHOUT EDITING ANYTHING:
+     · press C while the deck has focus, to cycle card → belt → portrait
+     · or open the deck with ?open=belt / ?open=portrait
+
    'card'     — the software's own self-description, every line answerable but the last
    'belt'     — the feature factory, which predates all of this
-   'portrait' — the homepage that can describe everything about itself but why
-   Only the chosen one renders, so the deck is always 9 slides. */
-const COLD_OPEN = 'card'
+   'portrait' — the homepage that can describe everything about itself but why */
+const COLD_OPENS = ['card', 'belt', 'portrait']
+
+function useColdOpen() {
+  const [which, setWhich] = useState(() => {
+    const asked = new URLSearchParams(window.location.search).get('open')
+    return COLD_OPENS.includes(asked) ? asked : COLD_OPENS[0]
+  })
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key !== 'c' && e.key !== 'C') return
+      if (e.metaKey || e.ctrlKey || e.altKey) return
+      setWhich((cur) => COLD_OPENS[(COLD_OPENS.indexOf(cur) + 1) % COLD_OPENS.length])
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  return which
+}
 
 /* Bump a key every time this slide becomes the visible one, so a CSS-driven
    build replays on re-entry instead of showing its finished state. */
@@ -143,6 +167,47 @@ function LoopDiagram() {
   )
 }
 
+/* ---------------------------------------------------------------- slide 3 */
+/* A tracker column, not a list of sentences — header with a count, priority
+   marks, type chips, references and who opened them. Cards land one at a
+   time, and the build replays on slide entry (a plain CSS animation here
+   fires once at page load and is over long before anyone reaches slide 3). */
+function TicketBoard() {
+  const [run, ref] = useReplayOnEnter()
+  const rows = [
+    ['Add CSV export to the table', '#1042', false],
+    ['Let people download the data', '#1071', true],
+    ['Export button on the table', '#1090', true],
+    ['Add CSV export to the table', '#1118', true],
+  ]
+  return (
+    <div ref={ref} style={{ width: '100%' }}>
+      <div className="board" key={run}>
+        <p className="col-head">
+          <span>Backlog</span>
+          <span className="count">4 new</span>
+          <span className="rule" />
+        </p>
+        <div className="cards">
+          {rows.map(([title, ref_, dupe]) => (
+            <div className={dupe ? 'tk dupe' : 'tk'} key={ref_}>
+              <div className="title">
+                <span className="pri" />
+                <span>{title}</span>
+              </div>
+              <div className="foot">
+                <span className="type">Feature</span>
+                <span className="who">Opened by the loop</span>
+                <span className="ref">{ref_}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 /* ---------------------------------------------------------------- slide 6 */
 /* The same loop twice. On the left the person is a station on it — every
    revolution has to pass through them. On the right the loop runs closed and
@@ -243,6 +308,8 @@ function InOrAbove() {
 }
 
 export default function Slides() {
+  const COLD_OPEN = useColdOpen()
+
   return (
     <>
       {/* 1 ────────────────────────────────────── 0:00–1:30 */}
@@ -259,6 +326,9 @@ export default function Slides() {
             <SelfKnowledge />
             <aside className="notes">
               0:00–1:30 · NEVER CUT{'\n\n'}
+              ⌨ PRESS C to cycle this opener: card → feature factory →
+              self-portrait. Or open the deck with ?open=belt / ?open=portrait.
+              Nothing to edit.{'\n\n'}
               "Your landing page. Does it know that its job is to sell?" It knows
               what it looks like on a phone. It knows what colour the button is. It
               does not know it is a salesperson — nobody told it, and it has never
@@ -405,28 +475,7 @@ export default function Slides() {
       <section>
         <p className="kicker muted">What broke, one</p>
         <h2>It didn&rsquo;t make things up — it forgot what it had already said</h2>
-        <div className="tickets go">
-          <div className="tk">
-            <span className="chip">New</span>
-            <span className="tt">Add CSV export to the table</span>
-            <span className="ref">#1042</span>
-          </div>
-          <div className="tk dupe">
-            <span className="chip">New</span>
-            <span className="tt">Let people download the data</span>
-            <span className="ref">#1071</span>
-          </div>
-          <div className="tk dupe">
-            <span className="chip">New</span>
-            <span className="tt">Export button on the table</span>
-            <span className="ref">#1090</span>
-          </div>
-          <div className="tk dupe">
-            <span className="chip">New</span>
-            <span className="tt">Add CSV export to the table</span>
-            <span className="ref">#1118</span>
-          </div>
-        </div>
+        <TicketBoard />
         <p className="punch">
           Most of these failures are memory failures wearing a scary mask.
         </p>
