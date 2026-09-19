@@ -42,7 +42,7 @@ export default function Slides() {
     <>
       {/* 1 ────────────────────────────────────── 0:00–1:30 */}
       <section>
-        <p className="kicker">Valencia · 22 September 2026</p>
+        <p className="kicker">AI Tinkerers · Tom Harvey</p>
         <h1>Your software doesn&rsquo;t know why it exists</h1>
         <p className="lede">
           It knows its breakpoints. It knows its font stack. It has never once
@@ -272,7 +272,7 @@ export default function Slides() {
       <section className="invert" data-background-color="#f6f404">
         <p className="close-q">Does your software know why it exists?</p>
         <p className="close-q second">Do you?</p>
-        <p className="hiring">Flock is hiring · Valencia · Madrid · London</p>
+        <p className="hiring">Flock is hiring</p>
         <aside className="notes">
           9:15–9:45{'\n\n'}
           It's September 2026 and nobody knows if this is right, including me.
@@ -287,7 +287,9 @@ export default function Slides() {
           BRIDGE — "if you're choosing tools, stop optimising which model and
           start looking at what you've wrapped around it."{'\n\n'}
           THE CLOSE — the opening question. Then a beat. Then "do you?"{'\n\n'}
-          NEVER ADD A THIRD QUESTION. Then the hiring line and stop.{'\n\n'}
+          NEVER ADD A THIRD QUESTION. Then the hiring line and stop. Say where
+          we're hiring out loud if it's relevant to the room — it's not on the
+          slide any more, so it stays true wherever this is given.{'\n\n'}
           ⚠ Verify the model claim before this is said — transcript audio was
           rough.{'\n\n'}
           NOTE: this title is a deliberate breach of playbook rule 04. Compliant

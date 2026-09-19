@@ -3,7 +3,10 @@
 A 10-minute talk on self-improving systems — what changes when you hand work to
 agents, and what's left for the people who used to do it.
 
-**Base 2 / Startup Valencia · 22 September 2026**
+**AI Tinkerers**
+
+The slides carry no venue, date or location, so the deck travels — anything
+specific to a given delivery is spoken, not printed.
 
 ## Run it
 
