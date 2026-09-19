@@ -1,0 +1,369 @@
+/* ---------------------------------------------------------------------------
+   Flock deck theme — Valencia AI meetup, 22 Sept 2026
+
+   Every value below is DERIVED from /workspaces/pkm/tools/brand/tokens.json,
+   which is itself derived from the canonical brand book in Google Drive
+   (Flock_BrandGuidelines_Nov22, 141pp — Liam owns it). Do not hand-tune a
+   colour or a tracking value here; change tokens.json and run verify.py.
+
+   Messina is the primary typeface but is commercially licensed and marked
+   available: false. The brand book's documented failsafe applies:
+   "we only use Roboto in scenarios where we absolutely cannot use Messina."
+   A web deck is such a scenario, so Roboto is correct here.
+
+   Type rules enforced below (tokens.json /type/rules):
+     - Always left-align. Never centre or right-align.
+     - Headline: Roboto Condensed Bold, UPPER, leading 90%, tracking -70.
+     - Body: Roboto Regular, lower case, leading 100%, tracking 0.
+     - Detail: Roboto Mono Medium, UPPER, tracking +40 (the only positive one).
+--------------------------------------------------------------------------- */
+
+:root {
+  /* primary palette */
+  --flock-yellow: #f6f404;
+  --dark-coal: #19282d;
+  --light-coal: #3b484c;
+  --dark-grey: #bcbbb8;
+  --light-grey: #e4e3dd;
+  --white: #ffffff;
+
+  /* functional palette */
+  --signal-red: #f43d26;
+  --signal-orange: #ff922e;
+  --signal-green: #19a84f;
+  --signal-blue: #1fa3cf;
+  --violet: #3c2854;
+
+  /* type */
+  --font-headline: 'Roboto Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --font-body: 'Roboto', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Roboto Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --track-headline: -0.07em;
+  --track-mono-caps: 0.04em;
+  --lead-headline: 0.9;
+  --lead-body: 1.15;
+}
+
+/* --- reveal shell ---------------------------------------------------- */
+
+/* reveal.js normally owns the whole page and gets its height from <html>.
+   Mounted inside React's #root it does not, so it measures a zero-height
+   viewport and collapses the deck to minScale. Give it an explicit chain. */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.reveal-viewport {
+  height: 100%;
+  background: var(--dark-coal);
+}
+
+.reveal {
+  height: 100%;
+}
+
+.reveal {
+  font-family: var(--font-body);
+  font-size: 34px;
+  font-weight: 400;
+  color: var(--light-grey);
+  letter-spacing: 0;
+}
+
+.reveal .slides {
+  text-align: left; /* brand rule: never centre */
+}
+
+/* Do not set height/display here — reveal.js measures sections to compute its
+   scale factor, and overriding either sends it to minScale and off-canvas.
+   Vertical centring is reveal's job (config center: true); ours is to keep
+   everything hard left, per the brand rule. */
+.reveal .slides section {
+  padding: 0 2rem;
+  text-align: left;
+}
+
+.reveal ::selection {
+  background: var(--flock-yellow);
+  color: var(--dark-coal);
+}
+
+/* --- headline -------------------------------------------------------- */
+
+.reveal h1,
+.reveal h2 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-headline);
+  line-height: var(--lead-headline);
+  color: var(--white);
+  margin: 0 0 1.4rem;
+  text-align: left;
+  max-width: 21ch;
+}
+
+.reveal h1 {
+  font-size: 2.25em;
+}
+.reveal h2 {
+  font-size: 1.65em;
+}
+
+.reveal .accent {
+  color: var(--flock-yellow);
+}
+
+/* --- body ------------------------------------------------------------ */
+
+.reveal p {
+  font-family: var(--font-body);
+  line-height: var(--lead-body);
+  letter-spacing: 0;
+  margin: 0 0 0.85rem;
+  max-width: 28ch;
+  text-align: left;
+}
+
+.reveal .lede {
+  font-size: 0.82em;
+  color: var(--dark-grey);
+  max-width: 30ch;
+}
+
+.reveal .punch {
+  font-size: 0.86em;
+  color: var(--flock-yellow);
+  font-weight: 500;
+  max-width: 26ch;
+}
+
+.reveal strong {
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* --- detail / kicker (Roboto Mono, the only positive tracking) -------- */
+
+.reveal .kicker {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono-caps);
+  font-size: 0.4em;
+  color: var(--flock-yellow);
+  margin: 0 0 1.1rem;
+  max-width: none;
+  white-space: nowrap;
+}
+
+.reveal .kicker.muted {
+  color: var(--dark-grey);
+}
+
+/* --- inverted slides (Flock Yellow ground) ---------------------------
+   The ground itself comes from data-background-color on the <section>, so
+   reveal paints it full-bleed behind the scaled canvas. Setting `background`
+   here instead only fills the content box. This class carries colour only. */
+
+.reveal section.invert .col-rule {
+  border-left-color: rgba(25, 40, 45, 0.25);
+}
+.reveal section.invert .col-rule.on {
+  border-left-color: var(--dark-coal);
+}
+.reveal section.invert h1,
+.reveal section.invert h2 {
+  color: var(--dark-coal);
+}
+.reveal section.invert p {
+  color: var(--light-coal);
+}
+.reveal section.invert .punch {
+  color: var(--dark-coal);
+  font-weight: 500;
+}
+.reveal section.invert .kicker {
+  color: var(--light-coal);
+}
+.reveal section.invert strong {
+  color: var(--dark-coal);
+}
+
+/* --- two-column ------------------------------------------------------ */
+
+.reveal .cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+  width: 100%;
+  max-width: 44ch;
+}
+
+.reveal .cols p {
+  max-width: none;
+}
+
+.reveal .col-rule {
+  border-left: 3px solid var(--light-coal);
+  padding-left: 1.1rem;
+}
+
+.reveal .col-rule.on {
+  border-left-color: var(--flock-yellow);
+}
+
+/* --- the three properties -------------------------------------------- */
+
+.reveal .three {
+  display: grid;
+  gap: 1.05rem;
+  width: 100%;
+  max-width: 34ch;
+}
+
+.reveal .three .item {
+  border-left: 3px solid var(--flock-yellow);
+  padding-left: 1.1rem;
+}
+
+.reveal .three .name {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono-caps);
+  font-size: 0.42em;
+  color: var(--flock-yellow);
+  margin: 0 0 0.2rem;
+}
+
+.reveal .three .gloss {
+  font-size: 0.66em;
+  color: var(--light-grey);
+  margin: 0;
+  max-width: none;
+}
+
+/* --- the one number -------------------------------------------------- */
+
+.reveal .ratio {
+  display: flex;
+  gap: 3.2rem;
+  align-items: flex-end;
+  margin: 0.4rem 0 1.2rem;
+}
+
+.reveal .ratio .fig {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 2.1em;
+  line-height: 0.9;
+  letter-spacing: var(--track-headline);
+  color: var(--flock-yellow);
+}
+
+.reveal .ratio .fig.mine {
+  color: var(--dark-grey);
+}
+
+.reveal .ratio .who {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono-caps);
+  font-size: 0.36em;
+  color: var(--dark-grey);
+  margin: 0.35rem 0 0;
+}
+
+/* --- close ----------------------------------------------------------- */
+
+.reveal .close-q {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-headline);
+  line-height: var(--lead-headline);
+  font-size: 1.9em;
+  color: var(--dark-coal);
+  margin: 0 0 0.6rem;
+  max-width: 20ch;
+}
+
+.reveal .close-q.second {
+  color: var(--dark-coal);
+  font-size: 3.2em;
+  margin: 0.5rem 0 1.6rem;
+}
+
+.reveal .hiring {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono-caps);
+  font-size: 0.38em;
+  color: var(--light-coal);
+  margin: 0;
+  max-width: none;
+  white-space: nowrap;
+}
+
+/* --- progress / controls --------------------------------------------- */
+
+.reveal .progress {
+  color: var(--flock-yellow);
+  height: 4px;
+}
+.reveal .controls {
+  color: var(--light-coal);
+}
+.reveal .slide-number {
+  font-family: var(--font-mono);
+  letter-spacing: var(--track-mono-caps);
+  background: transparent;
+  color: var(--light-coal);
+  font-size: 16px;
+  right: auto;
+  left: 12px;
+  bottom: 10px;
+}
+
+/* --- loop diagram ---------------------------------------------------- */
+
+.reveal .loop-svg {
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+}
+.reveal .loop-svg text {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  fill: var(--light-grey);
+}
+.reveal .loop-svg text.hl {
+  fill: var(--flock-yellow);
+}
+.reveal .loop-svg rect {
+  fill: none;
+  stroke: var(--light-coal);
+  stroke-width: 2;
+}
+.reveal .loop-svg rect.hl {
+  stroke: var(--flock-yellow);
+}
+.reveal .loop-svg path,
+.reveal .loop-svg line {
+  stroke: var(--light-coal);
+  stroke-width: 2;
+  fill: none;
+}
+.reveal .loop-svg path.back {
+  stroke: var(--flock-yellow);
+}
