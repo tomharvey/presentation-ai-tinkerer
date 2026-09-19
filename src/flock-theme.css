@@ -713,7 +713,12 @@ body,
   margin: 0;
 }
 
+/* The interrogation. Answers arrive faster and faster — showing off — then
+   stop dead, and the last line never gets one. The pause before the final row
+   is the whole point: don't talk over it. */
 .reveal .selfknow .line {
+  opacity: 0;
+  animation: lineIn 0.24s ease-out forwards;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -731,6 +736,18 @@ body,
   color: var(--dark-grey);
 }
 
+.reveal .selfknow .line:nth-of-type(1) { animation-delay: 0.55s; }
+.reveal .selfknow .line:nth-of-type(2) { animation-delay: 1.3s; }
+.reveal .selfknow .line:nth-of-type(3) { animation-delay: 1.8s; }
+.reveal .selfknow .line:nth-of-type(4) { animation-delay: 2.1s; }
+/* the silence */
+.reveal .selfknow .line:nth-of-type(5) { animation-delay: 3.7s; }
+
+@keyframes lineIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: none; }
+}
+
 .reveal .selfknow .line.unknown {
   color: var(--flock-yellow);
 }
@@ -741,6 +758,7 @@ body,
 
 .reveal .selfknow .caret {
   display: inline-block;
+  animation-delay: 4s;
   width: 0.62em;
   height: 1.02em;
   background: var(--flock-yellow);
@@ -756,6 +774,10 @@ body,
 
 @media (prefers-reduced-motion: reduce) {
   .reveal .selfknow .caret {
+    animation: none;
+  }
+  .reveal .selfknow .line {
+    opacity: 1;
     animation: none;
   }
 }

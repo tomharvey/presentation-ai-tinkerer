@@ -20,6 +20,23 @@ import { useEffect, useRef, useState } from 'react'
    Only the chosen one renders, so the deck is always 9 slides. */
 const COLD_OPEN = 'card'
 
+/* Bump a key every time this slide becomes the visible one, so a CSS-driven
+   build replays on re-entry instead of showing its finished state. */
+function useReplayOnEnter() {
+  const [run, setRun] = useState(0)
+  const ref = useRef(null)
+  useEffect(() => {
+    const section = ref.current?.closest('section')
+    if (!section) return
+    const onChange = (e) => {
+      if (e.currentSlide === section) setRun((n) => n + 1)
+    }
+    document.addEventListener('slidechanged', onChange)
+    return () => document.removeEventListener('slidechanged', onChange)
+  }, [])
+  return [run, ref]
+}
+
 /* Replay a staged animation every time its slide becomes the visible one, so
    stepping back to a slide shows the build again rather than the end state. */
 function useSlideStages(count, gap) {
@@ -49,6 +66,27 @@ function useSlideStages(count, gap) {
   }, [count, gap])
 
   return [stage, ref]
+}
+
+/* ---------------------------------------------------------------- slide 1 */
+/* The interrogation. Every question gets an instant answer and they arrive
+   faster and faster — the thing is showing off — then a long silence, and the
+   last line lands with nothing after it but a cursor. Hold the pause. If you
+   talk over it, it dies. */
+function SelfKnowledge() {
+  const [run, ref] = useReplayOnEnter()
+  return (
+    <div ref={ref} style={{ width: '100%' }}>
+      <div className="selfknow" key={run}>
+        <p className="head">Everything it can tell you about itself</p>
+        <div className="line"><span>What it looks like on a phone</span><span className="val">yes</span></div>
+        <div className="line"><span>What colour the button is</span><span className="val">yes</span></div>
+        <div className="line"><span>How quickly it loads</span><span className="val">yes</span></div>
+        <div className="line"><span>Who visited yesterday</span><span className="val">yes</span></div>
+        <div className="line unknown"><span>Why it exists</span><span className="val"><span className="caret" /></span></div>
+      </div>
+    </div>
+  )
 }
 
 /* ---------------------------------------------------------------- slide 2 */
@@ -218,20 +256,17 @@ export default function Slides() {
           <>
             <p className="kicker">AI Tinkerers · Tom Harvey</p>
             <h1>Your software doesn&rsquo;t know why it exists</h1>
-            <div className="selfknow">
-              <p className="head">Everything it can tell you about itself</p>
-              <div className="line"><span>What it looks like on a phone</span><span className="val">yes</span></div>
-              <div className="line"><span>What colour the button is</span><span className="val">yes</span></div>
-              <div className="line"><span>How quickly it loads</span><span className="val">yes</span></div>
-              <div className="line"><span>Who visited yesterday</span><span className="val">yes</span></div>
-              <div className="line unknown"><span>Why it exists</span><span className="val"><span className="caret" /></span></div>
-            </div>
+            <SelfKnowledge />
             <aside className="notes">
               0:00–1:30 · NEVER CUT{'\n\n'}
               "Your landing page. Does it know that its job is to sell?" It knows
               what it looks like on a phone. It knows what colour the button is. It
               does not know it is a salesperson — nobody told it, and it has never
               once found out whether anybody bought anything.{'\n\n'}
+              LET IT PLAY. The answers come back faster and faster — it is showing
+              off — and then they stop. DO NOT FILL THE SILENCE. The last line
+              takes about a second and a half longer than you will want it to.
+              {'\n\n'}
               WALK THE CARD. Every one of those it can answer instantly, and has
               been able to for twenty years. The last one it has never been able to
               answer, and — this is the part — nobody ever thought that was strange.
