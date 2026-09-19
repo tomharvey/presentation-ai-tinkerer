@@ -565,11 +565,72 @@ body,
 
 .reveal .schematic .flow {
   stroke-dasharray: 9 8;
-  animation: ringflow 1.5s linear infinite;
 }
+
 @keyframes ringflow {
   to {
     stroke-dashoffset: -17;
+  }
+}
+
+/* Left — in it. Deliberately the slower of the two: every pass has to go
+   through a person, so the circuit labours. */
+.reveal .schematic .ring-left {
+  animation: ringflow 2.9s linear infinite;
+}
+
+/* Right — above it. Runs faster AND never settles on a shape. The morph is
+   the argument: it is still one closed loop the whole way round, it just
+   stops being a circle. rx/ry are animatable CSS properties in current
+   browsers; where they aren't, the SVG attributes below hold the mid shape
+   and it degrades to a static oval. */
+.reveal .schematic .ring-right {
+  animation: ringflow 1s linear infinite, reshape 7s ease-in-out infinite;
+}
+
+@keyframes reshape {
+  0% {
+    rx: 56px;
+    ry: 56px;
+  }
+  30% {
+    rx: 88px;
+    ry: 32px;
+  }
+  55% {
+    rx: 46px;
+    ry: 64px;
+  }
+  80% {
+    rx: 78px;
+    ry: 40px;
+  }
+  100% {
+    rx: 56px;
+    ry: 56px;
+  }
+}
+
+/* the arrowhead rides the rightmost point as the shape moves */
+.reveal .schematic .head-right {
+  animation: headride 7s ease-in-out infinite;
+}
+
+@keyframes headride {
+  0% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(32px);
+  }
+  55% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(22px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -579,7 +640,9 @@ body,
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal .schematic .flow {
+  .reveal .schematic .ring-left,
+  .reveal .schematic .ring-right,
+  .reveal .schematic .head-right {
     animation: none;
   }
 }
@@ -726,4 +789,44 @@ body,
   .reveal .selfknow .caret {
     animation: none;
   }
+}
+
+/* =====================================================================
+   Standing instruction (slide 7)
+   Different jobs, identical closing line. The work varies; the
+   instruction doesn't, because it was written once and never revisited.
+   ===================================================================== */
+
+.reveal .standing {
+  width: 100%;
+  max-width: 42ch;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.reveal .standing .job {
+  border-left: 3px solid var(--light-coal);
+  background: rgba(0, 0, 0, 0.18);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.44em;
+  line-height: 1.45;
+  color: var(--dark-grey);
+}
+
+.reveal .standing .job .task {
+  color: var(--light-grey);
+}
+
+.reveal .standing .job .always {
+  color: var(--flock-yellow);
+}
+
+.reveal .standing .note {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono-caps);
+  font-size: 0.34em;
+  color: var(--light-coal);
+  margin: 0.15rem 0 0;
+  max-width: none;
 }

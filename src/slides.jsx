@@ -105,9 +105,11 @@ function LoopDiagram() {
    it used to be. Boxes would say "process". A circle says "this comes round
    again", which is the entire point.
 
-   Deliberately NOT staged. A staged build was tried and reverted — the motion
-   fought the spoken beat instead of supporting it. Continuous flow, one stable
-   picture, talk over it. */
+   Both loops run continuously — no staged build, that was tried and reverted
+   because the motion fought the spoken beat. The difference is speed and
+   shape: the left one is slower, because every pass has to get through a
+   person. The right one runs faster and never settles on a shape, which is the
+   argument — still one closed loop, just not a circle. */
 function InOrAbove() {
   return (
     <svg
@@ -118,7 +120,7 @@ function InOrAbove() {
     >
       {/* ---- in it ---- */}
       <text x="18" y="16">In it</text>
-      <circle className="ring flow" cx="130" cy="108" r="56" />
+      <circle className="ring flow ring-left" cx="130" cy="108" r="56" />
       <path className="head" d="M181 104 L191 104 L186 116 Z" />
       <path className="head" d="M69 112 L79 112 L74 100 Z" />
       <circle className="you" cx="130" cy="52" r="10" />
@@ -129,9 +131,8 @@ function InOrAbove() {
       {/* ---- above it ---- */}
       <text x="338" y="16">Above it</text>
       <ellipse className="ghost" cx="452" cy="112" rx="56" ry="56" />
-      <ellipse className="ring flow" cx="452" cy="116" rx="76" ry="42" />
-      <path className="head" d="M523 112 L533 112 L528 124 Z" />
-      <path className="head" d="M371 120 L381 120 L376 108 Z" />
+      <ellipse className="ring flow ring-right" cx="452" cy="116" rx="72" ry="46" />
+      <path className="head head-right" d="M519 110 L529 110 L524 122 Z" />
       <circle className="you" cx="452" cy="30" r="10" />
       <path className="pull" d="M436 38 Q400 50 388 82" />
       <path className="pull" d="M468 38 Q504 50 516 82" />
@@ -328,59 +329,57 @@ export default function Slides() {
 
       {/* 7 ────────────────────────────────────── 6:30–7:50 */}
       <section>
-        <p className="kicker muted">One person, one default</p>
-        <h2>She changed one default and never made that decision again</h2>
-        <div className="promptline">
-          <span className="dim">every instruction she writes ends the same way</span>
-          <br />
-          <span className="always">
-            &ldquo;…and if this is big enough to split up, split it up and run the
-            parts at the same time&rdquo;
-          </span>
-        </div>
-        <div className="ratio">
-          <div>
-            <div className="fig">9 in 10</div>
-            <p className="who">Of her work</p>
+        <p className="kicker muted">How you actually get above it</p>
+        <h2>Change the default and you never make that decision again</h2>
+        <div className="standing">
+          <div className="job">
+            <span className="task">Draft the launch email.</span>{' '}
+            <span className="always">
+              And if this is big enough to split up, split it up and do the parts
+              at the same time.
+            </span>
           </div>
-          <div>
-            <div className="fig mine">1 in 30</div>
-            <p className="who">Of mine</p>
+          <div className="job">
+            <span className="task">Pull together last quarter&rsquo;s numbers.</span>{' '}
+            <span className="always">
+              And if this is big enough to split up, split it up and do the parts
+              at the same time.
+            </span>
           </div>
+          <div className="job">
+            <span className="task">Go through this contract.</span>{' '}
+            <span className="always">
+              And if this is big enough to split up, split it up and do the parts
+              at the same time.
+            </span>
+          </div>
+          <p className="note">Written once. Never decided again.</p>
         </div>
-        <p className="ratio-caption">
-          …now gets split up and run in parallel. She never once decided to do
-          that. She changed the conditions, and the machine decides.
-        </p>
+        <p className="punch">The work changes every time. The instruction doesn&rsquo;t.</p>
         <aside className="notes">
-          6:30–7:50 · NEVER CUT — this is the proof for slide 6{'\n\n'}
-          "I want to show you what that looks like on an actual person."{'\n\n'}
-          Someone on our product team ends every instruction she writes with that
-          sentence. Every single one. It is the laziest possible place to put an
-          instruction — the weakest, cheapest position there is.{'\n\n'}
-          And it worked. Nine tenths of her work now gets broken up and run in
-          parallel. Mine was closer to one in thirty.{'\n\n'}
-          THE POINT — she is not deciding when to do that. She never decides. She
-          changed the conditions once, and now the machine makes the call every
-          time. THAT is what being above it looks like in practice.{'\n\n'}
-          NOW MUDDY IT, DELIBERATELY — "so is she above it? Partly. She still
-          checks what comes out. She still picks the target. There's still a
-          person working through the list at the other end. I asked her directly
-          and she said that's how she'd describe how she works. I believed her,
-          and I still couldn't tell you where the boundary sits. I made this
-          distinction up on a call last week. Nobody knows."{'\n\n'}
-          THE RHYME, ONCE — "I asked the system why it put something top of the
-          list and it could tell me. I asked her why she works this way and she
-          could tell me too. Both of those are newer than they sound."{'\n\n'}
-          BRIDGE — "you don't need any of this tooling. The move is: stop
-          remembering to do the good thing, and change the default so you don't
-          have to."{'\n\n'}
-          IF BEHIND: cut the muddying. Keep the default, the numbers and the
-          bridge.{'\n\n'}
-          ⚠ HER DATA — must be cleared with her before this is shown.{'\n'}
-          ⚠ The sentence on screen is her instruction in plain English; the
-          original names the tooling. Say it either way, but the room needs the
-          plain one.
+          6:30–7:50 · NEVER CUT — this is the "so what do I do" beat{'\n\n'}
+          "So how do you actually get above it? Not by being more disciplined.
+          I've tried that. It doesn't work, because you forget."{'\n\n'}
+          WALK THE THREE JOBS. Completely different work. Identical last
+          sentence. Somebody on our team writes that line onto the end of
+          everything they ask for — and the important bit is where they put it.
+          Not a rule, not a process, not a checklist somebody has to consult. The
+          laziest, cheapest, weakest possible position: the end of the
+          instruction.{'\n\n'}
+          THE POINT — and say this slowly — "they are not deciding when to do
+          that. They decided once. Now it happens without them. That is the
+          whole difference between standing in it and standing above it."{'\n\n'}
+          MUDDY IT, BRIEFLY — "and I still couldn't tell you whether that counts
+          as above the loop or in it. They still check what comes back. They
+          still pick what matters. I made this distinction up on a call last
+          week. Nobody knows where the line is yet."{'\n\n'}
+          THE THING TO TAKE HOME — "so here's the only homework in this talk.
+          Think of one thing you keep meaning to do and keep forgetting. Stop
+          meaning to do it. Go and put it in the instructions, once, and let it
+          happen without you."{'\n\n'}
+          NO NAMES. NO NUMBERS. This is about what a team can do, not about any
+          individual — attributing it to a person makes the room admire someone
+          instead of copying something.
         </aside>
       </section>
 
