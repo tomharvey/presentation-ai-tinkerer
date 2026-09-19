@@ -13,6 +13,13 @@
 
 import { useEffect, useRef, useState } from 'react'
 
+/* Which cold open is live: 'card' | 'belt' | 'portrait'.
+   'card'     — the software's own self-description, every line answerable but the last
+   'belt'     — the feature factory, which predates all of this
+   'portrait' — the homepage that can describe everything about itself but why
+   Only the chosen one renders, so the deck is always 9 slides. */
+const COLD_OPEN = 'card'
+
 /* Replay a staged animation every time its slide becomes the visible one, so
    stepping back to a slide shows the build again rather than the end state. */
 function useSlideStages(count, gap) {
@@ -201,136 +208,140 @@ export default function Slides() {
   return (
     <>
       {/* 1 ────────────────────────────────────── 0:00–1:30 */}
-      {/* Three candidate cold opens, stacked vertically — press DOWN to compare.
-          Horizontal flow stays 1..9, so the run sheet is unaffected. Delete the
-          two you don't use before the talk. */}
+      {/* Three candidate cold opens. Exactly one renders, chosen by COLD_OPEN
+          at the top of this file, so the deck is always 9 slides and the slide
+          counter tells the truth. (They were briefly stacked as vertical
+          slides; that inflated the count to 11 and made it look like slides 2
+          and 3 had gone missing.) */}
       <section>
-        <section>
-          <p className="kicker">AI Tinkerers · Tom Harvey</p>
-          <h1>Your software doesn&rsquo;t know why it exists</h1>
-          <div className="selfknow">
-            <p className="head">Everything it can tell you about itself</p>
-            <div className="line"><span>What it looks like on a phone</span><span className="val">yes</span></div>
-            <div className="line"><span>What colour the button is</span><span className="val">yes</span></div>
-            <div className="line"><span>How quickly it loads</span><span className="val">yes</span></div>
-            <div className="line"><span>Who visited yesterday</span><span className="val">yes</span></div>
-            <div className="line unknown"><span>Why it exists</span><span className="val"><span className="caret" /></span></div>
-          </div>
-          <aside className="notes">
-            0:00–1:30 · NEVER CUT{'\n\n'}
-            "Your landing page. Does it know that its job is to sell?" It knows
-            what it looks like on a phone. It knows what colour the button is. It
-            does not know it is a salesperson — nobody told it, and it has never
-            once found out whether anybody bought anything.{'\n\n'}
-            WALK THE CARD. Every one of those it can answer instantly, and has
-            been able to for twenty years. The last one it has never been able to
-            answer, and — this is the part — nobody ever thought that was strange.
-            {'\n\n'}
-            THEN THE REAL ONE, SPOKEN. "Last month a customer wrote to us: just
-            give me a CSV of this, what do you mean you can't do that, that's
-            ridiculous. Our product knows how to draw that table. Perfectly. What
-            it has never known is that the table is only there so somebody can go
-            and DO something with the numbers."{'\n\n'}
-            "And somebody's job was to read that and write down 'maybe we should
-            add an export'. That is a real job. I don't think it's a job any
-            more."{'\n\n'}
-            The intent existed once — written somewhere nobody kept, a chat thread,
-            someone's head, a job closed eighteen months ago. It never travelled
-            with the thing that got built.{'\n\n'}
-            BRIDGE — "you don't need a product for this to be true. You need
-            something you shipped and stopped asking questions about."{'\n\n'}
-            10 sec on Flock, INCLUDING: "Admiral liked it enough to pay £109m for
-            the business." Then straight into slide 2.{'\n\n'}
-            ⚠ The customer message is SPOKEN, not shown — the screen carries the
-            idea, not the anecdote. If you'd rather show the real screenshot, it
-            belongs as a second beat after the card, not instead of it.
-          </aside>
-        </section>
+        {COLD_OPEN === 'card' && (
+          <>
+            <p className="kicker">AI Tinkerers · Tom Harvey</p>
+            <h1>Your software doesn&rsquo;t know why it exists</h1>
+            <div className="selfknow">
+              <p className="head">Everything it can tell you about itself</p>
+              <div className="line"><span>What it looks like on a phone</span><span className="val">yes</span></div>
+              <div className="line"><span>What colour the button is</span><span className="val">yes</span></div>
+              <div className="line"><span>How quickly it loads</span><span className="val">yes</span></div>
+              <div className="line"><span>Who visited yesterday</span><span className="val">yes</span></div>
+              <div className="line unknown"><span>Why it exists</span><span className="val"><span className="caret" /></span></div>
+            </div>
+            <aside className="notes">
+              0:00–1:30 · NEVER CUT{'\n\n'}
+              "Your landing page. Does it know that its job is to sell?" It knows
+              what it looks like on a phone. It knows what colour the button is. It
+              does not know it is a salesperson — nobody told it, and it has never
+              once found out whether anybody bought anything.{'\n\n'}
+              WALK THE CARD. Every one of those it can answer instantly, and has
+              been able to for twenty years. The last one it has never been able to
+              answer, and — this is the part — nobody ever thought that was strange.
+              {'\n\n'}
+              THEN THE REAL ONE, SPOKEN. "Last month a customer wrote to us: just
+              give me a CSV of this, what do you mean you can't do that, that's
+              ridiculous. Our product knows how to draw that table. Perfectly. What
+              it has never known is that the table is only there so somebody can go
+              and DO something with the numbers."{'\n\n'}
+              "And somebody's job was to read that and write down 'maybe we should
+              add an export'. That is a real job. I don't think it's a job any
+              more."{'\n\n'}
+              The intent existed once — written somewhere nobody kept, a chat thread,
+              someone's head, a job closed eighteen months ago. It never travelled
+              with the thing that got built.{'\n\n'}
+              BRIDGE — "you don't need a product for this to be true. You need
+              something you shipped and stopped asking questions about."{'\n\n'}
+              10 sec on Flock, INCLUDING: "Admiral liked it enough to pay £109m for
+              the business." Then straight into slide 2.{'\n\n'}
+              ⚠ The customer message is SPOKEN, not shown — the screen carries the
+              idea, not the anecdote. If you'd rather show the real screenshot, it
+              belongs as a second beat after the card, not instead of it.
+            </aside>
+          </>
+        )}
+        {COLD_OPEN === 'belt' && (
+          <>
+            <div className="beltbox">
+              <div className="rail" />
+              <div className="crate">Dark mode</div>
+              <div className="crate">CSV export</div>
+              <div className="crate">Notifications</div>
+              <div className="crate">New onboarding</div>
+              <div className="crate">Search filters</div>
+              <div className="fog" />
+              <p className="stamp">Feature factory &middot; est. long before any of this</p>
+            </div>
+            <h1>Your software doesn&rsquo;t know why it exists</h1>
+            <aside className="notes">
+              COLD OPEN — ALTERNATE A · the feature factory{'\n\n'}
+              Let it run in silence for a few seconds before you say anything.{'\n\n'}
+              "This is a feature factory. Things come down the line, they're
+              perfectly well made, they get shipped, and they disappear. Nobody
+              standing at the line can tell you why any of them were built."{'\n\n'}
+              THE MOVE — AND THIS IS THE WHOLE REASON TO USE THIS OPENER:{'\n\n'}
+              "Now — none of this is about AI. We invented the feature factory
+              decades ago. We were doing this when the roadmap was a spreadsheet
+              and the tickets were index cards. Nobody needed a language model to
+              lose track of why they were building something."{'\n\n'}
+              "All the machines did was speed the line up."{'\n\n'}
+              That reframe is the point. The room arrives braced for another talk
+              about what AI is doing to us, and you tell them the problem is
+              thirty years older than the tools — which buys you their attention
+              for the next nine minutes.{'\n\n'}
+              THEN the title lands, and go to the loop.
+            </aside>
+          </>
+        )}
+        {COLD_OPEN === 'portrait' && (
+          <>
+            <svg className="portrait-svg" viewBox="0 -18 400 228" role="img"
+                 aria-label="A wireframe of a homepage labelling everything it knows about itself, and one label — why does this exist — attached to nothing.">
+              <rect className="frame" x="40" y="26" width="250" height="160" rx="3" />
+              <line className="frame" x1="40" y1="42" x2="290" y2="42" />
+              <circle className="fill" cx="50" cy="34" r="2.6" />
+              <circle className="fill" cx="59" cy="34" r="2.6" />
+              <circle className="fill" cx="68" cy="34" r="2.6" />
+              <text x="80" y="37">flockcover.com</text>
 
-        {/* ---- ALTERNATE A: the feature factory ---- */}
-        <section>
-          <div className="beltbox">
-            <div className="rail" />
-            <div className="crate">Dark mode</div>
-            <div className="crate">CSV export</div>
-            <div className="crate">Notifications</div>
-            <div className="crate">New onboarding</div>
-            <div className="crate">Search filters</div>
-            <div className="fog" />
-            <p className="stamp">Feature factory &middot; est. long before any of this</p>
-          </div>
-          <h1>Your software doesn&rsquo;t know why it exists</h1>
-          <aside className="notes">
-            COLD OPEN — ALTERNATE A · the feature factory{'\n\n'}
-            Let it run in silence for a few seconds before you say anything.{'\n\n'}
-            "This is a feature factory. Things come down the line, they're
-            perfectly well made, they get shipped, and they disappear. Nobody
-            standing at the line can tell you why any of them were built."{'\n\n'}
-            THE MOVE — AND THIS IS THE WHOLE REASON TO USE THIS OPENER:{'\n\n'}
-            "Now — none of this is about AI. We invented the feature factory
-            decades ago. We were doing this when the roadmap was a spreadsheet
-            and the tickets were index cards. Nobody needed a language model to
-            lose track of why they were building something."{'\n\n'}
-            "All the machines did was speed the line up."{'\n\n'}
-            That reframe is the point. The room arrives braced for another talk
-            about what AI is doing to us, and you tell them the problem is
-            thirty years older than the tools — which buys you their attention
-            for the next nine minutes.{'\n\n'}
-            THEN the title lands, and go to the loop.
-          </aside>
-        </section>
+              <rect className="fill" x="52" y="54" width="34" height="7" rx="1.5" />
+              <rect className="fill" x="212" y="54" width="20" height="7" rx="1.5" />
+              <rect className="fill" x="238" y="54" width="20" height="7" rx="1.5" />
+              <rect className="cta" x="262" y="52" width="18" height="11" rx="2" />
 
-        {/* ---- ALTERNATE B: the self-portrait ---- */}
-        <section>
-          <svg className="portrait-svg" viewBox="0 -18 400 228" role="img"
-               aria-label="A wireframe of a homepage labelling everything it knows about itself, and one label — why does this exist — attached to nothing.">
-            <rect className="frame" x="40" y="26" width="250" height="160" rx="3" />
-            <line className="frame" x1="40" y1="42" x2="290" y2="42" />
-            <circle className="fill" cx="50" cy="34" r="2.6" />
-            <circle className="fill" cx="59" cy="34" r="2.6" />
-            <circle className="fill" cx="68" cy="34" r="2.6" />
-            <text x="80" y="37">flockcover.com</text>
+              <rect className="fill" x="52" y="82" width="150" height="13" rx="2" />
+              <rect className="fill" x="52" y="100" width="112" height="13" rx="2" />
+              <rect className="cta" x="52" y="124" width="46" height="14" rx="2" />
 
-            <rect className="fill" x="52" y="54" width="34" height="7" rx="1.5" />
-            <rect className="fill" x="212" y="54" width="20" height="7" rx="1.5" />
-            <rect className="fill" x="238" y="54" width="20" height="7" rx="1.5" />
-            <rect className="cta" x="262" y="52" width="18" height="11" rx="2" />
+              <rect className="frame" x="52" y="152" width="68" height="24" rx="2" />
+              <rect className="frame" x="128" y="152" width="68" height="24" rx="2" />
+              <rect className="frame" x="204" y="152" width="68" height="24" rx="2" />
 
-            <rect className="fill" x="52" y="82" width="150" height="13" rx="2" />
-            <rect className="fill" x="52" y="100" width="112" height="13" rx="2" />
-            <rect className="cta" x="52" y="124" width="46" height="14" rx="2" />
+              <line className="frame" x1="290" y1="57" x2="316" y2="57" />
+              <text x="320" y="60">#F6F404</text>
+              <line className="frame" x1="290" y1="89" x2="316" y2="89" />
+              <text x="320" y="92">loads in 240ms</text>
+              <line className="frame" x1="290" y1="131" x2="316" y2="131" />
+              <text x="320" y="134">18,402 visits</text>
 
-            <rect className="frame" x="52" y="152" width="68" height="24" rx="2" />
-            <rect className="frame" x="128" y="152" width="68" height="24" rx="2" />
-            <rect className="frame" x="204" y="152" width="68" height="24" rx="2" />
-
-            <line className="frame" x1="290" y1="57" x2="316" y2="57" />
-            <text x="320" y="60">#F6F404</text>
-            <line className="frame" x1="290" y1="89" x2="316" y2="89" />
-            <text x="320" y="92">loads in 240ms</text>
-            <line className="frame" x1="290" y1="131" x2="316" y2="131" />
-            <text x="320" y="134">18,402 visits</text>
-
-            <path className="lead" d="M150 18 L150 6" />
-            <text className="q" x="150" y="0" textAnchor="middle">why does this exist?</text>
-          </svg>
-          <h1>Your software doesn&rsquo;t know why it exists</h1>
-          <aside className="notes">
-            COLD OPEN — ALTERNATE B · the self-portrait{'\n\n'}
-            "This is our homepage. Ask it anything about itself and it will tell
-            you. What colour is that button — it knows. How fast does it load —
-            it knows. How many people came yesterday — it knows that too."{'\n\n'}
-            POINT AT THE LABEL WITH NOTHING UNDER IT.{'\n\n'}
-            "That one it has never been able to answer. And the strange part
-            isn't that it can't. It's that nobody ever thought that was odd."{'\n\n'}
-            ⚠ THE WIREFRAME IS A GUESS. I could not reach flockcover.com from
-            here — no outbound network — so this is the shape every B2B homepage
-            shares: nav, hero, one call to action, three cards. CHECK IT AGAINST
-            THE REAL PAGE before you show it. If it doesn't match, the room full
-            of people who have seen your site will notice and it undercuts you.
-            The three labels are illustrative too.
-          </aside>
-        </section>
+              <path className="lead" d="M150 18 L150 6" />
+              <text className="q" x="150" y="0" textAnchor="middle">why does this exist?</text>
+            </svg>
+            <h1>Your software doesn&rsquo;t know why it exists</h1>
+            <aside className="notes">
+              COLD OPEN — ALTERNATE B · the self-portrait{'\n\n'}
+              "This is our homepage. Ask it anything about itself and it will tell
+              you. What colour is that button — it knows. How fast does it load —
+              it knows. How many people came yesterday — it knows that too."{'\n\n'}
+              POINT AT THE LABEL WITH NOTHING UNDER IT.{'\n\n'}
+              "That one it has never been able to answer. And the strange part
+              isn't that it can't. It's that nobody ever thought that was odd."{'\n\n'}
+              ⚠ THE WIREFRAME IS A GUESS. I could not reach flockcover.com from
+              here — no outbound network — so this is the shape every B2B homepage
+              shares: nav, hero, one call to action, three cards. CHECK IT AGAINST
+              THE REAL PAGE before you show it. If it doesn't match, the room full
+              of people who have seen your site will notice and it undercuts you.
+              The three labels are illustrative too.
+            </aside>
+          </>
+        )}
       </section>
 
       {/* 2 ────────────────────────────────────── 1:30–2:45 */}

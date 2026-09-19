@@ -25,6 +25,18 @@ npm run build    # static bundle in dist/
 - **`F`** fullscreen · **`O`** overview · **`B`** blank the screen.
 - Fixed 1280×720 canvas; reveal scales it to whatever the projector is.
 
+## Choosing the cold open
+
+Three openers are built. One renders at a time — set `COLD_OPEN` at the top of
+`src/slides.jsx` to `'card'`, `'belt'` or `'portrait'`. The deck is always nine
+slides whichever you pick.
+
+| Value | What it opens on |
+|---|---|
+| `card` | The software's own self-description — every line answerable except the last |
+| `belt` | A feature factory, which predates all of this; the machines only sped the line up |
+| `portrait` | A homepage that can tell you everything about itself except why it exists |
+
 ## The argument
 
 Nine slides. Read the titles alone and you get the whole thing:
