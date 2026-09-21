@@ -1304,3 +1304,30 @@ body,
 @media (prefers-reduced-motion: reduce) {
   .reveal .verdict { opacity: 1; animation: none; }
 }
+
+/* What comes back when the instruction carries a purpose — a direct callback
+   to steps 1, 2 and 3, so the room recognises them rather than meets them. */
+.reveal .versus .carries {
+  display: grid;
+  gap: 0.28rem;
+  margin: 0.55rem 0 0;
+}
+.reveal .versus .carries span {
+  font-family: var(--font-mono);
+  font-size: 0.32em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--flock-yellow);
+  padding-left: 0.85rem;
+  position: relative;
+}
+.reveal .versus .carries span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 0.3em;
+  height: 0.3em;
+  border-radius: 50%;
+  background: var(--flock-yellow);
+}

@@ -810,7 +810,7 @@ export default function Slides() {
             <p className="said">
               &ldquo;Add a button to that table that downloads a CSV.&rdquo;
             </p>
-            <p className="life">You get that button. Nothing else, ever.</p>
+            <p className="life">You get a button. That&rsquo;s all you asked for.</p>
           </div>
           <div className="side up">
             <p className="where">Above it &middot; an instruction about what good looks like</p>
@@ -818,9 +818,12 @@ export default function Slides() {
               &ldquo;People should be able to get at their own data without
               asking us.&rdquo;
             </p>
-            <p className="life">
-              You get that button &mdash; and the four you hadn&rsquo;t thought of.
-            </p>
+            <p className="life">You get a button that knows why it&rsquo;s there.</p>
+            <div className="carries">
+              <span>Tied to the goal you set</span>
+              <span>Able to explain itself</span>
+              <span>With a place in the history</span>
+            </div>
           </div>
         </div>
         <aside className="notes">
@@ -831,10 +834,15 @@ export default function Slides() {
           unambiguous, and you'd get exactly that button.{'\n\n'}
           NOW THE RIGHT ONE — and say this explicitly, because it's the whole
           slide: "the left-hand one is something the right-hand one would have
-          produced anyway." Ask for the button and you get the button. Ask for
-          the outcome and you get the button, plus the download link in the
-          email, plus the thing on the mobile screen, plus the one nobody in
-          this room has thought of yet.{'\n\n'}
+          produced anyway." Ask for the button, you get a button. Ask for the
+          outcome, and you still get the button — but it arrives carrying
+          everything we just spent five minutes on.{'\n\n'}
+          WALK THE THREE, THEY'RE THE CALLBACK — it's tied to the goal you set,
+          so you can tell whether it worked. It can explain itself, so nobody
+          has to shrug. And it has a place in the history, so the next piece of
+          evidence can make it louder or narrower.{'\n\n'}
+          "That's the difference. Not more output. Output that knows what it's
+          for."{'\n\n'}
           THE ASYMMETRY — inside the loop every instruction you give is a WHAT.
           It works because you were standing there when it was needed. From
           above it you aren't standing there, so you can't give that kind of
