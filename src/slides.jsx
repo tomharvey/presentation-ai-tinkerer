@@ -132,7 +132,7 @@ function ThinkingSite() {
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const id = setInterval(() => setI((n) => (n + 1) % PURPOSES.length), 2400)
+    const id = setInterval(() => setI((n) => (n + 1) % PURPOSES.length), 2800)
     return () => clearInterval(id)
   }, [])
 
