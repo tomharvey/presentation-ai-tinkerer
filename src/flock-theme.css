@@ -1221,3 +1221,28 @@ body,
   max-width: none;
 }
 .reveal .exchange .pair-label.good { color: var(--flock-yellow); }
+
+/* The verdict — lands a beat after the title, so the room reaches
+   "not a reason" on its own before you name it. */
+.reveal .verdict {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-headline);
+  line-height: var(--lead-headline);
+  font-size: 1.5em;
+  color: var(--flock-yellow);
+  margin: -0.9rem 0 1.3rem;
+  max-width: 20ch;
+  opacity: 0;
+  animation: verdictIn 0.42s 2.6s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes verdictIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .verdict { opacity: 1; animation: none; }
+}

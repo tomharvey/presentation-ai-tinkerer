@@ -236,6 +236,21 @@ function TicketBoard() {
   )
 }
 
+/* ---------------------------------------------------------------- slide 4 */
+/* Two beats, not one. The title states the problem; the verdict lands a
+   couple of seconds later, once the room has had time to agree with the
+   first line on its own. Naming it "sloppy" before they've got there reads
+   as a telling-off; naming it after reads as the obvious conclusion. */
+function SloppyVerdict() {
+  const [run, ref] = useReplayOnEnter()
+  return (
+    <div ref={ref} key={run} style={{ width: '100%' }}>
+      <h2>&ldquo;The agent did it&rdquo; is not a reason</h2>
+      <p className="verdict">It&rsquo;s just sloppy</p>
+    </div>
+  )
+}
+
 /* ---------------------------------------------------------------- slide 6 */
 /* The same loop twice. On the left the person is a station on it — every
    revolution has to pass through them, and it runs slower for exactly that
@@ -589,7 +604,7 @@ export default function Slides() {
       {/* 4 ────────────────────────────────────── 3:40–4:40 */}
       <section>
         <p className="step"><span className="n">2</span> <span className="of">of four</span> &middot; Make it auditable</p>
-        <h2>&ldquo;The agent did it&rdquo; is just sloppy</h2>
+        <SloppyVerdict />
         <div className="exchange">
           <div className="ask">Why is this top of the list?</div>
           <p className="pair-label">What you get today</p>
@@ -604,10 +619,14 @@ export default function Slides() {
           START WITH THE SHRUG, because everyone in the room has seen it. "You
           ask why something got built, and you get this." Point at the grey one.
           {'\n\n'}
-          "That's everywhere at the moment. And I want to be blunt about it —
-          it's not mysterious, it's not the price of working this way. It's
-          sloppy. It's the end of the conversation, and nobody can do anything
-          with it."{'\n\n'}
+          "That's everywhere at the moment. It is the end of the conversation.
+          Nobody can do anything with it."{'\n\n'}
+          LET THE TITLE SIT for a couple of seconds — the room will get to "well,
+          that's not really a reason" by itself. THEN the verdict lands on
+          screen. Read it out when it does: "it's just sloppy."{'\n\n'}
+          Saying it before they've arrived there reads as a telling-off. Saying
+          it after reads as the obvious conclusion, and they've already agreed.
+          {'\n\n'}
           "We made a decision early on that turned out to matter more than
           anything else. We decided it was more important that it could tell us
           WHY it did something than that it got the thing right first time."
