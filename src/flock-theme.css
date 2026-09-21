@@ -282,7 +282,7 @@ body,
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: var(--track-mono-caps);
-  font-size: 0.36em;
+  font-size: 0.4em;
   color: var(--dark-grey);
   margin: 0.35rem 0 0;
 }
@@ -348,7 +348,7 @@ body,
 }
 .reveal .loop-svg text {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
@@ -587,7 +587,7 @@ body,
 
 
 .reveal .schematic .tiny {
-  font-size: 11px;
+  font-size: 17px;
   fill: rgba(25, 40, 45, 0.65);
 }
 
@@ -603,7 +603,7 @@ body,
 }
 .reveal .schematic text {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: var(--track-mono-caps);
@@ -823,7 +823,7 @@ body,
   gap: 0.55rem;
   margin-bottom: 0.6rem;
   font-family: var(--font-mono);
-  font-size: 0.32em;
+  font-size: 0.4em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
   color: var(--dark-grey);
@@ -869,7 +869,7 @@ body,
   display: flex;
   align-items: baseline;
   gap: 0.45rem;
-  font-size: 0.42em;
+  font-size: 0.48em;
   color: var(--light-grey);
   line-height: 1.3;
 }
@@ -887,9 +887,9 @@ body,
 .reveal .board .tk .foot {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.28em;
+  font-size: 0.4em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
   color: var(--light-coal);
@@ -932,7 +932,7 @@ body,
   display: flex;
   align-items: baseline;
   gap: 0.45rem;
-  font-size: 0.42em;
+  font-size: 0.48em;
   color: var(--white);
   line-height: 1.3;
 }
@@ -947,9 +947,9 @@ body,
 .reveal .board .compounded .foot {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.28em;
+  font-size: 0.4em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
   color: var(--dark-grey);
@@ -979,7 +979,7 @@ body,
   display: flex;
   align-items: baseline;
   gap: 0.45rem;
-  font-size: 0.42em;
+  font-size: 0.48em;
   color: var(--light-grey);
   line-height: 1.3;
 }
@@ -994,9 +994,9 @@ body,
 .reveal .board .contradicts .foot {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.28em;
+  font-size: 0.4em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
   color: var(--dark-grey);
@@ -1026,7 +1026,7 @@ body,
 
 .reveal .versus .where {
   font-family: var(--font-mono);
-  font-size: 0.32em;
+  font-size: 0.38em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
   color: var(--light-coal);
@@ -1040,7 +1040,7 @@ body,
 
 .reveal .versus .life {
   font-family: var(--font-mono);
-  font-size: 0.32em;
+  font-size: 0.38em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
   color: var(--dark-grey);
@@ -1224,7 +1224,7 @@ body,
   align-items: baseline;
   gap: 0.4rem;
   font-family: var(--font-mono);
-  font-size: 0.34em;
+  font-size: 0.4em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
   color: var(--flock-yellow);
@@ -1249,7 +1249,7 @@ body,
 }
 .reveal .goal .lbl {
   font-family: var(--font-mono);
-  font-size: 0.3em;
+  font-size: 0.38em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
   color: var(--light-coal);
@@ -1314,7 +1314,7 @@ body,
 }
 .reveal .versus .carries span {
   font-family: var(--font-mono);
-  font-size: 0.32em;
+  font-size: 0.38em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
   color: var(--flock-yellow);
@@ -1331,3 +1331,96 @@ body,
   border-radius: 50%;
   background: var(--flock-yellow);
 }
+
+/* =====================================================================
+   What the work actually was (slide 8)
+   The counterweight to the title. Without it "the most engineering I've
+   done" reads as a boast; with it, it reads as a description of a job
+   that was mostly not typing.
+   ===================================================================== */
+
+.reveal .worklist {
+  display: grid;
+  gap: 0.34rem;
+  margin: 0.2rem 0 1.1rem;
+  max-width: 34ch;
+}
+.reveal .worklist span {
+  font-size: 0.46em;
+  line-height: 1.35;
+  color: var(--light-grey);
+  padding-left: 1rem;
+  position: relative;
+}
+.reveal .worklist span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.34em;
+  height: 0.34em;
+  border-radius: 50%;
+  background: var(--light-coal);
+}
+.reveal .worklist .lbl {
+  font-family: var(--font-mono);
+  font-size: 0.38em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--light-coal);
+  padding-left: 0;
+}
+.reveal .worklist .lbl::before { display: none; }
+
+.reveal .cost {
+  font-size: 0.5em;
+  line-height: 1.35;
+  color: var(--dark-grey);
+  max-width: 32ch;
+  margin: 0;
+}
+.reveal .cost b { color: var(--white); font-weight: 500; }
+
+/* NOT CURRENTLY USED — the identity block was removed from slide 1. The
+   asset and these rules are kept because getting the right lockup took a
+   checksum check, and restoring it is two lines: import the png and drop a
+   <div className="identity"> back into slide 1.
+
+   Title-slide identity. The lockup is Flock_Admiral_Yellow_Side — the
+   "Flock by Admiral" lockup, side variant, yellow for dark grounds —
+   checksum-verified against tools/brand/tokens.json. Don't substitute a
+   redrawn or recoloured version, and don't fall back to the plain Flock mark.
+
+   ⚠ tokens.json flags the Admiral lockup rules as INFERRED from the assets
+   rather than written down (open question 'admiral-rules', owner Liam). The
+   choice of the side variant here is a judgement, not a ruling. */
+/* Stacked, not inline: the lockup reads as identity rather than as a bullet
+   in a byline, and it can be sized properly. Side variant is 8:1, so height
+   is the constraint — 1.5em here puts it around 300px wide on the canvas. */
+.reveal .identity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0 0 1.8rem;
+}
+.reveal .identity img {
+  height: 1.5em;
+  width: auto;
+  display: block;
+}
+.reveal .identity .who {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono-caps);
+  font-size: 0.4em;
+  color: var(--dark-grey);
+  margin: 0;
+  max-width: none;
+  white-space: nowrap;
+}
+.reveal .identity .who b { color: var(--flock-yellow); font-weight: 500; }
+
+/* slide 8 needs air between the punch and the breakdown under it */
+.reveal .worklist { margin-top: 0.75rem; }

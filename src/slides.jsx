@@ -224,7 +224,6 @@ function TicketBoard() {
                 </div>
                 <div className="foot">
                   <span className="type">Feature</span>
-                  <span className="who">Opened by the loop</span>
                   <span className="ref">{ref_}</span>
                 </div>
               </div>
@@ -429,7 +428,6 @@ export default function Slides() {
       <section>
         {COLD_OPEN === 'guess' && (
           <>
-            <p className="kicker">AI Tinkerers · Tom Harvey</p>
             <h1>Does your software know its purpose?</h1>
             <PurposeGuess />
             <aside className="notes">
@@ -888,6 +886,15 @@ export default function Slides() {
         <p className="kicker muted">What&rsquo;s left</p>
         <h2>This is the most software engineering I&rsquo;ve done in twenty-five years</h2>
         <p className="punch">Building the system that builds the system.</p>
+        <div className="worklist">
+          <span className="lbl">What the work actually was</span>
+          <span>Teaching it what the business is, and what it isn&rsquo;t</span>
+          <span>Writing down the things that only lived in people&rsquo;s heads</span>
+          <span>Deciding out loud what good looks like</span>
+        </div>
+        <p className="cost">
+          Months of it. <b>Almost none of it was typing code.</b>
+        </p>
         <aside className="notes">
           7:50–9:15 · NEVER CUT the why-becomes-the-job beat{'\n\n'}
           Her answer, unprompted: working out the right thing to build.
@@ -902,10 +909,19 @@ export default function Slides() {
           with it, and there was a long stretch where I hadn't."{'\n\n'}
           And the correction people need: software engineering isn't over. It
           changed.{'\n\n'}
-          THE HONEST COST — this has been a serious time investment, and most of
-          it went on teaching it what Flock actually does. Coding standards were
-          about 1% of it; the rest is knowledge that only existed in a few
-          people's heads.{'\n\n'}
+          THE HONEST COST, AND DON'T SKIP IT — the title sounds like a boast
+          until you say what the work was. Months. Almost none of it typing.
+          {'\n\n'}
+          "Teaching it what Flock actually is. Our coding standards were about
+          one percent of what it needed — the rest was knowledge that only
+          existed in three or four people's heads, and nobody had ever been
+          asked to write it down."{'\n\n'}
+          "And deciding, out loud, what good looks like. Which turns out to be
+          the hardest meeting you'll ever run."{'\n\n'}
+          THE RESOLUTION — "so no, software engineering isn't over. It moved.
+          It used to be the thing I typed. Now it's the thing I design, and
+          honestly it's harder. I'd fallen out of love with it somewhere along
+          the way and I hadn't noticed until it came back."{'\n\n'}
           Getting lost in the what was a TRAP, and for thirty years it was
           COMPULSORY. Everybody fell into it, because the job genuinely required
           somebody down there. What's changed is that it's optional now — and
