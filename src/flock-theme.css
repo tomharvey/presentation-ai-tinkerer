@@ -1151,3 +1151,54 @@ body,
   max-width: 30ch;
   margin: 0 0 1.1rem;
 }
+
+/* =====================================================================
+   Numbered build steps (slides 3–6)
+   The numbering is real: you cannot audit against a goal you haven't set,
+   and you cannot judge history without one either. Order carries meaning.
+   ===================================================================== */
+
+.reveal .step {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.34em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--flock-yellow);
+  margin: 0 0 1rem;
+  max-width: none;
+}
+.reveal .step .n {
+  background: var(--flock-yellow);
+  color: var(--dark-coal);
+  border-radius: 2px;
+  padding: 0.05rem 0.4rem;
+}
+.reveal .step .of { color: var(--light-coal); }
+
+/* the goal we handed it, and whether it got there */
+.reveal .goal {
+  width: 100%;
+  max-width: 38ch;
+  border-left: 3px solid var(--flock-yellow);
+  padding-left: 1rem;
+  margin: 0 0 1.4rem;
+}
+.reveal .goal .lbl {
+  font-family: var(--font-mono);
+  font-size: 0.3em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--light-coal);
+  margin: 0 0 0.3rem;
+  max-width: none;
+}
+.reveal .goal .words {
+  font-size: 0.52em;
+  line-height: 1.35;
+  color: var(--white);
+  margin: 0;
+  max-width: none;
+}

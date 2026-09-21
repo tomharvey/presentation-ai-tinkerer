@@ -525,72 +525,54 @@ export default function Slides() {
         </aside>
       </section>
 
-      {/* 3 ────────────────────────────────────── 2:45–3:35 */}
+      {/* 3 ────────────────────────────────────── 2:40–3:40 */}
+      {/* Step one. You cannot audit against a goal you never set, and you
+          cannot judge whether history is progress without one either — so this
+          has to come first. The numbers here are the inarguable ones. */}
       <section>
-        <p className="kicker muted">What broke, one</p>
-        <h2>It couldn&rsquo;t tell a new idea from more evidence</h2>
-        <TicketBoard />
-        <p className="punch">
-          The same finding four times should get louder, not longer.
-        </p>
-        <aside className="notes">
-          2:45–3:35 · NEVER CUT — this is the credibility beat{'\n\n'}
-          CALLBACK — "remember our angry customer? It heard them." Everyone
-          braces for made-up work. What we got was THAT — the same request, four
-          times, phrased four ways.{'\n\n'}
-          AND HERE IS THE THING — it was right every single time. Four different
-          people, four different sets of words, one finding. That isn't the
-          system being forgetful. That is evidence.{'\n\n'}
-          WAIT FOR THE COLLAPSE — "what it should have done is this." One item,
-          with four times the weight behind it.{'\n\n'}
-          "The failure wasn't that it was wrong. It was that it couldn't add its
-          own evidence up. It treated the fourth person saying the same thing as
-          a fourth job, instead of as the reason to believe the first one."{'\n\n'}
-          The fix wasn't a cleverer model. It was letting it see what it had
-          already concluded.{'\n\n'}
-          END THE STORY — "now the person reviewing them finds almost nothing
-          worth throwing away." Result, no figure needed.{'\n\n'}
-          BRIDGE — "wherever you're doing this: hearing the same thing twice
-          should raise your confidence, not your workload. If your setup turns
-          it into more work, that's the bit to fix."{'\n\n'}
-          ⚠ Illustrative wording, real failure mode. Don't present the ticket
-          numbers as exact.
-        </aside>
-      </section>
-
-      {/* 4 ────────────────────────────────────── 3:35–4:15 */}
-      <section>
-        <p className="kicker muted">What broke, two</p>
-        <h2>The queue didn&rsquo;t disappear — it moved behind a person</h2>
-        <div className="pile">
-          <p className="label">Finished by the machine</p>
-          <div className="bar waiting" />
-          <div className="bar waiting" />
-          <div className="bar waiting" />
-          <div className="bar waiting" />
-          <p className="label">Checked off by a human</p>
-          <div className="bar done" />
+        <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Give it a purpose</p>
+        <h2>Tell it what good looks like, then check whether it got there</h2>
+        <div className="goal">
+          <p className="lbl">What we told it it was for</p>
+          <p className="words">
+            &ldquo;People should find this useful enough to come back to it every
+            week.&rdquo;
+          </p>
         </div>
-        <p className="punch">
-          A loop is only as fast as the slowest person left in it.
-        </p>
+        <div className="ratio">
+          <div>
+            <div className="fig mine">20%</div>
+            <p className="who">What we asked for</p>
+          </div>
+          <div>
+            <div className="fig">60%</div>
+            <p className="who">What it does</p>
+          </div>
+        </div>
         <aside className="notes">
-          3:35–4:15{'\n\n'}
-          We wrote something to do a big boring upgrade. Suddenly the work was
-          free. And nothing got checked and released — so it just kept producing
-          more.{'\n\n'}
-          If your answer is "a human checks everything", you have invented a job
-          called approve, approve, approve.{'\n\n'}
-          BRIDGE — "anything you speed up — hiring, content, invoicing — go and
-          look at where the queue formed instead."{'\n\n'}
-          IF BEHIND: skip the upgrade detail, point at the bars, say the
-          one-liner and the bridge.
+          2:40–3:40 · STEP ONE — NEVER CUT{'\n\n'}
+          "Everything after this depends on this bit, and it's the bit everyone
+          skips."{'\n\n'}
+          You have to tell it what it is for. Not what to do — what good looks
+          like. That sentence is roughly what we handed it for this product.
+          {'\n\n'}
+          AND THEN — and this is the half people miss — you need a way to know
+          whether it's getting there. A goal you can't measure isn't a goal,
+          it's a mood.{'\n\n'}
+          THE NUMBERS, SAID PLAINLY: "we asked for twenty percent of people
+          coming back every week. It's sixty." Let that sit. Don't dress it up.
+          {'\n\n'}
+          BRIDGE — "you don't need any of this machinery to do the first part.
+          Most software has never been told what it's for. Write the sentence."
+          {'\n\n'}
+          ⚠ These two figures are the inarguable ones and the only numbers in
+          the talk. Confirm both before you say them.
         </aside>
       </section>
 
-      {/* 5 ────────────────────────────────────── 4:15–5:35 */}
+      {/* 4 ────────────────────────────────────── 3:40–4:40 */}
       <section>
-        <p className="kicker muted">How you build one</p>
+        <p className="step"><span className="n">2</span> <span className="of">of four</span> &middot; Make it auditable</p>
         <h2>If it can&rsquo;t explain itself, you&rsquo;ve just hired it a babysitter</h2>
         <div className="exchange">
           <div className="ask">Why did you put this one at the top?</div>
@@ -600,39 +582,68 @@ export default function Slides() {
           </div>
         </div>
         <aside className="notes">
-          4:15–5:35 · Sentence + the exchange + bridge. NOTHING ELSE.{'\n\n'}
-          SAY THE COMPRESSED VERSION: "it has to be able to explain itself. It
-          needs edges it cannot cross. And it needs to start somewhere that being
-          wrong is survivable. Miss one and you haven't got a loop — you've got
-          something you'll end up babysitting."{'\n\n'}
+          3:40–4:40 · STEP TWO{'\n\n'}
+          "We made a decision early on that turned out to matter more than
+          anything else. We decided it was more important that it could tell us
+          WHY it did something than that it got the thing right first time."
+          {'\n\n'}
           THE EXCHANGE IS THE POINT — that question used to go to a person. Now
-          it goes to the system, and it answers. Someone on our product team
-          picked which retention number to chase in a planning meeting on exactly
-          that basis.{'\n\n'}
-          The other two, one line each: a prompt is a request, a boundary in the
-          tooling is a fact. And start where being wrong is survivable — an
-          internal tool breaking is annoying; paying somebody the wrong amount is
-          not.{'\n\n'}
-          WHY THIS MATTERS, SAID PLAINLY — "the audit trail isn't paperwork.
-          It's how you build trust in the thing. And you only ever hand over
-          control of something you trust."{'\n\n'}
-          IF THERE'S ROOM, the strongest thing from the run-through: you stop
-          telling the system how you work and start asking it. "I could tell you
-          what I wrote in the standards document five years ago. Everyone's gone
-          a different way since. So don't ask me — ask the code what the coding
-          standards are, and it'll tell you." The system is what the system does.
+          it goes to the system, and it answers, and it points at the evidence.
+          Every item it raises traces back to a real person doing a real thing.
           {'\n\n'}
-          BRIDGE — "all three work at any size. Keep the why. Put the limit
-          somewhere it can't be argued with. Start where being wrong is cheap."
-          {'\n\n'}
-          ⚠ The exchange is illustrative of a real capability. Don't quote it as
-          verbatim output.
+          WHY THIS MATTERS, PLAINLY — "the audit trail isn't paperwork. It's how
+          you build trust in the thing. And you only ever hand over control of
+          something you trust."{'\n\n'}
+          IF THERE'S ROOM — you stop telling the system how you work and start
+          asking it. "I could tell you what I wrote in the standards document
+          five years ago. Everyone's gone a different way since. Don't ask me —
+          ask the code what the coding standards are." The system is what the
+          system does.{'\n\n'}
+          BRIDGE — "at any size: keep the why next to the thing, not in a chat
+          you're about to close."{'\n\n'}
+          CUT FROM HERE, NOW Q&amp;A MATERIAL: guardrails in tools not prompts,
+          and sorting work by blast radius.
         </aside>
       </section>
 
-      {/* 6 ────────────────────────────────────── 5:35–6:30 */}
+      {/* 5 ────────────────────────────────────── 4:40–5:40 */}
+      {/* Step three. The four duplicate tickets ARE the memory problem: with no
+          view of what it had already concluded, it can't tell repetition from
+          progress. Same visual, now doing the job it was always best at. */}
+      <section>
+        <p className="step"><span className="n">3</span> <span className="of">of four</span> &middot; Give it a memory</p>
+        <h2>Without a memory it can&rsquo;t tell a new idea from more evidence</h2>
+        <TicketBoard />
+        <p className="punch">
+          The same finding four times should get louder, not longer.
+        </p>
+        <aside className="notes">
+          4:40–5:40 · STEP THREE{'\n\n'}
+          "Here's something nobody warns you about. These things have almost no
+          sense of time passing. Every run is a fresh one, straight out of the
+          box. It doesn't remember yesterday unless you make it."{'\n\n'}
+          SO WATCH WHAT HAPPENS. Four different people, four sets of words, one
+          finding — and it was right every single time. That isn't forgetfulness.
+          That is evidence.{'\n\n'}
+          WAIT FOR THE COLLAPSE — "what it should have done is this." One item,
+          four times the weight behind it.{'\n\n'}
+          "The failure wasn't that it was wrong. It couldn't add its own evidence
+          up. It treated the fourth person saying the same thing as a fourth job,
+          instead of as the reason to believe the first one."{'\n\n'}
+          WHAT THE FIX ACTUALLY IS — feed it its own history. What it has already
+          done, what happened, what's a long-running problem and what's new.
+          Without that it cannot tell progress from repetition.{'\n\n'}
+          BRIDGE — "wherever you're doing this: hearing the same thing twice
+          should raise your confidence, not your workload. If your setup turns
+          it into more work, that's the bit to fix."{'\n\n'}
+          ⚠ Illustrative wording, real failure mode. Don't present the ticket
+          numbers as exact.
+        </aside>
+      </section>
+
+      {/* 6 ────────────────────────────────────── 5:40–7:00 */}
       <section className="invert" data-background-color="#f6f404">
-        <p className="kicker">The hinge</p>
+        <p className="step"><span className="n">4</span> <span className="of">of four</span> &middot; Make it scale</p>
         <h2>Being in the loop doesn&rsquo;t scale, because you don&rsquo;t</h2>
         <InOrAbove />
         <p className="punch">
@@ -640,18 +651,26 @@ export default function Slides() {
           bottlenecks.
         </p>
         <aside className="notes">
-          5:35–6:30 · NEVER CUT. This is the hinge of the whole talk.{'\n\n'}
-          In it: you interrupt. "No — do it this way." Every pass comes back to
-          you. That scales with your attention, and your attention does not
-          scale.{'\n\n'}
-          POINT AT THE RIGHT-HAND SHAPE — "notice that isn't a circle any more.
-          It's still a loop. A loop doesn't have to be a neat circle to be a
-          loop."{'\n\n'}
-          Above it: you change the shape of the thing so it does the right thing
-          by default. That scales with the loop.{'\n\n'}
-          Both are judgement. Only one is a job you can do at volume.{'\n\n'}
-          NO BRIDGE HERE — this beat is already about them. Adding one is talking
-          down.
+          5:40–7:00 · STEP FOUR — NEVER CUT, this is the hinge{'\n\n'}
+          SET IT UP WITH THE BOTTLENECK, SPOKEN — "so it worked, and then it
+          worked too well. It raised more than we could get through. And we hit
+          the thing every engineering team hits: something writes a lot of code
+          and now there's a lot of code to review. All we'd done was move the
+          queue along one place — and put a person in front of it."{'\n\n'}
+          "Humans in the loop sounds like the responsible answer. It mostly
+          creates babysitters and bottlenecks."{'\n\n'}
+          LEFT — you're a station on it. Every revolution comes through you.
+          That scales with your attention, and your attention does not scale.
+          Notice it runs slower.{'\n\n'}
+          RIGHT — you're outside it. You don't make the decisions any more, you
+          change the shape of the thing that makes them. Point at it: "and notice
+          that isn't a circle. It's still a loop. A loop doesn't have to be a
+          neat circle to be a loop."{'\n\n'}
+          HOW YOU ACTUALLY DO IT — go back through the audit trail, find where it
+          decided something you didn't want, see the assumptions it was working
+          from, and change those. You're not correcting the output. You're
+          reshaping what produces it.{'\n\n'}
+          NO BRIDGE HERE — this beat is already about them.
         </aside>
       </section>
 

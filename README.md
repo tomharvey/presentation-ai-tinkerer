@@ -44,11 +44,17 @@ Switch without touching the code:
 Nine slides. Read the titles alone and you get the whole thing:
 
 1. Your software doesn't know its purpose
-2. Every ticket now carries the reason it exists
-3. It couldn't tell a new idea from more evidence
-4. The queue didn't disappear — it moved behind a person
-5. If it can't explain itself, you've just hired it a babysitter
-6. Judgement moves from inside the loop to above it
+2. We stopped writing our own to-do list
+
+Then the four things that make one of these work, in the order they have to
+happen — you can't audit against a goal you never set, and you can't judge
+history without one either:
+
+3. **Give it a purpose** — tell it what good looks like, then check whether it got there
+4. **Make it auditable** — if it can't explain itself, you've just hired it a babysitter
+5. **Give it a memory** — without one it can't tell a new idea from more evidence
+6. **Make it scale** — being in the loop doesn't scale, because you don't
+
 7. You can't shape a loop without knowing what it's for
 8. This is the most software engineering I've done in twenty-five years
 9. Does your software know its purpose? Do you?
