@@ -44,7 +44,7 @@ Switch without touching the code:
 Nine slides. Read the titles alone and you get the whole thing:
 
 1. Your software doesn't know its purpose
-2. We stopped writing our own to-do list
+2. We stopped writing down what to build
 
 Then the four things that make one of these work, in the order they have to
 happen — you can't audit against a goal you never set, and you can't judge
@@ -52,7 +52,7 @@ history without one either:
 
 3. **Give it a purpose** — tell it what good looks like, then check whether it got there
 4. **Make it auditable** — if it can't explain itself, you've just hired it a babysitter
-5. **Give it a memory** — without one it can't tell a new idea from more evidence
+5. **Give it a memory** — a memory turns repetition into evidence
 6. **Make it scale** — being in the loop doesn't scale, because you don't
 
 7. You can't shape a loop without knowing what it's for

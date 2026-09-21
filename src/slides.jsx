@@ -391,7 +391,7 @@ function InOrAbove() {
       />
       <path className="head" d="M181 104 L191 104 L186 116 Z" opacity={0.25 + left.person * 0.75} />
       <circle className="you" cx="130" cy="52" r="10" opacity={left.person} />
-      <text className="tiny" x="130" y="190" textAnchor="middle">
+      <text className="tiny" x="142" y="190" textAnchor="middle">
         every pass comes through you
       </text>
 
@@ -587,13 +587,16 @@ export default function Slides() {
       {/* 2 ────────────────────────────────────── 1:30–2:45 */}
       <section>
         <p className="kicker muted">The loop</p>
-        <h2>We stopped writing our own to-do list</h2>
+        <h2>We stopped writing down what to build</h2>
         <LoopDiagram />
         <aside className="notes">
           1:30–2:45 · The diagram builds itself in four steps — let it land
           before you talk over the last one.{'\n\n'}
-          We stopped writing the list of what to build. Something else reads what
-          customers actually do, and writes the job up WITH THE REASON ATTACHED.
+          Nobody here writes down what to build any more. Something else reads
+          what customers actually do, and writes the job up WITH THE REASON
+          ATTACHED.{'\n\n'}
+          ⚠ Don't say "backlog", "tickets", "pipeline" or "life cycle" — say what
+          it is: the list of what we're going to build next, and who wrote it.
           {'\n\n'}
           That reason is the intent travelling with the work — the thing that
           used to evaporate.{'\n\n'}
@@ -732,7 +735,7 @@ export default function Slides() {
           progress. Same visual, now doing the job it was always best at. */}
       <section>
         <p className="step"><span className="n">3</span> <span className="of">of four</span> &middot; Give it a memory</p>
-        <h2>It can&rsquo;t tell a new idea from more evidence</h2>
+        <h2>A memory turns repetition into evidence</h2>
         <TicketBoard />
         <p className="punch">
           Evidence should make it louder, or narrower &mdash; never just longer.
@@ -742,6 +745,9 @@ export default function Slides() {
           "Here's something nobody warns you about. These things have almost no
           sense of time passing. Every run is a fresh one, straight out of the
           box. It doesn't remember yesterday unless you make it."{'\n\n'}
+          WHICH MEANS, WITHOUT ONE, the fourth person telling you the same thing
+          is just a fourth job. WITH one, it's the reason to believe the first
+          three.{'\n\n'}
           SO WATCH WHAT HAPPENS. Four different people, four sets of words, one
           finding — and it was right every single time. That isn't forgetfulness.
           That is evidence.{'\n\n'}
