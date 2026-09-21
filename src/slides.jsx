@@ -1144,12 +1144,6 @@ export default function Slides() {
         <p className="kicker muted">What&rsquo;s left</p>
         <h2>This is the most software engineering I&rsquo;ve done in twenty-five years</h2>
         <p className="punch">Building the system that builds the system.</p>
-        <div className="worklist">
-          <span className="lbl">What the work actually was</span>
-          <span>Teaching it what the business is, and what it isn&rsquo;t</span>
-          <span>Writing down the things that only lived in people&rsquo;s heads</span>
-          <span>Deciding out loud what good looks like</span>
-        </div>
         <p className="cost">
           Months of it. <b>Almost none of it was typing code.</b>
         </p>
@@ -1170,6 +1164,10 @@ export default function Slides() {
           THE HONEST COST, AND DON'T SKIP IT — the title sounds like a boast
           until you say what the work was. Months. Almost none of it typing.
           {'\n\n'}
+          THE THREE THINGS ARE SPOKEN NOW, NOT ON THE SLIDE. Say them as a list
+          and let them land: teaching it what the business is and what it isn't;
+          writing down the things that only lived in people's heads; deciding,
+          out loud, what good looks like.{'\n\n'}
           "Teaching it what Flock actually is. Our coding standards were about
           one percent of what it needed — the rest was knowledge that only
           existed in three or four people's heads, and nobody had ever been
