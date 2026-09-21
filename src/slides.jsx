@@ -245,7 +245,12 @@ function WhatThenWhy() {
 }
 
 /* ---------------------------------------------------------------- slide 3 */
-/* Four cards arrive, hold, then collapse into one signal that is simply
+/* The title has to stand alone, so it says the plain version: hearing the
+   same thing again should change how sure you are. Both directions — the
+   four reports corroborate each other, then something arrives that conflicts
+   and cuts the claim down.
+
+   Four cards arrive, hold, then collapse into one signal that is simply
    stronger — because that is what they always were. The repetition wasn't the
    system being forgetful; it was the same finding confirmed four times with no
    way to add it up.
@@ -810,7 +815,7 @@ export default function Slides() {
           progress. Same visual, now doing the job it was always best at. */}
       <section>
         <p className="step"><span className="n">3</span> <span className="of">of four</span> &middot; Give it a memory</p>
-        <h2>A memory turns repetition into evidence</h2>
+        <h2>Hearing it again should change how sure you are</h2>
         <TicketBoard />
         <p className="punch">
           Evidence should make it louder, or narrower.
@@ -822,7 +827,8 @@ export default function Slides() {
           box. It doesn't remember yesterday unless you make it."{'\n\n'}
           WHICH MEANS, WITHOUT ONE, the fourth person telling you the same thing
           is just a fourth job. WITH one, it's the reason to believe the first
-          three.{'\n\n'}
+          three — or, when it cuts the other way, the reason to stop believing
+          them.{'\n\n'}
           SO WATCH WHAT HAPPENS. Four different people, four sets of words, one
           finding — and it was right every single time. That isn't forgetfulness.
           That is evidence.{'\n\n'}
