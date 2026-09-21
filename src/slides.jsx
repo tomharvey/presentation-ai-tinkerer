@@ -762,6 +762,12 @@ export default function Slides() {
    is the question slide 1 asks, a goal is the answerable form you can hand to
    a machine and measure.
 
+   Both halves are imperatives, deliberately — "give it", "make it" — so the
+   slide reads as two things you do rather than one thing you do and one thing
+   that then becomes possible. "Itself" stays: "make it improve" on its own
+   reads as you doing the improving, which is the distinction this slide exists
+   to draw.
+
    The second half is the payoff, not the mechanism: a goal plus a way to
    measure against it is the only thing that makes self-improvement possible at
    all. Both halves of that — validating itself, then correcting itself — have
@@ -772,7 +778,7 @@ export default function Slides() {
         <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Feedback loop</p>
         <h2>
           Give it a goal.{' '}
-          <span className="second">Now it can improve itself.</span>
+          <span className="second">Make it improve itself.</span>
         </h2>
         <div className="goal">
           <p className="lbl">The goal we gave it</p>
