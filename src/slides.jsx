@@ -107,14 +107,17 @@ function useSlideStages(count, gap) {
    Each guess swells, holds, then drifts up and to the right, growing as it
    fades. A thought that floats off reads as unresolved; one that pops in place
    reads as answered and dismissed, which is the opposite of the point. */
-/* Deliberately grand. The joke is the gap between how loudly a business
-   talks about what its software is for and how little the software has been
-   told. Ambitious and a bit shouty beats accurate here. */
+/* Three of these are funnel stages — money in, users in, users kept. The
+   third deliberately isn't: it's a cost reason, not a growth one. If all four
+   agreed with each other the slide would just be showing a funnel; pulling in
+   different directions is what makes the point that nobody has settled what
+   the thing is for. Swap freely, but keep one that breaks the pattern, and
+   keep them all under about 20 characters or they overflow the cloud. */
 const PURPOSES = [
-  'Sell sell sell!',
-  'Sign up the world',
-  'Make them love us',
-  'Change the industry',
+  'Take money',
+  'Sign up users',
+  'Cut the calls',
+  'Retain users',
 ]
 
 /* Scalloped outline: thirteen arcs around an ellipse, each bump given a
@@ -534,11 +537,12 @@ export default function Slides() {
               first cycle looks like an answer; the second is when the room
               works out it's never going to land on one. That realisation is
               the slide — don't step on it.{'\n\n'}
-              "Sell sell sell. Sign up the world. Make them love us. Change the
-              industry." Let the room enjoy how grand they are. "Every one of
-              those is something a business genuinely says about itself. Not one
-              of them has ever been said TO this thing. So it keeps guessing,
-              and it'll keep guessing for as long as it's up."{'\n\n'}
+              "Take money. Sign up users. Cut the calls. Retain users."
+              {'\n\n'}
+              "Every one of those is a real answer somebody in the building would
+              give you — and they don't agree with each other. Not one of them
+              has ever been said TO this thing. So it keeps guessing, and it'll
+              keep guessing for as long as it's up."{'\n\n'}
               WALK THE CARD. Notice every one of those is about its own shape —
               size, layout, colour. It answers them instantly, and has been able to
               for twenty years. The last one it has never been able to
