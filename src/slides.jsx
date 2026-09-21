@@ -674,8 +674,10 @@ export default function Slides() {
         <div className="versus">
           <div className="side">
             <p className="where">In it &middot; an instruction about one thing</p>
-            <p className="said">&ldquo;Move that button to the left.&rdquo;</p>
-            <p className="life">Works once. Then it&rsquo;s gone.</p>
+            <p className="said">
+              &ldquo;Add a button to that table that downloads a CSV.&rdquo;
+            </p>
+            <p className="life">You get that button. Nothing else, ever.</p>
           </div>
           <div className="side up">
             <p className="where">Above it &middot; an instruction about what good looks like</p>
@@ -683,19 +685,28 @@ export default function Slides() {
               &ldquo;People should be able to get at their own data without
               asking us.&rdquo;
             </p>
-            <p className="life">Still working after you&rsquo;ve left the room.</p>
+            <p className="life">
+              You get that button &mdash; and the four you hadn&rsquo;t thought of.
+            </p>
           </div>
         </div>
         <aside className="notes">
           6:30–7:50 · NEVER CUT — this is the turn the whole talk hinges on{'\n\n'}
           "Here's the bit I didn't expect. Moving above the loop doesn't just
           free you up. It takes something away from you."{'\n\n'}
-          LEFT — inside the loop, every instruction you give is a WHAT. Not that
-          one, this one. Move it left. Precise, effective, and dead the second
-          it's carried out. It works because you were standing there.{'\n\n'}
-          RIGHT — from above it you aren't standing there. You can't give that
-          kind of instruction any more; you're not present when each one happens.
-          The only lever you've got left is changing the conditions.{'\n\n'}
+          READ THE LEFT ONE FIRST. That is a perfectly good instruction. Precise,
+          unambiguous, and you'd get exactly that button.{'\n\n'}
+          NOW THE RIGHT ONE — and say this explicitly, because it's the whole
+          slide: "the left-hand one is something the right-hand one would have
+          produced anyway." Ask for the button and you get the button. Ask for
+          the outcome and you get the button, plus the download link in the
+          email, plus the thing on the mobile screen, plus the one nobody in
+          this room has thought of yet.{'\n\n'}
+          THE ASYMMETRY — inside the loop every instruction you give is a WHAT.
+          It works because you were standing there when it was needed. From
+          above it you aren't standing there, so you can't give that kind of
+          instruction at all. The only lever left is changing the conditions.
+          {'\n\n'}
           THE POINT, SLOWLY — "and you cannot change the conditions sensibly
           without a definition of better. A definition of better is a why. So
           the why isn't the thing you get to think about once you've got spare
@@ -706,6 +717,10 @@ export default function Slides() {
           "Neither can you."{'\n\n'}
           NO NAMES, NO NUMBERS, NO TOOLING. This slide is an argument, not
           evidence.{'\n\n'}
+          ⚠ The two must stay RELATED — the left has to be something the right
+          could plausibly produce. Unrelated examples were tried and nobody could
+          see the connection. Both also sit on the export thread running through
+          slides 1 and 3, so the room has met this need twice already.{'\n\n'}
           ⚠ The right-hand instruction should be something you'd genuinely say.
           Swap it for your own wording if it rings false — it's carrying a lot.
         </aside>
