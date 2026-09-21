@@ -51,7 +51,7 @@ Then the four things that make one of these work, in the order they have to
 happen — you can't audit against a goal you never set, and you can't judge
 history without one either:
 
-3. **Feedback loop** — give it a goal. Check it got there.
+3. **Feedback loop** — give it a goal. It keeps score.
 4. **Make it auditable** — if it can't explain itself, you've just hired it a babysitter
 5. **Give it a memory** — hearing it again should change how sure you are
 6. **Make it scale** — a loop with you in it runs at your speed

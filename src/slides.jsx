@@ -760,12 +760,16 @@ export default function Slides() {
 
    The step says GOAL, not purpose, and the difference is the point: purpose
    is the question slide 1 asks, a goal is the answerable form you can hand to
-   a machine and measure. */}
+   a machine and measure.
+
+   "It keeps score", not "check it got there" — the measuring has to be inside
+   the loop. If the human is the one checking, the human is back in the loop,
+   which is the thing step four spends its whole slide arguing against. */}
       <section>
         <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Feedback loop</p>
         <h2>
           Give it a goal.{' '}
-          <span className="second">Check it got there.</span>
+          <span className="second">It keeps score.</span>
         </h2>
         <div className="goal">
           <p className="lbl">The goal we gave it</p>
@@ -797,9 +801,13 @@ export default function Slides() {
           ⚠ SAY "USERS", NOT "FLEET MANAGERS" — nobody outside insurance knows
           what a fleet manager is, and the word costs you a beat while they work
           it out. Same for "fleets": say customers.{'\n\n'}
-          AND THEN — and this is the half people miss — you need a way to know
-          whether it's getting there. A goal you can't measure isn't a goal,
-          it's a mood.{'\n\n'}
+          AND THEN — and this is the half people miss — IT needs a way to know
+          whether it's getting there. Not you. That distinction is the whole
+          slide: the measuring lives inside the loop, so the thing can tell how
+          it's doing without anyone asking it.{'\n\n'}
+          "If I'm the one checking, I'm back in the loop — and we'll get to why
+          that doesn't work in a few minutes."{'\n\n'}
+          A goal it can't measure isn't a goal, it's a mood.{'\n\n'}
           THE NUMBERS, SAID PLAINLY: "we asked for twenty percent of the people
           who tried it to keep coming back. It's fifty-nine." Let that sit.
           Don't dress it up.{'\n\n'}
