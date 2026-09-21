@@ -1144,9 +1144,6 @@ export default function Slides() {
         <p className="kicker muted">What&rsquo;s left</p>
         <h2>This is the most software engineering I&rsquo;ve done in twenty-five years</h2>
         <p className="punch">Building the system that builds the system.</p>
-        <p className="cost">
-          Months of it. <b>Almost none of it was typing code.</b>
-        </p>
         <aside className="notes">
           7:50–9:15 · NEVER CUT the why-becomes-the-job beat{'\n\n'}
           Her answer, unprompted: working out the right thing to build.
@@ -1161,9 +1158,9 @@ export default function Slides() {
           with it, and there was a long stretch where I hadn't."{'\n\n'}
           And the correction people need: software engineering isn't over. It
           changed.{'\n\n'}
-          THE HONEST COST, AND DON'T SKIP IT — the title sounds like a boast
-          until you say what the work was. Months. Almost none of it typing.
-          {'\n\n'}
+          THE HONEST COST IS NOW ENTIRELY SPOKEN — nothing on the slide carries
+          it, and the title sounds like a boast until you do. "Months of it. And
+          almost none of it was typing code."{'\n\n'}
           THE THREE THINGS ARE SPOKEN NOW, NOT ON THE SLIDE. Say them as a list
           and let them land: teaching it what the business is and what it isn't;
           writing down the things that only lived in people's heads; deciding,
