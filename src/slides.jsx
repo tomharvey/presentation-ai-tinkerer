@@ -20,11 +20,11 @@ import { useEffect, useRef, useState } from 'react'
      · press C while the deck has focus, to cycle card → belt → portrait
      · or open the deck with ?open=belt / ?open=portrait
 
-   'guess'    — the room can guess its purpose; the software itself cannot
-   'targets'  — the same, but the guesses are numbers somebody is carrying
+   'targets'  — the default: the guesses are numbers somebody is carrying
+   'guess'    — the same in words rather than figures
    'belt'     — the feature factory, which predates all of this
    'portrait' — the homepage that can describe everything about itself but why */
-const COLD_OPENS = ['guess', 'targets', 'belt', 'portrait']
+const COLD_OPENS = ['targets', 'guess', 'belt', 'portrait']
 
 function useColdOpen() {
   const [which, setWhich] = useState(() => {

@@ -30,12 +30,13 @@ npm run build    # static bundle in dist/
 Three openers are built. One shows at a time, so the deck is always nine slides.
 Switch without touching the code:
 
-- **Press `C`** while the deck has focus — cycles guess → belt → portrait
+- **Press `C`** while the deck has focus — cycles targets → guess → belt → portrait
 - or open the deck with **`?open=belt`** / **`?open=portrait`**
 
 | Value | What it opens on |
 |---|---|
-| `guess` | The site sits there thinking — a bubble rises with a guess at its purpose, pops, and another takes its place. Four, on a loop |
+| `targets` | **Default.** The site thinks in numbers somebody is carrying — +20% more sales, 1,000 signups a day, −100 support requests, +15% weekly returns |
+| `guess` | The same in words — take money, sign up users, cut the calls, retain users |
 | `belt` | A feature factory, which predates all of this; the machines only sped the line up |
 | `portrait` | A homepage that can tell you everything about itself except why it exists |
 
