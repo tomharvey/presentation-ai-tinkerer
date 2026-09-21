@@ -53,7 +53,7 @@ history without one either:
 3. **Feedback loop** — give it a goal, then check it got there
 4. **Make it auditable** — if it can't explain itself, you've just hired it a babysitter
 5. **Give it a memory** — hearing it again should change how sure you are
-6. **Make it scale** — being in the loop doesn't scale, because you don't
+6. **Make it scale** — a loop with you in it runs at your speed
 
 7. You can't shape a loop without knowing what it's for
 8. This is the most software engineering I've done in twenty-five years

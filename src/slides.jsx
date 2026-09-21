@@ -861,7 +861,7 @@ export default function Slides() {
       {/* 6 ────────────────────────────────────── 5:40–7:00 */}
       <section className="invert" data-background-color="#f6f404">
         <p className="step"><span className="n">4</span> <span className="of">of four</span> &middot; Make it scale</p>
-        <h2>Being in the loop doesn&rsquo;t scale, because you don&rsquo;t</h2>
+        <h2>A loop with you in it runs at your speed</h2>
         <InOrAbove />
         <p className="punch">
           A human in the loop sounds responsible. It just makes babysitters and
@@ -876,9 +876,12 @@ export default function Slides() {
           queue along one place — and put a person in front of it."{'\n\n'}
           "Humans in the loop sounds like the responsible answer. It mostly
           creates babysitters and bottlenecks."{'\n\n'}
-          LEFT — you're a station on it. Every revolution comes through you.
-          That scales with your attention, and your attention does not scale.
-          Notice it runs slower.{'\n\n'}
+          LEFT — you're a station on it. Every revolution has to come through
+          you, so the whole thing moves at whatever pace you can manage. Point
+          at it: it visibly slows down when the person appears, and stops
+          altogether while they're there.{'\n\n'}
+          "And that's not a criticism of the person. It's arithmetic. However
+          fast you are, that's the ceiling."{'\n\n'}
           RIGHT — you're outside it. You don't make the decisions any more, you
           change the shape of the thing that makes them. Point at it: "and notice
           that isn't a circle. It's still a loop. A loop doesn't have to be a
