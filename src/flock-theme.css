@@ -2174,3 +2174,13 @@ body,
   fill: var(--flock-yellow);
   opacity: 0.72;
 }
+
+/* Slide 1: pull the headline down onto the artwork. Reveal centres the block
+   vertically, so closing this gap moves the title down and the site up at the
+   same time — they converge rather than the whole thing sliding. */
+.reveal h1.tight {
+  margin-bottom: 0;
+}
+.reveal h1.tight + .thinksite {
+  margin-top: -1.6rem;
+}

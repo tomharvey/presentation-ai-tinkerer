@@ -216,7 +216,7 @@ function LoopDiagram() {
       className="loop-svg"
       viewBox="0 0 760 210"
       role="img"
-      aria-label="Customers act, it notices, work with intent, it ships, and it watches what changed"
+      aria-label="Customers act, it notices, work with purpose, it ships, and it watches what changed"
     >
       <g>
         <rect x="4" y="52" width="150" height="58" rx="3" />
@@ -234,7 +234,7 @@ function LoopDiagram() {
         <line className="flow" x1="350" y1="81" x2="398" y2="81" />
         <path d="M390 75 L400 81 L390 87 Z" fill="#3b484c" stroke="none" />
         <rect className="hl" x="404" y="42" width="180" height="78" rx="3" />
-        <text className="hl" x="494" y="86" textAnchor="middle">Work with intent</text>
+        <text className="hl" x="494" y="86" textAnchor="middle">Work with purpose</text>
       </g>
 
       <g>
@@ -524,7 +524,7 @@ export default function Slides() {
       <section>
         {COLD_OPEN === 'guess' && (
           <>
-            <h1>Does your software know its purpose?</h1>
+            <h1 className="tight">Does your software know its purpose?</h1>
             <ThinkingSite />
             <aside className="notes">
               0:00–1:30 · NEVER CUT{'\n\n'}
@@ -604,7 +604,7 @@ export default function Slides() {
         )}
         {COLD_OPEN === 'targets' && (
           <>
-            <h1>Does your software know its purpose?</h1>
+            <h1 className="tight">Does your software know its purpose?</h1>
             <ThinkingSite metric />
             <aside className="notes">
               COLD OPEN — TARGETS variant of the thinking site.{'\n\n'}
@@ -632,7 +632,7 @@ export default function Slides() {
               <div className="fog" />
               <p className="stamp">Feature factory &middot; est. long before any of this</p>
             </div>
-            <h1>Does your software know its purpose?</h1>
+            <h1 className="tight">Does your software know its purpose?</h1>
             <aside className="notes">
               COLD OPEN — ALTERNATE A · the feature factory{'\n\n'}
               Let it run in silence for a few seconds before you say anything.{'\n\n'}
@@ -687,7 +687,7 @@ export default function Slides() {
               <path className="lead" d="M150 18 L150 6" />
               <text className="q" x="150" y="0" textAnchor="middle">what is this for?</text>
             </svg>
-            <h1>Does your software know its purpose?</h1>
+            <h1 className="tight">Does your software know its purpose?</h1>
             <aside className="notes">
               COLD OPEN — ALTERNATE B · the self-portrait{'\n\n'}
               "This is our homepage. Ask it anything about how it's put together
@@ -725,11 +725,11 @@ export default function Slides() {
           you stopped caring whether it's any good, which is the fear this room
           already has and the opposite of the point.{'\n\n'}
           WALK THE FOUR BOXES — customers act, it notices, it writes the work up
-          WITH THE INTENT ATTACHED, it ships. Then the arrow back: it watches
+          WITH ITS PURPOSE ATTACHED, it ships. Then the arrow back: it watches
           what changed.{'\n\n'}
-          LEAN ON THAT WORD. "Work with intent. Not a task — a task with the
-          reason it exists still attached to it. That's the bit that used to
-          fall off."{'\n\n'}
+          LEAN ON THAT WORD — it's the same one the title asked about. "Work with
+          purpose. Not a task — a task with the reason it exists still attached
+          to it. That's the bit that used to fall off."{'\n\n'}
           ⚠ Don't say "backlog", "tickets", "pipeline" or "life cycle" — say what
           it is: the list of what we're going to build next, and who wrote it.
           {'\n\n'}
