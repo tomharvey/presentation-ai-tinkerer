@@ -762,15 +762,17 @@ export default function Slides() {
    is the question slide 1 asks, a goal is the answerable form you can hand to
    a machine and measure.
 
-   "It knows if it's working", not "check it got there" — the measuring has to
-   be inside the loop. "Knows" is also the verb the opening slide uses, so the
-   two hook together. If the human is the one checking, the human is back in the loop,
+   The second half is the payoff, not the mechanism: a goal plus a way to
+   measure against it is the only thing that makes self-improvement possible at
+   all. Both halves of that — validating itself, then correcting itself — have
+   to happen inside the loop. The moment the person is the one checking, the
+   person is back in the loop, which is what step four argues against. If the human is the one checking, the human is back in the loop,
    which is the thing step four spends its whole slide arguing against. */}
       <section>
         <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Feedback loop</p>
         <h2>
           Give it a goal.{' '}
-          <span className="second">It knows if it&rsquo;s working.</span>
+          <span className="second">Now it can improve itself.</span>
         </h2>
         <div className="goal">
           <p className="lbl">The goal we gave it</p>
@@ -802,12 +804,16 @@ export default function Slides() {
           ⚠ SAY "USERS", NOT "FLEET MANAGERS" — nobody outside insurance knows
           what a fleet manager is, and the word costs you a beat while they work
           it out. Same for "fleets": say customers.{'\n\n'}
-          AND THEN — and this is the half people miss — IT needs a way to know
-          whether it's getting there. Not you. That distinction is the whole
-          slide: the measuring lives inside the loop, so the thing can tell how
-          it's doing without anyone asking it.{'\n\n'}
+          AND THEN — and this is the half people miss — IT needs a way to measure
+          itself against that. Not you. The checking has to live inside the loop.
+          {'\n\n'}
           "If I'm the one checking, I'm back in the loop — and we'll get to why
           that doesn't work in a few minutes."{'\n\n'}
+          WHY IT MATTERS — "and that's the whole thing. Something that can tell
+          whether it's hitting its goal is something that can correct itself
+          when it isn't. Without the goal there's nothing to correct towards.
+          That's the difference between a system that improves and one that just
+          runs."{'\n\n'}
           A goal it can't measure isn't a goal, it's a mood.{'\n\n'}
           THE NUMBERS, SAID PLAINLY: "we asked for twenty percent of the people
           who tried it to keep coming back. It's fifty-nine." Let that sit.
