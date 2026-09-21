@@ -53,7 +53,7 @@ history without one either:
 
 3. **Feedback loop** — give it a goal. Make it improve itself.
 4. **Make it auditable** — if it can't explain itself, you've just hired it a babysitter
-5. **Give it a memory** — hearing it again should change how sure you are
+5. **Give it a memory** — evidence stacks up. Conflicts cut it back.
 6. **Make it scale** — a loop with you in it runs at your speed
 
 7. You can't shape a loop without knowing what it's for

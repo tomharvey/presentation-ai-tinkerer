@@ -277,10 +277,15 @@ function WhatThenWhy() {
 }
 
 /* ---------------------------------------------------------------- slide 3 */
-/* The title has to stand alone, so it says the plain version: hearing the
-   same thing again should change how sure you are. Both directions — the
-   four reports corroborate each other, then something arrives that conflicts
-   and cuts the claim down.
+/* The title is about the evidence, not about the listener. An earlier version
+   said "hearing it again should change how sure YOU are" — but by this point in
+   the talk the person is deliberately out of the loop, so their confidence
+   isn't the thing being adjusted. The evidence is.
+
+   Two halves matching the two beats of the animation: four reports stack into
+   one stronger signal, then something arrives that conflicts and cuts the claim
+   back. The title now carries what the punch line used to, so there is no line
+   underneath.
 
    Four cards arrive, hold, then collapse into one signal that is simply
    stronger — because that is what they always were. The repetition wasn't the
@@ -894,11 +899,11 @@ export default function Slides() {
           progress. Same visual, now doing the job it was always best at. */}
       <section>
         <p className="step"><span className="n">3</span> <span className="of">of four</span> &middot; Give it a memory</p>
-        <h2>Hearing it again should change how sure you are</h2>
+        <h2>
+          Evidence stacks up.{' '}
+          <span className="second">Conflicts cut it back.</span>
+        </h2>
         <TicketBoard />
-        <p className="punch">
-          Evidence should make it louder, or narrower.
-        </p>
         <aside className="notes">
           4:40–5:40 · STEP THREE{'\n\n'}
           "Here's something nobody warns you about. These things have almost no
