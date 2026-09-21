@@ -50,7 +50,7 @@ Then the four things that make one of these work, in the order they have to
 happen — you can't audit against a goal you never set, and you can't judge
 history without one either:
 
-3. **Give it a purpose** — tell it what good looks like, then check whether it got there
+3. **Give it a goal** — tell it what good looks like, then check it got there
 4. **Make it auditable** — if it can't explain itself, you've just hired it a babysitter
 5. **Give it a memory** — a memory turns repetition into evidence
 6. **Make it scale** — being in the loop doesn't scale, because you don't

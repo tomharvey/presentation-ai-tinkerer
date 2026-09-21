@@ -690,11 +690,15 @@ export default function Slides() {
       </section>
 
       {/* 3 ────────────────────────────────────── 2:40–3:40 */}
-      {/* Step one. You cannot audit against a goal you never set, and you
-          cannot judge whether history is progress without one either — so this
-          has to come first. The numbers here are the inarguable ones. */}
+      {/* Step one. You cannot audit against a goal you never set, and you cannot
+   judge whether history is progress without one either — so this has to come
+   first. The numbers here are the inarguable ones.
+
+   The step says GOAL, not purpose, and the difference is the point: purpose
+   is the question slide 1 asks, a goal is the answerable form you can hand to
+   a machine and measure. */}
       <section>
-        <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Give it a purpose</p>
+        <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Give it a goal</p>
         <h2>Tell it what good looks like, then check it got there</h2>
         <div className="goal">
           <p className="lbl">What we told it it was for</p>
@@ -720,8 +724,8 @@ export default function Slides() {
           2:40–3:40 · STEP ONE — NEVER CUT{'\n\n'}
           "Everything after this depends on this bit, and it's the bit everyone
           skips."{'\n\n'}
-          You have to tell it what it is for. Not what to do — what good looks
-          like. That sentence is roughly what we handed it for this product.
+          You have to give it a goal. Not a task — a goal. Not what to do, what
+          good looks like. That sentence is roughly what we handed it for this product.
           {'\n\n'}
           ⚠ SAY "USERS", NOT "FLEET MANAGERS" — nobody outside insurance knows
           what a fleet manager is, and the word costs you a beat while they work
