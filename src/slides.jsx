@@ -185,7 +185,7 @@ function LoopDiagram() {
       className={`loop-svg lit-${lit}`}
       viewBox="0 0 760 210"
       role="img"
-      aria-label="Customers act, it notices, work carrying its reason, it ships, and it watches what changed"
+      aria-label="Customers act, it notices, work with intent, it ships, and it watches what changed"
     >
       <g className="stage s1">
         <rect x="4" y="52" width="150" height="58" rx="3" />
@@ -203,7 +203,7 @@ function LoopDiagram() {
         <line className="flow" x1="350" y1="81" x2="398" y2="81" />
         <path d="M390 75 L400 81 L390 87 Z" fill="#3b484c" stroke="none" />
         <rect className="hl" x="404" y="42" width="180" height="78" rx="3" />
-        <text className="hl" x="494" y="86" textAnchor="middle">Work, and why</text>
+        <text className="hl" x="494" y="86" textAnchor="middle">Work with intent</text>
       </g>
 
       <g className="stage s4">
@@ -666,8 +666,11 @@ export default function Slides() {
           THEN SAY THE SECOND HALF YOURSELF: "we write down why." It's already
           on screen — the pause is yours to take, not the slide's.{'\n\n'}
           WALK THE FOUR BOXES — customers act, it notices, it writes the work up
-          WITH THE REASON ATTACHED, it ships. Then the arrow back: it watches
+          WITH THE INTENT ATTACHED, it ships. Then the arrow back: it watches
           what changed.{'\n\n'}
+          LEAN ON THAT WORD. "Work with intent. Not a task — a task with the
+          reason it exists still attached to it. That's the bit that used to
+          fall off."{'\n\n'}
           ⚠ Don't say "backlog", "tickets", "pipeline" or "life cycle" — say what
           it is: the list of what we're going to build next, and who wrote it.
           {'\n\n'}
