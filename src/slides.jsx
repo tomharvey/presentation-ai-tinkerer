@@ -185,44 +185,39 @@ function LoopDiagram() {
       className={`loop-svg lit-${lit}`}
       viewBox="0 0 760 210"
       role="img"
-      aria-label="What customers do, to an agent, to work carrying its reason, to shipped, and back again"
+      aria-label="Customers act, it notices, work carrying its reason, it ships, and it watches what changed"
     >
       <g className="stage s1">
         <rect x="4" y="52" width="150" height="58" rx="3" />
-        <text x="79" y="76" textAnchor="middle">What customers</text>
-        <text x="79" y="94" textAnchor="middle">actually do</text>
+        <text x="79" y="86" textAnchor="middle">Customers act</text>
       </g>
 
       <g className="stage s2">
         <line className="flow" x1="160" y1="81" x2="208" y2="81" />
         <path d="M200 75 L210 81 L200 87 Z" fill="#3b484c" stroke="none" />
         <rect x="214" y="52" width="130" height="58" rx="3" />
-        <text x="279" y="76" textAnchor="middle">Something</text>
-        <text x="279" y="94" textAnchor="middle">reads it</text>
+        <text x="279" y="86" textAnchor="middle">It notices</text>
       </g>
 
       <g className="stage s3">
         <line className="flow" x1="350" y1="81" x2="398" y2="81" />
         <path d="M390 75 L400 81 L390 87 Z" fill="#3b484c" stroke="none" />
         <rect className="hl" x="404" y="42" width="180" height="78" rx="3" />
-        <text className="hl" x="494" y="70" textAnchor="middle">Work — carrying</text>
-        <text className="hl" x="494" y="88" textAnchor="middle">the reason</text>
-        <text className="hl" x="494" y="106" textAnchor="middle">it exists</text>
+        <text className="hl" x="494" y="86" textAnchor="middle">Work, and why</text>
       </g>
 
       <g className="stage s4">
         <line className="flow" x1="590" y1="81" x2="638" y2="81" />
         <path d="M630 75 L640 81 L630 87 Z" fill="#3b484c" stroke="none" />
         <rect x="644" y="52" width="110" height="58" rx="3" />
-        <text x="699" y="76" textAnchor="middle">Out in</text>
-        <text x="699" y="94" textAnchor="middle">the world</text>
+        <text x="699" y="86" textAnchor="middle">It ships</text>
         <path
           className="back flow"
           d="M699 118 L699 172 Q699 182 689 182 L89 182 Q79 182 79 172 L79 118"
         />
         <path d="M73 128 L79 116 L85 128 Z" fill="#f6f404" stroke="none" />
         <text className="hl" x="389" y="204" textAnchor="middle">
-          and it watches what happened
+          It watches what changed
         </text>
       </g>
     </svg>
@@ -670,8 +665,9 @@ export default function Slides() {
           sounds like a loss, and for a second it should.{'\n\n'}
           THEN SAY THE SECOND HALF YOURSELF: "we write down why." It's already
           on screen — the pause is yours to take, not the slide's.{'\n\n'}
-          Something else reads what customers actually do, and writes the job up
-          WITH THE REASON ATTACHED.{'\n\n'}
+          WALK THE FOUR BOXES — customers act, it notices, it writes the work up
+          WITH THE REASON ATTACHED, it ships. Then the arrow back: it watches
+          what changed.{'\n\n'}
           ⚠ Don't say "backlog", "tickets", "pipeline" or "life cycle" — say what
           it is: the list of what we're going to build next, and who wrote it.
           {'\n\n'}
