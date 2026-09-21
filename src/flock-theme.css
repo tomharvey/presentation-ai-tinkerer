@@ -1115,18 +1115,17 @@ body,
 
 /* =====================================================================
    Slide 1 — the site, thinking
-   A wireframe of the site sits there while a thought bubble rises off it
-   with a guess at what it's for. The guess pops. Another rises. Four of
-   them, round and round — every one plausible, none of them ever settled.
-   The loop is the argument: it isn't that the answer is wrong, it's that
-   the thing never arrives at one.
+   A wireframe of the site sits there while a thought rises off it guessing
+   at what it's for. The guess pops, another takes its place, round and
+   round. The loop is the argument: the problem isn't a wrong answer, it's
+   that the thing never arrives at one.
    ===================================================================== */
 
 .reveal .thinksite {
   position: relative;
   width: 100%;
-  max-width: 520px;
-  height: 250px;
+  max-width: 780px;
+  height: 372px;
 }
 
 /* --- the site skeleton --- */
@@ -1134,76 +1133,398 @@ body,
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 232px;
+  width: 300px;
   border: 2px solid var(--light-coal);
-  border-radius: 4px;
+  border-radius: 5px;
   background: rgba(0, 0, 0, 0.22);
   overflow: hidden;
 }
 .reveal .thinksite .chrome {
   display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 7px 9px;
+  gap: 7px;
+  padding: 9px 12px;
   border-bottom: 1px solid var(--light-coal);
 }
 .reveal .thinksite .chrome i {
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--light-coal);
   display: block;
+  flex: 0 0 auto;
 }
-.reveal .thinksite .body { padding: 11px 12px 14px; display: grid; gap: 7px; }
-.reveal .thinksite .nav { display: flex; gap: 6px; margin-bottom: 3px; }
-.reveal .thinksite .nav i { height: 5px; width: 22px; border-radius: 2px; background: var(--light-coal); display: block; }
-.reveal .thinksite .nav i.brand { width: 40px; background: var(--dark-grey); }
-.reveal .thinksite .ln { height: 8px; border-radius: 2px; background: var(--light-coal); display: block; }
-.reveal .thinksite .cta { height: 13px; width: 62px; border-radius: 3px; background: var(--flock-yellow); display: block; margin-top: 3px; }
-.reveal .thinksite .cards { display: flex; gap: 6px; margin-top: 6px; }
-.reveal .thinksite .cards i { flex: 1; height: 22px; border-radius: 2px; border: 1px solid var(--light-coal); display: block; }
+.reveal .thinksite .chrome .url {
+  font-family: var(--font-mono);
+  font-size: 0.3em;
+  letter-spacing: var(--track-mono-caps);
+  color: var(--dark-grey);
+  margin-left: 6px;
+  max-width: none;
+}
+.reveal .thinksite .body { padding: 15px 16px 19px; display: grid; gap: 9px; }
+.reveal .thinksite .nav { display: flex; align-items: center; gap: 9px; margin-bottom: 5px; }
+.reveal .thinksite .nav i { height: 7px; width: 30px; border-radius: 2px; background: var(--light-coal); display: block; }
+.reveal .thinksite .nav .brand {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 0.34em;
+  letter-spacing: var(--track-headline);
+  color: var(--flock-yellow);
+  margin: 0;
+  max-width: none;
+}
+.reveal .thinksite .ln { height: 11px; border-radius: 2px; background: var(--light-coal); display: block; }
+.reveal .thinksite .cta { height: 18px; width: 88px; border-radius: 3px; background: var(--flock-yellow); display: block; margin-top: 4px; }
+.reveal .thinksite .cards { display: flex; gap: 8px; margin-top: 8px; }
+.reveal .thinksite .cards i { flex: 1; height: 32px; border-radius: 3px; border: 1px solid var(--light-coal); display: block; }
 
-/* --- the thought, and the trail that makes it a thought and not speech --- */
+/* --- the thought: a scalloped outline, not an oval. The trailing circles
+       are what make it read as thinking rather than speech, so they scale
+       and pop with it rather than sitting still. --- */
 .reveal .thinksite .thought {
   position: absolute;
-  left: 176px;
-  top: 6px;
-  border: 2px solid var(--flock-yellow);
-  border-radius: 54% 46% 50% 50% / 62% 58% 42% 38%;
-  padding: 0.85rem 1.5rem;
+  left: 344px;
+  top: 0;
+  width: 412px;
+  transform-origin: 14% 118%;
+  animation: thoughtCycle 2s ease-out both;
+}
+.reveal .thinksite .thought svg { width: 100%; height: auto; display: block; overflow: visible; }
+.reveal .thinksite .thought path { fill: none; stroke: var(--flock-yellow); stroke-width: 3; stroke-linejoin: round; }
+.reveal .thinksite .thought text {
   font-family: var(--font-mono);
   font-weight: 500;
-  font-size: 0.44em;
-  letter-spacing: var(--track-mono-caps);
+  font-size: 23px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--flock-yellow);
-  white-space: nowrap;
-  transform-origin: 12% 120%;
-  animation: thoughtCycle 2s ease-out both;
+  fill: var(--flock-yellow);
 }
 
 .reveal .thinksite .trail {
   position: absolute;
-  border: 2px solid var(--flock-yellow);
+  border: 3px solid var(--flock-yellow);
   border-radius: 50%;
   transform-origin: 50% 100%;
   animation: thoughtCycle 2s ease-out both;
 }
-.reveal .thinksite .trail.t1 { width: 13px; height: 13px; left: 162px; top: 62px; animation-delay: -0.06s; }
-.reveal .thinksite .trail.t2 { width: 8px; height: 8px; left: 150px; top: 80px; animation-delay: -0.12s; }
+.reveal .thinksite .trail.t1 { width: 27px; height: 27px; left: 330px; top: 138px; animation-delay: -0.06s; }
+.reveal .thinksite .trail.t2 { width: 16px; height: 16px; left: 308px; top: 176px; animation-delay: -0.12s; }
 
 @keyframes thoughtCycle {
   0% { opacity: 0; transform: scale(0.5); }
   14% { opacity: 1; transform: scale(1); }
   74% { opacity: 1; transform: scale(1); }
-  86% { opacity: 0; transform: scale(1.32); }
-  100% { opacity: 0; transform: scale(1.32); }
+  86% { opacity: 0; transform: scale(1.3); }
+  100% { opacity: 0; transform: scale(1.3); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal .thinksite .thought,
   .reveal .thinksite .trail { animation: none; opacity: 1; transform: none; }
 }
+
+/* =====================================================================
+   Tickets (slide 3)
+   Has to read as a tracker board at a glance, not a list of sentences:
+   a column header with a count, priority marks, type chips, references,
+   and who opened them. Arrives one card at a time.
+   ===================================================================== */
+
+.reveal .board {
+  width: 100%;
+  max-width: 40ch;
+  margin: 0.9rem 0 1.15rem;
+}
+
+.reveal .board .col-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.4em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-grey);
+  max-width: none;
+}
+
+.reveal .board .col-head .count {
+  background: var(--light-coal);
+  color: var(--light-grey);
+  border-radius: 8px;
+  padding: 0.05rem 0.4rem;
+}
+
+.reveal .board .col-head .rule {
+  flex: 1;
+  height: 1px;
+  background: var(--light-coal);
+}
+
+.reveal .board .cards { display: grid; gap: 0.3rem; }
+
+.reveal .board .tk {
+  background: #223136;
+  border: 1px solid var(--light-coal);
+  border-radius: 4px;
+  padding: 0.36rem 0.65rem 0.32rem;
+  display: grid;
+  gap: 0.2rem;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(7px);
+  animation: tkIn 0.3s ease-out forwards;
+}
+
+.reveal .board .tk:nth-of-type(1) { animation-delay: 0.35s; }
+.reveal .board .tk:nth-of-type(2) { animation-delay: 1.25s; }
+.reveal .board .tk:nth-of-type(3) { animation-delay: 1.85s; }
+.reveal .board .tk:nth-of-type(4) { animation-delay: 2.3s; }
+
+@keyframes tkIn { to { opacity: 1; transform: none; } }
+
+.reveal .board .tk .title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-size: 0.48em;
+  color: var(--light-grey);
+  line-height: 1.3;
+}
+
+.reveal .board .tk .pri {
+  flex: 0 0 auto;
+  width: 0.42em;
+  height: 0.42em;
+  border-radius: 50%;
+  background: var(--dark-grey);
+  transform: translateY(-0.06em);
+}
+.reveal .board .tk.dupe .pri { background: var(--signal-orange); }
+
+.reveal .board .tk .foot {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.4em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--light-coal);
+}
+
+.reveal .board .tk .type {
+  background: var(--light-coal);
+  color: var(--grey, var(--dark-grey));
+  border-radius: 2px;
+  padding: 0.08rem 0.32rem;
+}
+.reveal .board .tk.dupe .type { background: var(--signal-orange); color: var(--dark-coal); }
+
+.reveal .board .tk .who { color: var(--dark-grey); }
+.reveal .board .tk .ref { margin-left: auto; }
+
+/* The four cards STAY — they're the evidence, and taking them away mid-slide
+   reads as a glitch and throws away what the room just watched arrive. They
+   recede instead, and the conclusions stack underneath them. */
+.reveal .board-stack { display: grid; gap: 0.42rem; }
+
+.reveal .board-stack .cards {
+  animation: cardsRecede 0.5s 4.2s ease-out forwards;
+}
+@keyframes cardsRecede { to { opacity: 0.4; } }
+
+.reveal .board .compounded {
+  opacity: 0;
+  align-self: start;
+  animation: tkIn 0.4s 4.5s ease-out forwards;
+  background: #223136;
+  border: 1px solid var(--flock-yellow);
+  border-radius: 4px;
+  padding: 0.4rem 0.65rem 0.36rem;
+  display: grid;
+  gap: 0.22rem;
+}
+
+.reveal .board .compounded .title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-size: 0.48em;
+  color: var(--white);
+  line-height: 1.3;
+}
+.reveal .board .compounded .pri {
+  flex: 0 0 auto;
+  width: 0.42em;
+  height: 0.42em;
+  border-radius: 50%;
+  background: var(--flock-yellow);
+  transform: translateY(-0.06em);
+}
+.reveal .board .compounded .foot {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.4em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-grey);
+}
+.reveal .board .compounded .strength {
+  background: var(--flock-yellow);
+  color: var(--dark-coal);
+  border-radius: 2px;
+  padding: 0.08rem 0.32rem;
+}
+
+/* Evidence that pushes back. Arrives last, because narrowing a hypothesis is
+   only possible once there is one — and it is the half people forget: a
+   memory that only ever accumulates agreement is an echo chamber. */
+.reveal .board .contradicts {
+  opacity: 0;
+  align-self: start;
+  animation: tkIn 0.4s 5.9s ease-out forwards;
+  background: rgba(255, 146, 46, 0.1);
+  border: 1px solid var(--signal-orange);
+  border-radius: 4px;
+  padding: 0.4rem 0.65rem 0.36rem;
+  display: grid;
+  gap: 0.22rem;
+}
+.reveal .board .contradicts .title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-size: 0.48em;
+  color: var(--light-grey);
+  line-height: 1.3;
+}
+.reveal .board .contradicts .pri {
+  flex: 0 0 auto;
+  width: 0.42em;
+  height: 0.42em;
+  border-radius: 50%;
+  background: var(--signal-orange);
+  transform: translateY(-0.06em);
+}
+.reveal .board .contradicts .foot {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.4em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-grey);
+}
+.reveal .board .contradicts .narrowed {
+  background: var(--signal-orange);
+  color: var(--dark-coal);
+  border-radius: 2px;
+  padding: 0.08rem 0.32rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .board-stack .cards { animation: none; opacity: 0; }
+  .reveal .board .compounded,
+  .reveal .board .contradicts { animation: none; opacity: 1; }
+}
+
+/* =====================================================================
+   What vs why (slide 7)
+   ===================================================================== */
+
+.reveal .versus { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; width: 100%; max-width: 46ch; }
+@media (max-width: 700px) { .reveal .versus { grid-template-columns: 1fr; } }
+
+.reveal .versus .side { border-top: 2px solid var(--light-coal); padding-top: 0.7rem; }
+.reveal .versus .side.up { border-top-color: var(--flock-yellow); }
+
+.reveal .versus .where {
+  font-family: var(--font-mono);
+  font-size: 0.38em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--light-coal);
+  margin: 0 0 0.5rem;
+  max-width: none;
+}
+.reveal .versus .side.up .where { color: var(--flock-yellow); }
+
+.reveal .versus .said { font-size: 0.5em; line-height: 1.35; color: var(--light-grey); margin: 0 0 0.7rem; max-width: none; }
+.reveal .versus .side.up .said { color: var(--white); }
+
+.reveal .versus .life {
+  font-family: var(--font-mono);
+  font-size: 0.38em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-grey);
+  margin: 0;
+  max-width: none;
+}
+
+/* =====================================================================
+   Cold-open alternates
+   ===================================================================== */
+
+/* the belt — a feature factory, which is older than any of this */
+.reveal .beltbox { position: relative; width: 100%; max-width: 780px; height: 230px; overflow: hidden; }
+.reveal .beltbox .rail { position: absolute; left: 0; right: 0; top: 148px; height: 2px; background: var(--light-coal); }
+.reveal .beltbox .fog { position: absolute; top: 0; bottom: 0; right: 0; width: 30%; background: linear-gradient(90deg, rgba(25,40,45,0), var(--dark-coal) 76%); z-index: 2; }
+.reveal .beltbox .crate {
+  position: absolute;
+  top: 118px;
+  left: -140px;
+  border: 2px solid var(--dark-grey);
+  border-radius: 2px;
+  padding: 0.3rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.3em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-grey);
+  white-space: nowrap;
+  animation: rollby 7s linear infinite;
+}
+.reveal .beltbox .crate:nth-of-type(2) { animation-delay: 1.4s; }
+.reveal .beltbox .crate:nth-of-type(3) { animation-delay: 2.8s; }
+.reveal .beltbox .crate:nth-of-type(4) { animation-delay: 4.2s; }
+.reveal .beltbox .crate:nth-of-type(5) { animation-delay: 5.6s; }
+@keyframes rollby { to { left: 108%; } }
+
+.reveal .beltbox .stamp {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  max-width: none;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.34em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--flock-yellow);
+  z-index: 3;
+}
+
+/* the self-portrait — a homepage describing itself */
+.reveal .portrait-svg { width: 100%; max-width: 560px; height: auto; }
+.reveal .portrait-svg .frame { fill: none; stroke: var(--light-coal); stroke-width: 1.6; }
+.reveal .portrait-svg .fill { fill: rgba(59, 72, 76, 0.45); stroke: none; }
+.reveal .portrait-svg .cta { fill: var(--flock-yellow); stroke: none; }
+.reveal .portrait-svg text { font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.04em; fill: var(--dark-grey); }
+.reveal .portrait-svg text.q { fill: var(--flock-yellow); font-size: 10px; }
+.reveal .portrait-svg .lead { stroke: var(--flock-yellow); stroke-width: 1.4; stroke-dasharray: 3 3; fill: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .board .tk { opacity: 1; transform: none; animation: none; }
+  .reveal .beltbox .crate { animation: none; }
+}
+
 
 /* =====================================================================
    Tickets (slide 3)
