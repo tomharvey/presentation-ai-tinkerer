@@ -571,36 +571,9 @@ body,
   animation: ringflow 2.9s linear infinite;
 }
 
-/* Right — above it. Runs faster AND never settles on a shape. The morph is
-   the argument: it is still one closed loop the whole way round, it just
-   stops being a circle. rx/ry are animatable CSS properties in current
-   browsers; where they aren't, the SVG attributes below hold the mid shape
-   and it degrades to a static oval. */
-.reveal .schematic .ring-right {
-  animation: ringflow 1s linear infinite, reshape 7s ease-in-out infinite;
-}
-
-@keyframes reshape {
-  0% {
-    rx: 56px;
-    ry: 56px;
-  }
-  30% {
-    rx: 88px;
-    ry: 32px;
-  }
-  55% {
-    rx: 46px;
-    ry: 64px;
-  }
-  80% {
-    rx: 78px;
-    ry: 40px;
-  }
-  100% {
-    rx: 56px;
-    ry: 56px;
-  }
+/* the right-hand loop's geometry is computed in JS; only the dash flow is CSS */
+.reveal .schematic ellipse.ring {
+  animation: ringflow 1s linear infinite;
 }
 
 
@@ -611,7 +584,7 @@ body,
 
 @media (prefers-reduced-motion: reduce) {
   .reveal .schematic .ring-left,
-  .reveal .schematic .ring-right {
+  .reveal .schematic ellipse.ring {
     animation: none;
   }
 }

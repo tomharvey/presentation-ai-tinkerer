@@ -238,97 +238,90 @@ function TicketBoard() {
 
 /* ---------------------------------------------------------------- slide 6 */
 /* The same loop twice. On the left the person is a station on it — every
-   revolution has to pass through them. On the right the loop runs closed and
-   the person is outside it, bending its shape; the ghost circle is the shape
-   it used to be. Boxes would say "process". A circle says "this comes round
-   again", which is the entire point.
+   revolution has to pass through them, and it runs slower for exactly that
+   reason. On the right the person is outside it, and the loop never settles on
+   a shape: it swells, flattens and stretches while staying one closed circuit.
+   That is the argument in motion — a loop doesn't have to be a circle to be a
+   loop.
 
-   Both loops run continuously — no staged build, that was tried and reverted
-   because the motion fought the spoken beat. The difference is speed and
-   shape: the left one is slower, because every pass has to get through a
-   person. The right one runs faster and never settles on a shape, which is the
-   argument — still one closed loop, just not a circle.
+   EVERYTHING ON THE RIGHT COMES OFF ONE CLOCK, computed here in JS. Earlier
+   versions drove the ellipse from a CSS keyframe and the arms from SMIL, and
+   then both from SMIL; both times the two ran on separate timebases and the
+   arms drifted out of alignment with the edge they are supposed to be attached
+   to — by as much as 32px, and in one version the arms sat still for a whole
+   cycle before starting. Deriving the arm endpoints from the same rx that
+   draws the ellipse makes drift impossible. Don't split them again. */
 
-   The ellipse and the two arms are ALL driven by SMIL off one clock. They were
-   previously split between a CSS keyframe and SMIL, which ran on separate
-   timebases and drifted into near-opposite phase — the arms swung out while the
-   loop pulled in. Keep them together; don't move the ellipse back to CSS. */
+const MORPH = {
+  period: 7000,
+  stops: [0, 0.3, 0.55, 0.8, 1],
+  rx: [56, 88, 46, 78, 56],
+  ry: [56, 32, 64, 40, 56],
+}
+
+function morphAt(t) {
+  const { stops, rx, ry } = MORPH
+  let i = 0
+  while (i < stops.length - 2 && t > stops[i + 1]) i++
+  const span = stops[i + 1] - stops[i]
+  const u = span === 0 ? 0 : (t - stops[i]) / span
+  const e = u * u * (3 - 2 * u) // ease in-out
+  return {
+    rx: rx[i] + (rx[i + 1] - rx[i]) * e,
+    ry: ry[i] + (ry[i + 1] - ry[i]) * e,
+  }
+}
+
 function InOrAbove() {
+  const [shape, setShape] = useState(() => morphAt(0))
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    let raf
+    const start = performance.now()
+    const tick = (now) => {
+      setShape(morphAt(((now - start) % MORPH.period) / MORPH.period))
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [])
+
+  const cx = 452
+  const cy = 116
+  const { rx, ry } = shape
+  const leftX = cx - rx
+  const rightX = cx + rx
+
   return (
     <svg
       className="schematic"
       viewBox="0 0 620 200"
       role="img"
-      aria-label="Left: a person standing on the loop, so every revolution passes through them. Right: the loop runs closed while the person, outside it, changes its shape."
+      aria-label="Left: a person standing on the loop, so every revolution passes through them. Right: the loop runs closed and keeps changing shape while the person outside it stays attached to its edges."
     >
       {/* ---- in it ---- */}
       <text x="18" y="16">In it</text>
       <circle className="ring flow ring-left" cx="130" cy="108" r="56" />
       <path className="head" d="M181 104 L191 104 L186 116 Z" />
-      <path className="head" d="M69 112 L79 112 L74 100 Z" />
       <circle className="you" cx="130" cy="52" r="10" />
       <text className="tiny" x="130" y="190" textAnchor="middle">
         every pass comes through you
       </text>
 
-      {/* ---- above it ---- */}
+      {/* ---- above it: shape and arms from the same numbers ---- */}
       <text x="338" y="16">Above it</text>
-      <ellipse className="ring flow ring-right" cx="452" cy="116" rx="56" ry="56">
-        <animate
-          attributeName="rx"
-          dur="7s"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keyTimes="0;0.3;0.55;0.8;1"
-          keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1"
-          values="56;88;46;78;56"
-        />
-        <animate
-          attributeName="ry"
-          dur="7s"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keyTimes="0;0.3;0.55;0.8;1"
-          keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1"
-          values="56;32;64;40;56"
-        />
-      </ellipse>
-      <circle className="you" cx="452" cy="30" r="10" />
-      {/* The two arcs anchor to the ellipse's left and right extremes, which
-          sit at (cx ∓ rx, cy). SMIL rather than CSS because the endpoint has
-          to travel with the morph, and `d` is not dependably animatable in
-          CSS across browsers. Timings mirror the `reshape` keyframes. */}
-      <path className="pull" d="M438 38 Q404 60 396 116">
-        <animate
-          attributeName="d"
-          dur="7s"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keyTimes="0;0.3;0.55;0.8;1"
-          keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1"
-          values="M438 38 Q404 60 396 116;
-                  M438 38 Q380 58 364 116;
-                  M438 38 Q412 62 406 116;
-                  M438 38 Q388 59 374 116;
-                  M438 38 Q404 60 396 116"
-        />
-      </path>
-      <path className="pull" d="M466 38 Q500 60 508 116">
-        <animate
-          attributeName="d"
-          dur="7s"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keyTimes="0;0.3;0.55;0.8;1"
-          keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1"
-          values="M466 38 Q500 60 508 116;
-                  M466 38 Q524 58 540 116;
-                  M466 38 Q492 62 498 116;
-                  M466 38 Q516 59 530 116;
-                  M466 38 Q500 60 508 116"
-        />
-      </path>
-      <text className="tiny" x="452" y="190" textAnchor="middle">
+      <ellipse className="ring flow" cx={cx} cy={cy} rx={rx} ry={ry} />
+      <circle className="you" cx={cx} cy="30" r="10" />
+      <path
+        className="pull"
+        d={`M${cx - 14} 38 Q${(cx - 14 + leftX) / 2 - 6} 62 ${leftX} ${cy}`}
+      />
+      <path
+        className="pull"
+        d={`M${cx + 14} 38 Q${(cx + 14 + rightX) / 2 + 6} 62 ${rightX} ${cy}`}
+      />
+      <text className="tiny" x={cx} y="190" textAnchor="middle">
         you change its shape
       </text>
     </svg>
