@@ -754,7 +754,10 @@ export default function Slides() {
    a machine and measure. */}
       <section>
         <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Feedback loop</p>
-        <h2>Give it a goal, then check it got there</h2>
+        <h2>
+          Give it a goal.{' '}
+          <span className="second">Check it got there.</span>
+        </h2>
         <div className="goal">
           <p className="lbl">The goal we gave it</p>
           <p className="words">
