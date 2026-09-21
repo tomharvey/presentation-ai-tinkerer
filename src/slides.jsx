@@ -227,6 +227,23 @@ function LoopDiagram() {
   )
 }
 
+/* ---------------------------------------------------------------- slide 2 */
+/* Two beats, same device as slide 4. The first half is the loss — we gave
+   something up. The second half, landing a couple of seconds later, is what
+   replaced it, and it's the better half. Saying both at once buries the
+   trade; letting the room sit with the loss first makes the answer land. */
+function WhatThenWhy() {
+  const [run, ref] = useReplayOnEnter()
+  return (
+    <div ref={ref} key={run} style={{ width: '100%' }}>
+      <h2>
+        We stopped writing down what to build.{' '}
+        <span className="verdict">We write down why.</span>
+      </h2>
+    </div>
+  )
+}
+
 /* ---------------------------------------------------------------- slide 3 */
 /* Four cards arrive, hold, then collapse into one signal that is simply
    stronger — because that is what they always were. The repetition wasn't the
@@ -638,14 +655,17 @@ export default function Slides() {
       {/* 2 ────────────────────────────────────── 1:30–2:45 */}
       <section>
         <p className="kicker muted">The loop</p>
-        <h2>We stopped writing down what to build</h2>
+        <WhatThenWhy />
         <LoopDiagram />
         <aside className="notes">
           1:30–2:45 · The diagram builds itself in four steps — let it land
           before you talk over the last one.{'\n\n'}
-          Nobody here writes down what to build any more. Something else reads
-          what customers actually do, and writes the job up WITH THE REASON
-          ATTACHED.{'\n\n'}
+          "Nobody here writes down what to build any more." Let that sit — it
+          sounds like a loss, and for a second it should.{'\n\n'}
+          THEN THE SECOND HALF LANDS. Read it out as it arrives: "we write down
+          why." That's the trade, and it's the better end of it.{'\n\n'}
+          Something else reads what customers actually do, and writes the job up
+          WITH THE REASON ATTACHED.{'\n\n'}
           ⚠ Don't say "backlog", "tickets", "pipeline" or "life cycle" — say what
           it is: the list of what we're going to build next, and who wrote it.
           {'\n\n'}
