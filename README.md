@@ -42,24 +42,36 @@ Switch without touching the code:
 
 ## The argument
 
-Nine slides. Read the titles alone and you get the whole thing:
+Nine slides. Numbers below match the counter on screen, so slide 1 is the
+holding card — identity only, up while you walk on, says nothing. Read the
+eight that follow and you get the whole argument:
 
-1. Your software doesn't know its purpose
-2. We stopped caring about the what. We care about the why.
+2. Your software doesn't know its purpose
+3. We stopped caring about the what. We care about the why.
 
-Then the five things that make one of these work, in the order they have to
-happen — you can't audit against a goal you never set, and you can't judge
-history without one either:
+Then the four pillars, in the order they have to happen — you can't audit
+against a goal you never set, and you can't say what a system isn't allowed to
+do until you've said what it's for:
 
-3. **Feedback loop** — give it a goal. Make it improve itself.
-4. **Make it auditable** — "the agent did it" is not a reason. It's just sloppy.
-5. **Give it a memory** — it adds up everything it finds. It spots what doesn't fit.
+4. **Feedback loop** — give it a goal. Make it improve itself.
+5. **Make it auditable** — "the agent did it" is not a reason. It's just sloppy.
 6. **Guardrails** — it will hit the goal. That's the bit to worry about.
 7. **Make it scale** — a loop with you in it runs at your speed
 
 8. You don't build the thing any more. You build what builds it.
    *(and that is not a smaller job — the misreading this slide exists to kill)*
 9. Does your software know its purpose? Do you?
+
+The overarching move is slide 3 to slide 8: let go of the *what*, lean into the
+*why*. The four pillars are what makes that safe to do.
+
+There was a fifth pillar, **give it a memory**, between auditable and
+guardrails. Cut for time on 21 Sept, not because it was wrong — it held the
+best concrete story in the deck and needed a minute it didn't have. The slide
+and its `TicketBoard` component are in git history. Restoring it means three
+things, not one: the eyebrows read *of four*, slide 8's spoken callback goes
+back to three ("and a place in the history"), and you need a minute from
+somewhere.
 
 ## Stack
 

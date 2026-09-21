@@ -2137,10 +2137,7 @@ body,
 }
 .reveal .cost b { color: var(--white); font-weight: 500; }
 
-/* NOT CURRENTLY USED — the identity block was removed from slide 1. The
-   asset and these rules are kept because getting the right lockup took a
-   checksum check, and restoring it is two lines: import the png and drop a
-   <div className="identity"> back into slide 1.
+/* The holding slide's identity block — what's on screen while Tom walks on.
 
    Title-slide identity. The lockup is Flock_Admiral_Yellow_Side — the
    "Flock by Admiral" lockup, side variant, yellow for dark grounds —
@@ -2177,6 +2174,12 @@ body,
   white-space: nowrap;
 }
 .reveal .identity .who b { color: var(--flock-yellow); font-weight: 500; }
+
+/* The holding card is identity only, so let the lockup be properly big —
+   1.5em reads as a byline, this reads as a title card. */
+.reveal .titlecard .identity { gap: 1.1rem; margin: 0; }
+.reveal .titlecard .identity img { height: 2.6em; }
+.reveal .titlecard .identity .who { font-size: 0.5em; }
 
 /* slide 8 needs air between the punch and the breakdown under it */
 .reveal .worklist { margin-top: 0.75rem; }

@@ -1,6 +1,8 @@
+import lockup from './assets/flock-admiral-yellow-side.png'
+
 /* Slide titles are statements, per the Flock Communication Playbook rule 04
-   and tokens.json /voice/rules. Read the nine titles alone and you get the
-   whole argument. Speaker notes carry the run sheet — press S.
+   and tokens.json /voice/rules. Read the eight content titles alone and you
+   get the whole argument (slide 1 is a holding card and says nothing). Speaker notes carry the run sheet — press S.
 
    LANGUAGE RULE: this is an AI-builder room, so AI vocabulary is fair game
    (prompt, agent, hallucinate, tokens). Software-engineering vocabulary is
@@ -277,108 +279,6 @@ function WhatThenWhy() {
 }
 
 /* ---------------------------------------------------------------- slide 3 */
-/* The title is about the evidence, not about the listener. An earlier version
-   said "hearing it again should change how sure YOU are" — but by this point in
-   the talk the person is deliberately out of the loop, so their confidence
-   isn't the thing being adjusted. The evidence is.
-
-   Two halves matching the two beats of the animation: four reports stack into
-   one stronger signal, then something arrives that conflicts and cuts the claim
-   back. The title carries what the punch line used to, so there is no line
-   underneath.
-
-   FINDS, not "is told" — nothing tells this thing anything. It reads what
-   customers actually do and finds the pattern, which is what the loop diagram
-   two slides earlier already says: customers act, it notices. "Told" implies a
-   person feeding it, which is the opposite of the argument.
-
-   EVERYTHING, not "what" — one word carrying the holistic point. It isn't
-   weighing the item in front of it, it's weighing all of them. The fuller
-   version of that idea lives in the spoken notes, where it has room to breathe.
-
-   And no "should": the slide describes a system that exists rather than giving
-   advice, which is the difference between this talk and most of the others in
-   the room.
-
-   "Evidence stacks up / conflicts cut it back" was tried first and was too
-   terse to decode without the slides before it.
-
-   Four cards arrive, hold, then collapse into one signal that is simply
-   stronger — because that is what they always were. The repetition wasn't the
-   system being forgetful; it was the same finding confirmed four times with no
-   way to add it up.
-
-   Then the half that matters more: contradicting evidence arrives and narrows
-   the hypothesis. A memory that only accumulates agreement is an echo chamber;
-   the point of history is that it can move a conclusion in both directions.
-
-   A tracker column rather than a list of sentences, so it reads as tickets at
-   a glance. The build replays on slide entry (a plain CSS animation fires once
-   at page load and is over long before anyone gets here). */
-function TicketBoard() {
-  const [run, ref] = useReplayOnEnter()
-  const rows = [
-    ['Add CSV export to the table', '#1042', false],
-    ['Let people download the data', '#1071', true],
-    ['Export button on the table', '#1090', true],
-    ['Add CSV export to the table', '#1118', true],
-  ]
-  return (
-    <div ref={ref} style={{ width: '100%' }}>
-      <div className="board" key={run}>
-        <p className="col-head">
-          <span>Backlog</span>
-          <span className="count">4 new</span>
-          <span className="rule" />
-        </p>
-        <div className="board-stack">
-          <div className="cards">
-            {rows.map(([title, ref_, dupe]) => (
-              <div className={dupe ? 'tk dupe' : 'tk'} key={ref_}>
-                <div className="title">
-                  <span className="pri" />
-                  <span>{title}</span>
-                </div>
-                <div className="foot">
-                  <span className="type">Feature</span>
-                  <span className="ref">{ref_}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div>
-            <div className="compounded">
-              <div className="title">
-                <span className="pri" />
-                <span>People can&rsquo;t get their own data out</span>
-              </div>
-              <div className="foot">
-                <span className="strength">Signal &times;4</span>
-                <span>and still climbing</span>
-              </div>
-            </div>
-            <div className="contradicts">
-              <div className="title">
-                <span className="pri" />
-                <span>&hellip;but three of them already had a way to do it</span>
-              </div>
-              <div className="foot">
-                <span className="narrowed">Narrowed</span>
-                <span>it&rsquo;s the portal, not the data</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-/* ---------------------------------------------------------------- slide 4 */
-/* Two beats, not one. The title states the problem; the verdict lands a
-   couple of seconds later, once the room has had time to agree with the
-   first line on its own. Naming it "sloppy" before they've got there reads
-   as a telling-off; naming it after reads as the obvious conclusion. */
 function SloppyVerdict() {
   const [run, ref] = useReplayOnEnter()
   return (
@@ -539,6 +439,32 @@ export default function Slides() {
 
   return (
     <>
+      {/* 0 ────────────────────────────────────── holding slide */}
+      {/* Up before you are. This is what the room looks at while you walk on,
+          so it carries identity and nothing else — no argument, no question,
+          nothing to read ahead. The talk starts on the next slide.
+
+          No event name: that was tried and cut. The room knows where it is. */}
+      <section className="titlecard">
+        <div className="identity">
+          <img src={lockup} alt="Flock by Admiral" />
+          <p className="who">
+            <b>Tom Harvey</b> &middot; Head of AI
+          </p>
+        </div>
+        <aside className="notes">
+          HOLDING SLIDE — nothing happens here.{'\n\n'}
+          This is up while you walk on and while whoever introduces you is
+          talking. Don't start on it.{'\n\n'}
+          Your opening move is with the LID CLOSED: "this is a story about an
+          engineering team, but what I'm really hoping to get across is
+          something that applies well outside engineering — how you build trust
+          in an AI system." Then open the lid and advance.{'\n\n'}
+          ⚠ The clock (totalTime 600) starts when the deck does, so don't
+          advance off this until you're actually starting.
+        </aside>
+      </section>
+
       {/* 1 ────────────────────────────────────── 0:00–1:30 */}
       {/* Three candidate cold opens. Exactly one renders, chosen by COLD_OPEN
           at the top of this file, so the deck is always 9 slides and the slide
@@ -799,7 +725,7 @@ export default function Slides() {
    person is back in the loop, which is what step four argues against. If the human is the one checking, the human is back in the loop,
    which is the thing step four spends its whole slide arguing against. */}
       <section>
-        <p className="step"><span className="n">1</span> <span className="of">of five</span> &middot; Feedback loop</p>
+        <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Feedback loop</p>
         <h2>
           Give it a goal.{' '}
           <span className="second">Make it improve itself.</span>
@@ -864,7 +790,7 @@ export default function Slides() {
 
       {/* 4 ────────────────────────────────────── 3:40–4:40 */}
       <section>
-        <p className="step"><span className="n">2</span> <span className="of">of five</span> &middot; Make it auditable</p>
+        <p className="step"><span className="n">2</span> <span className="of">of four</span> &middot; Make it auditable</p>
         <SloppyVerdict />
         <div className="exchange">
           <div className="ask">Why is this top of the list?</div>
@@ -912,58 +838,6 @@ export default function Slides() {
         </aside>
       </section>
 
-      {/* 5 ────────────────────────────────────── 4:40–5:40 */}
-      {/* Step three. The four duplicate tickets ARE the memory problem: with no
-          view of what it had already concluded, it can't tell repetition from
-          progress. Same visual, now doing the job it was always best at. */}
-      <section>
-        <p className="step"><span className="n">3</span> <span className="of">of five</span> &middot; Give it a memory</p>
-        <h2>
-          It adds up everything it finds.{' '}
-          <span className="second">It spots what doesn&rsquo;t fit.</span>
-        </h2>
-        <TicketBoard />
-        <aside className="notes">
-          4:40–5:40 · STEP THREE{'\n\n'}
-          "Here's something nobody warns you about. These things have almost no
-          sense of time passing. Every run is a fresh one, straight out of the
-          box. It doesn't remember yesterday unless you make it."{'\n\n'}
-          WITHOUT ONE, the fourth time it finds the same thing is just a fourth
-          job. WITH one, it's the reason to believe the first three — or, when it
-          cuts the other way, the reason to stop.{'\n\n'}
-          SAY THE HOLISTIC BIT OUT LOUD, it's too long for the slide: "and the
-          important part is that it isn't looking at the thing in front of it.
-          It's looking at everything it has ever found, all at once. That's what
-          the memory buys you — not recall, perspective."{'\n\n'}
-          SO WATCH WHAT HAPPENS. Four different people, four sets of words, one
-          finding — and it was right every single time. That isn't forgetfulness.
-          That is evidence.{'\n\n'}
-          WAIT FOR THE COLLAPSE — "what it should have done is this." One item,
-          four times the weight behind it.{'\n\n'}
-          THEN THE SECOND HALF, AND THIS IS THE BIT PEOPLE MISS — wait for the
-          orange one. "And the same memory works the other way." Three of those
-          four already had a way to get their data; they just couldn't find it.
-          So the thing to build isn't an export. It's a signpost.{'\n\n'}
-          "A memory that only ever stacks up agreement is an echo chamber. The
-          useful half is the evidence that pushes back — it narrows what you're
-          actually solving, and sometimes it tells you to drop the thing
-          entirely."{'\n\n'}
-          "The failure wasn't that it was wrong. It couldn't add its own evidence
-          up. It treated the fourth person saying the same thing as a fourth job,
-          instead of as the reason to believe the first one."{'\n\n'}
-          WHAT THE FIX ACTUALLY IS — feed it its own history. What it has already
-          done, what happened, what's a long-running problem and what's new.
-          Without that it cannot tell progress from repetition.{'\n\n'}
-          BRIDGE — "wherever you're doing this: hearing the same thing twice
-          should raise your confidence, not your workload — and hearing
-          something that contradicts it should narrow the job, not start a new
-          one. If your setup turns either into more work, that's the bit to
-          fix."{'\n\n'}
-          ⚠ Illustrative wording, real failure mode. Don't present the ticket
-          numbers as exact.
-        </aside>
-      </section>
-
       {/* 6 ────────────────────────────────────── guardrails */}
       {/* Step four. The one everybody nods along to and almost nobody builds,
           because asking politely feels like it should be enough. It isn't, and
@@ -975,7 +849,7 @@ export default function Slides() {
           loop, and hard edges on the tools so a breach is detectable rather
           than merely discouraged. */}
       <section>
-        <p className="step"><span className="n">4</span> <span className="of">of five</span> &middot; Guardrails</p>
+        <p className="step"><span className="n">3</span> <span className="of">of four</span> &middot; Guardrails</p>
         <h2>
           It will hit the goal.{' '}
           <span className="second">That&rsquo;s the bit to worry about.</span>
@@ -1063,7 +937,7 @@ export default function Slides() {
 
       {/* 6 ────────────────────────────────────── 5:40–7:00 */}
       <section className="invert" data-background-color="#f6f404">
-        <p className="step"><span className="n">5</span> <span className="of">of five</span> &middot; Make it scale</p>
+        <p className="step"><span className="n">4</span> <span className="of">of four</span> &middot; Make it scale</p>
         <h2>A loop with you in it runs at your speed</h2>
         <InOrAbove />
         <p className="punch">
@@ -1104,7 +978,7 @@ export default function Slides() {
           only kind left. The why isn't something you graduate to once you have
           spare time — it's forced on you. */}
       <section>
-        <p className="kicker muted">What&rsquo;s left</p>
+        <p className="kicker muted">Your job now</p>
         <h2>
           You don&rsquo;t build the thing any more.{' '}
           <span className="second">You build what builds it.</span>
@@ -1129,11 +1003,13 @@ export default function Slides() {
           THEN THE POINT: "the first one is something the second one would have
           produced anyway." Ask for the button, you get a button. Ask for the
           outcome, and you still get the button — but it arrives carrying
-          everything we just spent five minutes on.{'\n\n'}
-          COUNT THE THREE ON YOUR FINGERS, THEY'RE THE CALLBACK — tied to the
-          goal you set, so you can tell whether it worked. Able to explain
-          itself, so nobody has to shrug. And it has a place in the history, so
-          the next piece of evidence can make it louder or narrower.{'\n\n'}
+          everything we've just been through.{'\n\n'}
+          COUNT THE TWO ON YOUR FINGERS, THEY'RE THE CALLBACK — tied to the goal
+          you set, so you can tell whether it worked. And able to explain
+          itself, so nobody has to shrug.{'\n\n'}
+          ⚠ THERE USED TO BE A THIRD, "a place in the history", calling back to
+          a memory slide that was cut for time. Don't say it — it lands on
+          something this room never saw.{'\n\n'}
           "That's the difference. Not more output. Output that knows what it's
           for."{'\n\n'}
           THE ASYMMETRY — inside the loop every instruction you give is a WHAT.
@@ -1154,9 +1030,9 @@ export default function Slides() {
           ─────────────────────────────────{'\n'}
           THEN THE QUESTION THIS SLIDE ANSWERS{'\n'}
           ─────────────────────────────────{'\n\n'}
-          "So you've got goals. Auditability. A memory. Guardrails. And you've
-          stepped out of the loop. Which leaves a fair question: what is your
-          job now?"{'\n\n'}
+          "So you've got goals. Auditability. Guardrails. And you've stepped
+          out of the loop. Which leaves a fair question: what is your job
+          now?"{'\n\n'}
           CALL BACK TO THE SECOND SLIDE — "we stopped caring about the what. And
           this is what's on the other side of that. You don't build the thing.
           You build what builds it."{'\n\n'}
