@@ -535,20 +535,23 @@ export default function Slides() {
         <div className="goal">
           <p className="lbl">What we told it it was for</p>
           <p className="words">
-            &ldquo;People should find this useful enough to come back to it every
-            week.&rdquo;
+            &ldquo;Users should come back to this week after week, not try it
+            once and forget it.&rdquo;
           </p>
         </div>
         <div className="ratio">
           <div>
             <div className="fig mine">20%</div>
-            <p className="who">What we asked for</p>
+            <p className="who">The target</p>
           </div>
           <div>
-            <div className="fig">60%</div>
-            <p className="who">What it does</p>
+            <div className="fig">59%</div>
+            <p className="who">Where it got to</p>
           </div>
         </div>
+        <p className="ratio-caption">
+          …of the people who have tried it, coming back in more than one week.
+        </p>
         <aside className="notes">
           2:40–3:40 · STEP ONE — NEVER CUT{'\n\n'}
           "Everything after this depends on this bit, and it's the bit everyone
@@ -556,41 +559,64 @@ export default function Slides() {
           You have to tell it what it is for. Not what to do — what good looks
           like. That sentence is roughly what we handed it for this product.
           {'\n\n'}
+          ⚠ SAY "USERS", NOT "FLEET MANAGERS" — nobody outside insurance knows
+          what a fleet manager is, and the word costs you a beat while they work
+          it out. Same for "fleets": say customers.{'\n\n'}
           AND THEN — and this is the half people miss — you need a way to know
           whether it's getting there. A goal you can't measure isn't a goal,
           it's a mood.{'\n\n'}
-          THE NUMBERS, SAID PLAINLY: "we asked for twenty percent of people
-          coming back every week. It's sixty." Let that sit. Don't dress it up.
+          THE NUMBERS, SAID PLAINLY: "we asked for twenty percent of the people
+          who tried it to keep coming back. It's fifty-nine." Let that sit.
+          Don't dress it up.{'\n\n'}
+          ⚠ SAY IT PRECISELY. It is NOT "60% of users are weekly active". It is
+          59% of the users who ever tried it, coming back in MORE THAN ONE WEEK
+          — 208 of 352. The looser version is checkable and wrong, and this is a
+          room that will check.{'\n\n'}
+          IN RESERVE, if anyone wants the other half: 57% of customers have used
+          it at least once, against a 50% target — 330 of 576, rising to 64%
+          among those who've had a fair chance at it. Both key results are met.
           {'\n\n'}
           BRIDGE — "you don't need any of this machinery to do the first part.
           Most software has never been told what it's for. Write the sentence."
           {'\n\n'}
-          ⚠ These two figures are the inarguable ones and the only numbers in
-          the talk. Confirm both before you say them.
+          ⚠ SOURCE: OKR 2 target from the Q3 OKR doc; figures from the Jay launch
+          dashboard, last updated 17 September 2026. These are the only numbers
+          in the talk. Re-check the dashboard on the morning if you can — it
+          moves.
         </aside>
       </section>
 
       {/* 4 ────────────────────────────────────── 3:40–4:40 */}
       <section>
         <p className="step"><span className="n">2</span> <span className="of">of four</span> &middot; Make it auditable</p>
-        <h2>If it can&rsquo;t explain itself, you&rsquo;ve just hired it a babysitter</h2>
+        <h2>&ldquo;The agent did it&rdquo; is just sloppy</h2>
         <div className="exchange">
-          <div className="ask">Why did you put this one at the top?</div>
+          <div className="ask">Why is this top of the list?</div>
+          <p className="pair-label">What you get today</p>
+          <div className="reply shrug">Dunno &mdash; the agent did it.</div>
+          <p className="pair-label good">What you should be able to get</p>
           <div className="reply">
-            Because 3 of the last 10 people who left did it right after this
-            step, and none of them came back.
+            Three customers asked last week. One said they&rsquo;d leave without it.
           </div>
         </div>
         <aside className="notes">
           3:40–4:40 · STEP TWO{'\n\n'}
+          START WITH THE SHRUG, because everyone in the room has seen it. "You
+          ask why something got built, and you get this." Point at the grey one.
+          {'\n\n'}
+          "That's everywhere at the moment. And I want to be blunt about it —
+          it's not mysterious, it's not the price of working this way. It's
+          sloppy. It's the end of the conversation, and nobody can do anything
+          with it."{'\n\n'}
           "We made a decision early on that turned out to matter more than
           anything else. We decided it was more important that it could tell us
           WHY it did something than that it got the thing right first time."
           {'\n\n'}
-          THE EXCHANGE IS THE POINT — that question used to go to a person. Now
-          it goes to the system, and it answers, and it points at the evidence.
-          Every item it raises traces back to a real person doing a real thing.
-          {'\n\n'}
+          NOW THE SECOND ONE — "that's a reason. You can argue with it. You can
+          check it. You can decide it's the wrong call." Every item it raises
+          traces back to a real person doing a real thing.{'\n\n'}
+          THE TEST — "if you can't answer for what it did, you haven't delegated
+          the work. You've just lost track of it."{'\n\n'}
           WHY THIS MATTERS, PLAINLY — "the audit trail isn't paperwork. It's how
           you build trust in the thing. And you only ever hand over control of
           something you trust."{'\n\n'}

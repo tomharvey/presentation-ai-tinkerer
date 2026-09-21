@@ -486,30 +486,30 @@ body,
 /* a said/answered exchange — auditability, made concrete */
 .reveal .exchange {
   width: 100%;
-  max-width: 38ch;
+  max-width: 44ch;
   display: grid;
-  gap: 0.5rem;
+  gap: 0.55rem;
 }
 
 .reveal .exchange .ask,
 .reveal .exchange .reply {
-  padding: 0.55rem 0.85rem;
-  border-radius: 3px;
-  font-size: 0.46em;
-  line-height: 1.45;
+  padding: 0.6rem 0.95rem;
+  border-radius: 4px;
+  font-size: 0.58em;
+  line-height: 1.4;
 }
 
 .reveal .exchange .ask {
   background: var(--light-coal);
   color: var(--white);
   justify-self: start;
-  max-width: 24ch;
+  max-width: none;
 }
 
 .reveal .exchange .reply {
-  background: rgba(246, 244, 4, 0.12);
-  border-left: 3px solid var(--flock-yellow);
-  color: var(--light-grey);
+  background: rgba(246, 244, 4, 0.14);
+  border-left: 4px solid var(--flock-yellow);
+  color: var(--white);
 }
 
 /* the literal line she appends to every prompt */
@@ -1202,3 +1202,22 @@ body,
   margin: 0;
   max-width: none;
 }
+
+/* the answer you get today, next to the one you should be able to get.
+   The shrug must stay READABLE — muted, not faded out. A room reads it from
+   the back of a bar. */
+.reveal .exchange .reply.shrug {
+  background: rgba(59, 72, 76, 0.5);
+  border-left: 4px solid var(--dark-grey);
+  color: var(--dark-grey);
+}
+.reveal .exchange .pair-label {
+  font-family: var(--font-mono);
+  font-size: 0.36em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-grey);
+  margin: 0.6rem 0 -0.15rem;
+  max-width: none;
+}
+.reveal .exchange .pair-label.good { color: var(--flock-yellow); }
