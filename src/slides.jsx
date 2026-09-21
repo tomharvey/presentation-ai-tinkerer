@@ -777,8 +777,7 @@ export default function Slides() {
         <div className="goal">
           <p className="lbl">The goal we gave it</p>
           <p className="words">
-            &ldquo;Users should come back to this week after week, not try it
-            once and forget it.&rdquo;
+            &ldquo;Customers should use this at least once a week.&rdquo;
           </p>
         </div>
         <div className="ratio">
