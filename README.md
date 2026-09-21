@@ -35,7 +35,7 @@ Switch without touching the code:
 
 | Value | What it opens on |
 |---|---|
-| `guess` | The room guesses what a page is for. Every guess is plausible. The page itself has nothing |
+| `guess` | The site sits there thinking — a bubble rises with a guess at its purpose, pops, and another takes its place. Four, on a loop |
 | `belt` | A feature factory, which predates all of this; the machines only sped the line up |
 | `portrait` | A homepage that can tell you everything about itself except why it exists |
 

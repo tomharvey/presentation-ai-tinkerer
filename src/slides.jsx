@@ -93,38 +93,55 @@ function useSlideStages(count, gap) {
 }
 
 /* ---------------------------------------------------------------- slide 1 */
-/* The room can guess what a page is for — four guesses land, fast, and every
-   one is plausible. Then the page's own bubble arrives and it is empty, still
-   thinking. The guesses are the audience's competence; the empty bubble is the
-   gap.
+/* The site sits there, perfectly well built, while a thought rises off it
+   guessing at what it might be for. The guess pops. Another rises. Four of
+   them, round and round.
 
-   The title is a QUESTION, not a claim. Asserting "your software doesn't know
-   its purpose" tells people in the room they've got it wrong before they've
-   heard anything, and some of them will have got it right. Asking lets them
-   answer for themselves — and it makes the close the same question a second
-   time, with "do you?" on the end.
+   The loop is deliberate and it is the whole argument: the problem isn't that
+   any one guess is wrong — every one of them is plausible — it's that the
+   thing never arrives at an answer and never will, because nobody told it.
 
-   This replaced a list of things the software could answer about itself, which
-   read as dull on a trial run. Note the wording throughout is PURPOSE, not
-   "why it exists" — the latter tested as too existential and made the software
-   sound sentient, which is the wrong argument entirely. */
-function PurposeGuess() {
-  const [run, ref] = useReplayOnEnter()
+   Thought bubble, not speech: the trailing circles are what make that read,
+   and it's why the shape is a lumpy oval rather than a rounded rectangle. */
+const PURPOSES = [
+  'Sign people up',
+  'Sell them something',
+  'Get them to come back',
+  'Make us look serious',
+]
+
+function ThinkingSite() {
+  const [i, setI] = useState(0)
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const id = setInterval(() => setI((n) => (n + 1) % PURPOSES.length), 2000)
+    return () => clearInterval(id)
+  }, [])
+
   return (
-    <div ref={ref} style={{ width: '100%' }}>
-      <div className="guessbox" key={run}>
-        <span className="guess">Sign people up</span>
-        <span className="guess">Sell shoes</span>
-        <span className="guess">Get them to come back</span>
-        <span className="guess">Take their money</span>
-        <div className="tail" />
-        <div className="itsown">
-          <div className="dots"><span /><span /><span /></div>
+    <div className="thinksite">
+      {/* key remounts these each cycle so the appear/hold/pop replays */}
+      <span className="trail t2" key={`b-${i}`} />
+      <span className="trail t1" key={`a-${i}`} />
+      <div className="thought" key={i}>
+        {PURPOSES[i]}
+      </div>
+
+      <div className="site">
+        <div className="chrome">
+          <i /><i /><i />
         </div>
-        <div className="page">
-          <i className="w1" />
-          <i className="w2" />
-          <i className="cta" />
+        <div className="body">
+          <div className="nav">
+            <i className="brand" /><i /><i /><i />
+          </div>
+          <span className="ln" style={{ width: '82%' }} />
+          <span className="ln" style={{ width: '58%' }} />
+          <span className="cta" />
+          <div className="cards">
+            <i /><i /><i />
+          </div>
         </div>
       </div>
     </div>
@@ -429,7 +446,7 @@ export default function Slides() {
         {COLD_OPEN === 'guess' && (
           <>
             <h1>Does your software know its purpose?</h1>
-            <PurposeGuess />
+            <ThinkingSite />
             <aside className="notes">
               0:00–1:30 · NEVER CUT{'\n\n'}
               ⌨ PRESS C to cycle this opener: guesses → feature factory →
@@ -470,6 +487,14 @@ export default function Slides() {
               their own heads — some of them will say yes, and they may be
               right. That's fine. You're not telling them they're wrong, you're
               asking a question you'll ask again at the end.{'\n\n'}
+              LET THE BUBBLE GO ROUND AT LEAST TWICE before you move on. The
+              first cycle looks like an answer; the second is when the room
+              works out it's never going to land on one. That realisation is
+              the slide — don't step on it.{'\n\n'}
+              "Sign people up. Sell them something. Get them to come back. Make
+              us look serious. Every one of those is plausible. It has never
+              been told which, so it keeps guessing, and it will keep guessing
+              for as long as it's up."{'\n\n'}
               WALK THE CARD. Notice every one of those is about its own shape —
               size, layout, colour. It answers them instantly, and has been able to
               for twenty years. The last one it has never been able to
