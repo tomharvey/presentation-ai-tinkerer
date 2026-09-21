@@ -284,8 +284,16 @@ function WhatThenWhy() {
 
    Two halves matching the two beats of the animation: four reports stack into
    one stronger signal, then something arrives that conflicts and cuts the claim
-   back. The title now carries what the punch line used to, so there is no line
+   back. The title carries what the punch line used to, so there is no line
    underneath.
+
+   FINDS, not "is told" — nothing tells this thing anything. It reads what
+   customers actually do and finds the pattern, which is what the loop diagram
+   two slides earlier already says: customers act, it notices. "Told" implies a
+   person feeding it, which is the opposite of the argument.
+
+   "Evidence stacks up / conflicts cut it back" was tried first and was too
+   terse to decode without the slides before it.
 
    Four cards arrive, hold, then collapse into one signal that is simply
    stronger — because that is what they always were. The repetition wasn't the
@@ -900,8 +908,8 @@ export default function Slides() {
       <section>
         <p className="step"><span className="n">3</span> <span className="of">of four</span> &middot; Give it a memory</p>
         <h2>
-          Evidence stacks up.{' '}
-          <span className="second">Conflicts cut it back.</span>
+          It should add up what it finds.{' '}
+          <span className="second">And spot what doesn&rsquo;t fit.</span>
         </h2>
         <TicketBoard />
         <aside className="notes">
@@ -909,10 +917,9 @@ export default function Slides() {
           "Here's something nobody warns you about. These things have almost no
           sense of time passing. Every run is a fresh one, straight out of the
           box. It doesn't remember yesterday unless you make it."{'\n\n'}
-          WHICH MEANS, WITHOUT ONE, the fourth person telling you the same thing
-          is just a fourth job. WITH one, it's the reason to believe the first
-          three — or, when it cuts the other way, the reason to stop believing
-          them.{'\n\n'}
+          WITHOUT ONE, the fourth time it finds the same thing is just a fourth
+          job. WITH one, it's the reason to believe the first three — or, when it
+          cuts the other way, the reason to stop.{'\n\n'}
           SO WATCH WHAT HAPPENS. Four different people, four sets of words, one
           finding — and it was right every single time. That isn't forgetfulness.
           That is evidence.{'\n\n'}
