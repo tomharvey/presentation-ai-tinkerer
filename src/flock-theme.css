@@ -1962,16 +1962,35 @@ body,
    and you cannot judge history without one either. Order carries meaning.
    ===================================================================== */
 
+/* The step eyebrow is a fixed header, not part of the slide's flow.
+
+   Two problems it solves. It used to sit in flow above the title, so it landed
+   wherever that slide's content happened to start — measured, it swung 124px
+   between step three and step five, which reads as a wobble rather than a
+   running header. And reveal centres each section by setting `top` on the
+   section itself, so anything positioned inside the section moves with it.
+
+   Neither `absolute` nor `fixed` fixes it in CSS alone: reveal transforms the
+   sections during transitions, which makes the section the containing block for
+   both. So `top` is set from JS — pinStepHeaders() in Deck.jsx subtracts the
+   section's centring offset so every eyebrow lands on the same canvas line.
+   The value below is only the pre-JS fallback.
+
+   left matches the section's own 2rem padding so it stays on the same hard-left
+   line as everything else. */
 .reveal .step {
+  position: absolute;
+  top: 84px;
+  left: 2rem;
   display: inline-flex;
   align-items: baseline;
-  gap: 0.4rem;
+  gap: 0.45rem;
   font-family: var(--font-mono);
-  font-size: 0.4em;
+  font-size: 0.44em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
   color: var(--flock-yellow);
-  margin: 0 0 1rem;
+  margin: 0;
   max-width: none;
 }
 .reveal .step .n {
@@ -1980,7 +1999,9 @@ body,
   border-radius: 2px;
   padding: 0.05rem 0.4rem;
 }
-.reveal .step .of { color: var(--light-coal); }
+/* was --light-coal, which measured 1.6:1 against the Dark Coal ground and was
+   unreadable from the room. --dark-grey is 7.9:1. */
+.reveal .step .of { color: var(--dark-grey); }
 
 /* the goal we handed it, and whether it got there */
 .reveal .goal {
@@ -1990,12 +2011,16 @@ body,
   padding-left: 1rem;
   margin: 0 0 1.4rem;
 }
+/* Labels on the dark ground were --light-coal, which measures 1.6:1 — the same
+   failure as the step eyebrow. --dark-grey is 7.9:1. The faint chrome on the
+   ticket cards (#1042 and friends) is left alone deliberately: it's there to
+   look like background detail in a real tool, not to be read. */
 .reveal .goal .lbl {
   font-family: var(--font-mono);
   font-size: 0.38em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
-  color: var(--light-coal);
+  color: var(--dark-grey);
   margin: 0 0 0.3rem;
   max-width: none;
 }
@@ -2098,7 +2123,7 @@ body,
   font-size: 0.38em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
-  color: var(--light-coal);
+  color: var(--dark-grey);
   padding-left: 0;
 }
 .reveal .worklist .lbl::before { display: none; }
@@ -2209,7 +2234,7 @@ body,
   font-size: 0.36em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
-  color: var(--light-coal);
+  color: var(--dark-grey);
   margin: 0 0 0.25rem;
   max-width: none;
 }
