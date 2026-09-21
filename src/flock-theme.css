@@ -2184,3 +2184,72 @@ body,
 .reveal h1.tight + .thinksite {
   margin-top: -1.6rem;
 }
+
+/* The punch on slide 8 has to survive being misread. "The only thing left to
+   care about is why" sounds like less work unless the counter lands with it, so
+   the counter is part of the punch, not a footnote — same size, same weight,
+   dropped to body white so it reads as the correction to the yellow claim
+   rather than a second claim. */
+.reveal .punch .counter { color: var(--white); }
+
+/* --- guardrails: the goal, and the cheap route to it ------------------ */
+
+/* Deliberately NOT two columns. Stacked, it reads as one sentence and its
+   consequence — and it leaves the type big enough to read from the back,
+   which the side-by-side version did not. */
+.reveal .cheap {
+  width: 100%;
+  max-width: 40ch;
+  border-left: 3px solid var(--light-coal);
+  padding-left: 1rem;
+  margin: 0 0 1.3rem;
+}
+.reveal .cheap .lbl {
+  font-family: var(--font-mono);
+  font-size: 0.36em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--light-coal);
+  margin: 0 0 0.25rem;
+  max-width: none;
+}
+.reveal .cheap .lbl.got { color: var(--signal-orange); margin-top: 0.7rem; }
+.reveal .cheap .words {
+  font-size: 0.52em;
+  line-height: 1.3;
+  color: var(--white);
+  margin: 0;
+  max-width: none;
+}
+
+/* Three rungs, weakest first. Only the top one is yellow: the escalation is
+   the argument, so the eye has to see where it ends up. */
+.reveal .rungs { width: 100%; max-width: 46ch; }
+.reveal .rungs .rung {
+  display: grid;
+  grid-template-columns: 16ch 1fr;
+  gap: 1rem;
+  padding: 0.45rem 0;
+  border-top: 1px solid var(--light-coal);
+}
+.reveal .rungs .rung.top { border-top-color: var(--flock-yellow); }
+.reveal .rungs .move {
+  font-family: var(--font-mono);
+  font-size: 0.36em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-grey);
+  margin: 0;
+  max-width: none;
+  align-self: center;
+}
+.reveal .rungs .rung.top .move { color: var(--flock-yellow); }
+.reveal .rungs .real {
+  font-size: 0.52em;
+  line-height: 1.3;
+  color: var(--light-grey);
+  margin: 0;
+  max-width: none;
+  align-self: center;
+}
+.reveal .rungs .rung.top .real { color: var(--white); }

@@ -54,10 +54,11 @@ history without one either:
 3. **Feedback loop** — give it a goal. Make it improve itself.
 4. **Make it auditable** — "the agent did it" is not a reason. It's just sloppy.
 5. **Give it a memory** — it adds up everything it finds. It spots what doesn't fit.
-6. **Guardrails** — a prompt is a request. A boundary is a fact.
+6. **Guardrails** — it will hit the goal. That's the bit to worry about.
 7. **Make it scale** — a loop with you in it runs at your speed
 
-8. This is the most software engineering I've done in twenty-five years
+8. You don't build the thing any more. You build what builds it.
+   *(and that is not a smaller job — the misreading this slide exists to kill)*
 9. Does your software know its purpose? Do you?
 
 ## Stack

@@ -977,52 +977,87 @@ export default function Slides() {
       <section>
         <p className="step"><span className="n">4</span> <span className="of">of five</span> &middot; Guardrails</p>
         <h2>
-          A prompt is a request.{' '}
-          <span className="second">A boundary is a fact.</span>
+          It will hit the goal.{' '}
+          <span className="second">That&rsquo;s the bit to worry about.</span>
         </h2>
-        <div className="versus">
-          <div className="side">
-            <p className="where">In the instructions</p>
-            <p className="said">
-              &ldquo;Don&rsquo;t tell anyone what cover to buy.&rdquo;
-            </p>
-            <p className="life">It probably won&rsquo;t. You asked nicely.</p>
+
+        {/* The callback is the whole slide: this is the SAME sentence from step
+            one, now read as a threat rather than a promise. Keep the wording
+            byte-identical to the .goal block on slide 3 or the callback dies. */}
+        <div className="cheap">
+          <p className="lbl">What we asked for</p>
+          <p className="words">
+            &ldquo;Customers should use this at least once a week.&rdquo;
+          </p>
+          <p className="lbl got">Cheapest way there</p>
+          <p className="words got">Email all of them every Monday.</p>
+        </div>
+
+        <div className="rungs">
+          <div className="rung">
+            <p className="move">Tell it not to</p>
+            <p className="real">It probably won&rsquo;t. You asked nicely.</p>
           </div>
-          <div className="side up">
-            <p className="where">In the tooling</p>
-            <p className="said">
-              There is no tool that answers questions about cover.
-            </p>
-            <p className="life">It can&rsquo;t. There is nothing to talk round.</p>
+          <div className="rung">
+            <p className="move">Test that it didn&rsquo;t</p>
+            <p className="real">Now you find out. Afterwards, but you find out.</p>
+          </div>
+          <div className="rung top">
+            <p className="move">Don&rsquo;t give it the tool</p>
+            <p className="real">It can&rsquo;t. There&rsquo;s nothing to argue with.</p>
           </div>
         </div>
+
         <aside className="notes">
-          STEP FOUR · GUARDRAILS{'\n\n'}
-          "Everyone nods along to this one and almost nobody builds it, because
-          asking politely feels like it ought to be enough."{'\n\n'}
-          WE'RE REGULATED. There are things our product must never do — it must
-          not tell a customer what insurance to buy. So where do you put that
-          rule?{'\n\n'}
-          LEFT — in the instructions. And it'll probably hold. Probably is doing
-          a lot of work in that sentence, and "probably" is not a compliance
-          position.{'\n\n'}
-          RIGHT — in the tooling. The thing it would need in order to do the
-          wrong thing does not exist. It isn't resisting temptation; there's
-          nothing there.{'\n\n'}
-          "A prompt is a request. A boundary is a fact. And the difference only
-          shows up on the day something goes wrong."{'\n\n'}
-          THE PART THAT SURPRISED ME — our compliance lead wrote documentation
-          for the system, not for the people. It sits inside the loop. Which
-          means when something does step over a line, we find out, because the
-          edges are somewhere you can watch.{'\n\n'}
-          BRIDGE — "wherever you're doing this: if your safety story is 'we told
-          it not to', you don't have a safety story. Move the limit somewhere it
-          can't be argued with."{'\n\n'}
-          ⚠ Don't name the compliance lead from the stage. "Our compliance lead"
-          is enough.{'\n\n'}
-          IF YOU'RE OVER TIME this is the slide to drop — it's the only one of
-          the five that isn't load-bearing for the argument, and it's the one a
-          regulated-industry room will ask about anyway.
+          STEP FOUR · GUARDRAILS — AND THIS IS THE ANSWER TO THE DANGER STEP ONE
+          CREATED, so it cannot be cut without leaving that danger open.{'\n\n'}
+          OPEN BY GOING BACK — "I told you at the start we gave it a goal.
+          Customers should use this at least once a week. Here's the thing
+          nobody says about goals: it will hit it."{'\n\n'}
+          "And there are cheap ways to hit that number. Email all of them every
+          Monday. Make something they only needed once a month into something
+          they have to do every week. Or just quietly change what counts as
+          using it."{'\n\n'}
+          ⚠ THE LINE THAT MAKES THE ROOM SIT UP — "that isn't the system going
+          wrong. That's the system doing exactly what I asked. I'm the one who
+          wrote the goal." Take the blame here; it's true and it stops the
+          slide sounding like a warning about AI.{'\n\n'}
+          SO THE GOAL ISN'T ENOUGH. A goal says where to get to. It says
+          nothing about what you're not prepared to do on the way. That's what
+          a guardrail is.{'\n\n'}
+          WALK THE THREE RUNGS, THEY ESCALATE:{'\n'}
+          1 · TELL IT NOT TO — instructions. It'll probably hold. "Probably" is
+          doing a lot of work in that sentence, and probably is not a position
+          you can defend to a regulator.{'\n'}
+          2 · TEST THAT IT DIDN'T — this is where evals live. You can say the
+          word "evals" in this room, they'll know it. Elsewhere say "tests that
+          check what it actually did, not what it said it did." The honest
+          framing: this doesn't stop anything, it tells you. But you cannot fix
+          what you never find out about, and most people have no rung two at
+          all.{'\n'}
+          3 · DON'T GIVE IT THE TOOL — the strongest and the cheapest. The thing
+          it would need in order to do the wrong thing does not exist. It isn't
+          resisting temptation; there's nothing there.{'\n\n'}
+          CLOSE ON THE PRINCIPLE — say it, it is deliberately not on the slide
+          because the slide was already full: "a prompt is a request. A boundary
+          is a fact. And the difference only shows up on the day something goes
+          wrong."{'\n\n'}
+          OUR REAL ONE, IF YOU WANT A SECOND EXAMPLE AND HAVE THE TIME — we're
+          regulated, and our product must never tell a customer what insurance
+          to buy. That rule does not live in the instructions. There is no tool
+          that answers that question.{'\n\n'}
+          IF SOMEONE ASKS "how do you know what the limits are?" — that's the
+          real unsolved one and you should say so. You need an agreed
+          description of what the business actually is, and most companies
+          don't have one written down anywhere. Ours is half-built. Don't say
+          "ontology" from the stage unless they say it first.{'\n\n'}
+          ⚠ Don't name the compliance lead, or anyone else, from the stage.
+          {'\n\n'}
+          ⚠ NO TEST COUNTS, NO TOOL NAMES, NO INTERNAL VOLUMES. The shape is
+          the point, not our numbers.{'\n\n'}
+          ⚠ THE OLD VERSION OF THIS SLIDE led on compliance — "don't tell anyone
+          what cover to buy." Cut: it made guardrails look like a regulated-
+          industry problem somebody else has. Every goal has a cheap route.
         </aside>
       </section>
 
@@ -1096,7 +1131,10 @@ export default function Slides() {
             </div>
           </div>
         </div>
-        <p className="punch">So the only thing left to care about is why.</p>
+        <p className="punch">
+          So the only thing left to care about is why.{' '}
+          <span className="counter">That is not a smaller job.</span>
+        </p>
         <aside className="notes">
           NEVER CUT — this is the turn the whole talk hinges on, and it now
           carries the payoff that used to have its own slide{'\n\n'}
@@ -1143,11 +1181,20 @@ export default function Slides() {
           million miles from going from writing code to running a team. You stop
           producing the thing and start building something that produces it."
           Then move on; the room can finish that thought themselves.{'\n\n'}
-          AND SAY WHY IT'S NOT A DEMOTION — "that's a real engineering problem.
-          Arguably a harder one. Months of this, and almost none of it was
-          typing code: teaching it what the business is and what it isn't,
+          ⚠⚠ THE MISREADING TO KILL, AND IT'S THE MOST IMPORTANT THING ON THE
+          SLIDE — half this room has heard "hand it to the AI and stop thinking"
+          and either believes it or resents it. Said carelessly, "the only thing
+          left to care about is why" sounds exactly like that: fewer things to
+          worry about, less to do. Say the counter out loud, don't rely on the
+          screen: "that is not a smaller job. There is a real system to build
+          here, and it is hard to build."{'\n\n'}
+          AND THEN THE EVIDENCE FOR IT — "months of this, and almost none of it
+          was typing code: teaching it what the business is and what it isn't,
           writing down the things that only lived in people's heads, and
-          deciding out loud what good looks like."{'\n\n'}
+          deciding out loud what good looks like." That list IS the engineering.
+          {'\n\n'}
+          "You are not handing your job over. You are being handed a harder
+          one."{'\n\n'}
           THE CORRECTION PEOPLE NEED — software engineering isn't over. It
           changed. If you want the personal version, it's honest and it isn't a
           boast: "I'd fallen out of love with it somewhere along the way, and I
