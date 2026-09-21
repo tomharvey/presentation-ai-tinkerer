@@ -1069,8 +1069,8 @@ export default function Slides() {
           only kind left. The why isn't something you graduate to once you have
           spare time — it's forced on you. */}
       <section>
-        <p className="kicker muted">What changes when you move</p>
-        <h2>You can&rsquo;t shape a loop without knowing what it&rsquo;s for</h2>
+        <p className="kicker muted">What&rsquo;s left</p>
+        <h2>This is the most software engineering I&rsquo;ve done in twenty-five years</h2>
         <div className="versus">
           <div className="side">
             <p className="where">In it &middot; an instruction about one thing</p>
@@ -1093,8 +1093,10 @@ export default function Slides() {
             </div>
           </div>
         </div>
+        <p className="punch">Building the system that builds the system.</p>
         <aside className="notes">
-          6:30–7:50 · NEVER CUT — this is the turn the whole talk hinges on{'\n\n'}
+          NEVER CUT — this is the turn the whole talk hinges on, and it now
+          carries the payoff that used to have its own slide{'\n\n'}
           "Here's the bit I didn't expect. Moving above the loop doesn't just
           free you up. It takes something away from you."{'\n\n'}
           READ THE LEFT ONE FIRST. That is a perfectly good instruction. Precise,
@@ -1123,8 +1125,27 @@ export default function Slides() {
           THE CALLBACK — "which is the same sentence I opened with. That system
           couldn't improve itself without knowing what it was for." Beat.
           "Neither can you."{'\n\n'}
-          NO NAMES, NO NUMBERS, NO TOOLING. This slide is an argument, not
-          evidence.{'\n\n'}
+          NO NAMES, NO NUMBERS, NO TOOLING. This half of the slide is an
+          argument, not evidence.{'\n\n'}
+          ─────────────────────────────────{'\n'}
+          THEN THE PAYOFF — this used to be its own slide{'\n'}
+          ─────────────────────────────────{'\n\n'}
+          "So if the why is the job now — is that a smaller job? It is not."
+          {'\n\n'}
+          SAY THIS ONE STRAIGHT, IT'S TRUE AND IT LANDS: "this is the most
+          software engineering I have done in twenty-five years of software
+          engineering. Building the systems was never this. Building the system
+          that builds the systems — that's engineering. I've fallen back in love
+          with it, and there was a long stretch where I hadn't."{'\n\n'}
+          And the correction people need: software engineering isn't over. It
+          changed.{'\n\n'}
+          THE HONEST COST IS ENTIRELY SPOKEN — nothing on screen carries it, and
+          the title sounds like a boast until you do. "Months of it. And almost
+          none of it was typing code." Then the three: teaching it what the
+          business is and what it isn't; writing down the things that only lived
+          in people's heads; deciding, out loud, what good looks like.{'\n\n'}
+          ⚠ TONE — the weeds were compulsory and YOU WERE IN THEM TOO. Never
+          "people were doing it wrong."{'\n\n'}
           ⚠ ONE EXAMPLE ONLY, and it stays the export one. A second was tried
           (function length: tell it ten lines and it tortures something to reach
           ten) and cut — it connects to nothing else in the talk and only lands
@@ -1136,59 +1157,6 @@ export default function Slides() {
           slides 1 and 3, so the room has met this need twice already.{'\n\n'}
           ⚠ The right-hand instruction should be something you'd genuinely say.
           Swap it for your own wording if it rings false — it's carrying a lot.
-        </aside>
-      </section>
-
-      {/* 8 ────────────────────────────────────── 7:50–9:15 */}
-      <section>
-        <p className="kicker muted">What&rsquo;s left</p>
-        <h2>This is the most software engineering I&rsquo;ve done in twenty-five years</h2>
-        <p className="punch">Building the system that builds the system.</p>
-        <aside className="notes">
-          7:50–9:15 · NEVER CUT the why-becomes-the-job beat{'\n\n'}
-          Her answer, unprompted: working out the right thing to build.
-          Understanding what people are actually struggling with, applying
-          judgement to THAT, and building the systems that surface which thing
-          matters most.{'\n\n'}
-          "So if the why is now the job — is that a smaller job? It is not."{'\n\n'}
-          SAY THIS ONE STRAIGHT, IT'S TRUE AND IT LANDS: "this is the most
-          software engineering I have done in twenty-five years of software
-          engineering. Building the systems was never this. Building the system
-          that builds the systems — that's engineering. I've fallen back in love
-          with it, and there was a long stretch where I hadn't."{'\n\n'}
-          And the correction people need: software engineering isn't over. It
-          changed.{'\n\n'}
-          THE HONEST COST IS NOW ENTIRELY SPOKEN — nothing on the slide carries
-          it, and the title sounds like a boast until you do. "Months of it. And
-          almost none of it was typing code."{'\n\n'}
-          THE THREE THINGS ARE SPOKEN NOW, NOT ON THE SLIDE. Say them as a list
-          and let them land: teaching it what the business is and what it isn't;
-          writing down the things that only lived in people's heads; deciding,
-          out loud, what good looks like.{'\n\n'}
-          "Teaching it what Flock actually is. Our coding standards were about
-          one percent of what it needed — the rest was knowledge that only
-          existed in three or four people's heads, and nobody had ever been
-          asked to write it down."{'\n\n'}
-          "And deciding, out loud, what good looks like. Which turns out to be
-          the hardest meeting you'll ever run."{'\n\n'}
-          THE RESOLUTION — "so no, software engineering isn't over. It moved.
-          It used to be the thing I typed. Now it's the thing I design, and
-          honestly it's harder. I'd fallen out of love with it somewhere along
-          the way and I hadn't noticed until it came back."{'\n\n'}
-          Getting lost in the what was a TRAP, and for thirty years it was
-          COMPULSORY. Everybody fell into it, because the job genuinely required
-          somebody down there. What's changed is that it's optional now — and
-          what's left when you climb out is the harder half.{'\n\n'}
-          The tool doesn't only produce value. It moves you up a level, whether
-          or not you meant to go.{'\n\n'}
-          ⚠ TONE — this is the slide that can go wrong in the room. The weeds
-          were compulsory and YOU WERE IN THEM TOO. Never "people were doing it
-          wrong."{'\n\n'}
-          Farmers don't care about a grain of wheat. They care about the farm.
-          {'\n\n'}
-          And the honest bit: this isn't a phase you pass through. Shaping the
-          thing is a full-time job forever — priorities keep moving and it has to
-          move with them.
         </aside>
       </section>
 

@@ -57,9 +57,8 @@ history without one either:
 6. **Guardrails** — a prompt is a request. A boundary is a fact.
 7. **Make it scale** — a loop with you in it runs at your speed
 
-8. You can't shape a loop without knowing what it's for
-9. This is the most software engineering I've done in twenty-five years
-10. Does your software know its purpose? Do you?
+8. This is the most software engineering I've done in twenty-five years
+9. Does your software know its purpose? Do you?
 
 ## Stack
 
