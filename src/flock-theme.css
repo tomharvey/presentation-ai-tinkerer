@@ -486,9 +486,10 @@ body,
 /* a said/answered exchange — auditability, made concrete */
 .reveal .exchange {
   width: 100%;
-  max-width: 44ch;
+  max-width: 46ch;
   display: grid;
-  gap: 0.55rem;
+  gap: 0.5rem;
+  justify-items: start;
 }
 
 .reveal .exchange .ask,
@@ -499,17 +500,23 @@ body,
   line-height: 1.4;
 }
 
+/* the question you send */
 .reveal .exchange .ask {
   background: var(--light-coal);
   color: var(--white);
-  justify-self: start;
-  max-width: none;
+  justify-self: end;
+  max-width: 28ch;
+  border-radius: 12px 12px 3px 12px;
 }
 
+/* the answers that come back */
 .reveal .exchange .reply {
   background: rgba(246, 244, 4, 0.14);
   border-left: 4px solid var(--flock-yellow);
   color: var(--white);
+  justify-self: start;
+  max-width: 34ch;
+  border-radius: 3px 12px 12px 12px;
 }
 
 /* the literal line she appends to every prompt */
@@ -567,8 +574,10 @@ body,
 
 /* Left — in it. Deliberately the slower of the two: every pass has to go
    through a person, so the circuit labours. */
+/* offset is driven from JS so the loop can decelerate and stall; only the
+   dash pattern lives here */
 .reveal .schematic .ring-left {
-  animation: ringflow 2.9s linear infinite;
+  stroke-dasharray: 9 8;
 }
 
 /* the right-hand loop's geometry is computed in JS; only the dash flow is CSS */
@@ -802,18 +811,22 @@ body,
    and who opened them. Arrives one card at a time.
    ===================================================================== */
 
-.reveal .board { width: 100%; max-width: 40ch; }
+.reveal .board {
+  width: 100%;
+  max-width: 40ch;
+  margin: 0.9rem 0 1.15rem;
+}
 
 .reveal .board .col-head {
   display: flex;
   align-items: center;
   gap: 0.55rem;
+  margin-bottom: 0.6rem;
   font-family: var(--font-mono);
   font-size: 0.32em;
   letter-spacing: var(--track-mono-caps);
   text-transform: uppercase;
   color: var(--dark-grey);
-  margin: 0 0 0.5rem;
   max-width: none;
 }
 
@@ -830,15 +843,15 @@ body,
   background: var(--light-coal);
 }
 
-.reveal .board .cards { display: grid; gap: 0.42rem; }
+.reveal .board .cards { display: grid; gap: 0.3rem; }
 
 .reveal .board .tk {
   background: #223136;
   border: 1px solid var(--light-coal);
   border-radius: 4px;
-  padding: 0.5rem 0.7rem 0.45rem;
+  padding: 0.36rem 0.65rem 0.32rem;
   display: grid;
-  gap: 0.34rem;
+  gap: 0.2rem;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
   opacity: 0;
   transform: translateY(7px);
@@ -893,26 +906,26 @@ body,
 .reveal .board .tk .who { color: var(--dark-grey); }
 .reveal .board .tk .ref { margin-left: auto; }
 
-/* The four cards hold, then collapse into one signal that is simply
-   stronger. Both layers sit in the same grid cell so nothing reflows. */
-.reveal .board-stack { display: grid; }
-.reveal .board-stack > * { grid-area: 1 / 1; }
+/* The four cards STAY — they're the evidence, and taking them away mid-slide
+   reads as a glitch and throws away what the room just watched arrive. They
+   recede instead, and the conclusions stack underneath them. */
+.reveal .board-stack { display: grid; gap: 0.42rem; }
 
 .reveal .board-stack .cards {
-  animation: cardsOut 0.45s 4.3s ease-in forwards;
+  animation: cardsRecede 0.5s 4.2s ease-out forwards;
 }
-@keyframes cardsOut { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes cardsRecede { to { opacity: 0.4; } }
 
 .reveal .board .compounded {
   opacity: 0;
   align-self: start;
-  animation: tkIn 0.4s 4.6s ease-out forwards;
+  animation: tkIn 0.4s 4.5s ease-out forwards;
   background: #223136;
   border: 1px solid var(--flock-yellow);
   border-radius: 4px;
-  padding: 0.5rem 0.7rem 0.45rem;
+  padding: 0.4rem 0.65rem 0.36rem;
   display: grid;
-  gap: 0.34rem;
+  gap: 0.22rem;
 }
 
 .reveal .board .compounded .title {
@@ -948,9 +961,57 @@ body,
   padding: 0.08rem 0.32rem;
 }
 
+/* Evidence that pushes back. Arrives last, because narrowing a hypothesis is
+   only possible once there is one — and it is the half people forget: a
+   memory that only ever accumulates agreement is an echo chamber. */
+.reveal .board .contradicts {
+  opacity: 0;
+  align-self: start;
+  animation: tkIn 0.4s 5.9s ease-out forwards;
+  background: rgba(255, 146, 46, 0.1);
+  border: 1px solid var(--signal-orange);
+  border-radius: 4px;
+  padding: 0.4rem 0.65rem 0.36rem;
+  display: grid;
+  gap: 0.22rem;
+}
+.reveal .board .contradicts .title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-size: 0.42em;
+  color: var(--light-grey);
+  line-height: 1.3;
+}
+.reveal .board .contradicts .pri {
+  flex: 0 0 auto;
+  width: 0.42em;
+  height: 0.42em;
+  border-radius: 50%;
+  background: var(--signal-orange);
+  transform: translateY(-0.06em);
+}
+.reveal .board .contradicts .foot {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.28em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-grey);
+}
+.reveal .board .contradicts .narrowed {
+  background: var(--signal-orange);
+  color: var(--dark-coal);
+  border-radius: 2px;
+  padding: 0.08rem 0.32rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal .board-stack .cards { animation: none; opacity: 0; }
-  .reveal .board .compounded { animation: none; opacity: 1; }
+  .reveal .board .compounded,
+  .reveal .board .contradicts { animation: none; opacity: 1; }
 }
 
 /* =====================================================================
@@ -1210,6 +1271,7 @@ body,
   background: rgba(59, 72, 76, 0.5);
   border-left: 4px solid var(--dark-grey);
   color: var(--dark-grey);
+  border-radius: 3px 12px 12px 12px;
 }
 .reveal .exchange .pair-label {
   font-family: var(--font-mono);
@@ -1224,22 +1286,18 @@ body,
 
 /* The verdict — lands a beat after the title, so the room reaches
    "not a reason" on its own before you name it. */
+/* Sits inside the headline and flows with it — the verdict is the end of the
+   sentence, not a second thought parked underneath. inline-block so it can
+   still be nudged as it arrives; it wraps as one phrase. */
 .reveal .verdict {
-  font-family: var(--font-headline);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: var(--track-headline);
-  line-height: var(--lead-headline);
-  font-size: 1.5em;
+  display: inline-block;
   color: var(--flock-yellow);
-  margin: -0.9rem 0 1.3rem;
-  max-width: 20ch;
   opacity: 0;
   animation: verdictIn 0.42s 2.6s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
 }
 
 @keyframes verdictIn {
-  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: none; }
 }
 

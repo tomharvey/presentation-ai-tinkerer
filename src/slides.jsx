@@ -185,6 +185,10 @@ function LoopDiagram() {
    system being forgetful; it was the same finding confirmed four times with no
    way to add it up.
 
+   Then the half that matters more: contradicting evidence arrives and narrows
+   the hypothesis. A memory that only accumulates agreement is an echo chamber;
+   the point of history is that it can move a conclusion in both directions.
+
    A tracker column rather than a list of sentences, so it reads as tickets at
    a glance. The build replays on slide entry (a plain CSS animation fires once
    at page load and is over long before anyone gets here). */
@@ -220,14 +224,26 @@ function TicketBoard() {
               </div>
             ))}
           </div>
-          <div className="compounded">
-            <div className="title">
-              <span className="pri" />
-              <span>People can&rsquo;t get their own data out</span>
+          <div>
+            <div className="compounded">
+              <div className="title">
+                <span className="pri" />
+                <span>People can&rsquo;t get their own data out</span>
+              </div>
+              <div className="foot">
+                <span className="strength">Signal &times;4</span>
+                <span>and still climbing</span>
+              </div>
             </div>
-            <div className="foot">
-              <span className="strength">Signal &times;4</span>
-              <span>and still climbing</span>
+            <div className="contradicts">
+              <div className="title">
+                <span className="pri" />
+                <span>&hellip;but three of them already had a way to do it</span>
+              </div>
+              <div className="foot">
+                <span className="narrowed">Narrowed</span>
+                <span>it&rsquo;s the portal, not the data</span>
+              </div>
             </div>
           </div>
         </div>
@@ -245,8 +261,10 @@ function SloppyVerdict() {
   const [run, ref] = useReplayOnEnter()
   return (
     <div ref={ref} key={run} style={{ width: '100%' }}>
-      <h2>&ldquo;The agent did it&rdquo; is not a reason</h2>
-      <p className="verdict">It&rsquo;s just sloppy</p>
+      <h2>
+        &ldquo;The agent did it&rdquo; is not a reason.{' '}
+        <span className="verdict">It&rsquo;s just sloppy.</span>
+      </h2>
     </div>
   )
 }
@@ -274,6 +292,35 @@ const MORPH = {
   ry: [56, 32, 64, 40, 56],
 }
 
+/* The left-hand loop runs freely until a person appears on it, grinds to a
+   stop while they're there, and picks up again once they're gone. That cycle
+   is the argument: the loop isn't slow because it's badly built, it's slow
+   because someone is standing in it. */
+const STALL = {
+  period: 6000,
+  runTo: 0.35, // free-running
+  stopBy: 0.5, // decelerating
+  holdTo: 0.8, // stalled, person present
+  goBy: 0.95, // accelerating again
+}
+
+const smooth = (u) => u * u * (3 - 2 * u)
+
+function stallAt(p) {
+  const { runTo, stopBy, holdTo, goBy } = STALL
+  if (p < runTo) return { speed: 1, person: 0 }
+  if (p < stopBy) {
+    const u = smooth((p - runTo) / (stopBy - runTo))
+    return { speed: 1 - u, person: u }
+  }
+  if (p < holdTo) return { speed: 0, person: 1 }
+  if (p < goBy) {
+    const u = smooth((p - holdTo) / (goBy - holdTo))
+    return { speed: u, person: 1 - u }
+  }
+  return { speed: 1, person: 0 }
+}
+
 function morphAt(t) {
   const { stops, rx, ry } = MORPH
   let i = 0
@@ -289,13 +336,26 @@ function morphAt(t) {
 
 function InOrAbove() {
   const [shape, setShape] = useState(() => morphAt(0))
+  const [left, setLeft] = useState({ offset: 0, person: 0 })
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     let raf
     const start = performance.now()
+    let last = start
+    let offset = 0
     const tick = (now) => {
-      setShape(morphAt(((now - start) % MORPH.period) / MORPH.period))
+      const dt = Math.min(now - last, 64)
+      last = now
+      const elapsed = now - start
+      setShape(morphAt((elapsed % MORPH.period) / MORPH.period))
+
+      // dash offset is accumulated, not derived, because the speed varies —
+      // deriving it from elapsed time would make it jump when the rate changes
+      const { speed, person } = stallAt((elapsed % STALL.period) / STALL.period)
+      offset -= (dt / 1000) * 46 * speed
+      setLeft({ offset, person })
+
       raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
@@ -317,9 +377,15 @@ function InOrAbove() {
     >
       {/* ---- in it ---- */}
       <text x="18" y="16">In it</text>
-      <circle className="ring flow ring-left" cx="130" cy="108" r="56" />
-      <path className="head" d="M181 104 L191 104 L186 116 Z" />
-      <circle className="you" cx="130" cy="52" r="10" />
+      <circle
+        className="ring ring-left"
+        cx="130"
+        cy="108"
+        r="56"
+        style={{ strokeDashoffset: left.offset }}
+      />
+      <path className="head" d="M181 104 L191 104 L186 116 Z" opacity={0.25 + left.person * 0.75} />
+      <circle className="you" cx="130" cy="52" r="10" opacity={left.person} />
       <text className="tiny" x="130" y="190" textAnchor="middle">
         every pass comes through you
       </text>
@@ -657,10 +723,10 @@ export default function Slides() {
           progress. Same visual, now doing the job it was always best at. */}
       <section>
         <p className="step"><span className="n">3</span> <span className="of">of four</span> &middot; Give it a memory</p>
-        <h2>Without a memory it can&rsquo;t tell a new idea from more evidence</h2>
+        <h2>It can&rsquo;t tell a new idea from more evidence</h2>
         <TicketBoard />
         <p className="punch">
-          The same finding four times should get louder, not longer.
+          Evidence should make it louder, or narrower &mdash; never just longer.
         </p>
         <aside className="notes">
           4:40–5:40 · STEP THREE{'\n\n'}
@@ -672,6 +738,14 @@ export default function Slides() {
           That is evidence.{'\n\n'}
           WAIT FOR THE COLLAPSE — "what it should have done is this." One item,
           four times the weight behind it.{'\n\n'}
+          THEN THE SECOND HALF, AND THIS IS THE BIT PEOPLE MISS — wait for the
+          orange one. "And the same memory works the other way." Three of those
+          four already had a way to get their data; they just couldn't find it.
+          So the thing to build isn't an export. It's a signpost.{'\n\n'}
+          "A memory that only ever stacks up agreement is an echo chamber. The
+          useful half is the evidence that pushes back — it narrows what you're
+          actually solving, and sometimes it tells you to drop the thing
+          entirely."{'\n\n'}
           "The failure wasn't that it was wrong. It couldn't add its own evidence
           up. It treated the fourth person saying the same thing as a fourth job,
           instead of as the reason to believe the first one."{'\n\n'}
@@ -679,8 +753,10 @@ export default function Slides() {
           done, what happened, what's a long-running problem and what's new.
           Without that it cannot tell progress from repetition.{'\n\n'}
           BRIDGE — "wherever you're doing this: hearing the same thing twice
-          should raise your confidence, not your workload. If your setup turns
-          it into more work, that's the bit to fix."{'\n\n'}
+          should raise your confidence, not your workload — and hearing
+          something that contradicts it should narrow the job, not start a new
+          one. If your setup turns either into more work, that's the bit to
+          fix."{'\n\n'}
           ⚠ Illustrative wording, real failure mode. Don't present the ticket
           numbers as exact.
         </aside>
