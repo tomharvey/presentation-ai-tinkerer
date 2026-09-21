@@ -953,7 +953,9 @@ export default function Slides() {
           Go and build your own way of trusting it. It doesn&rsquo;t have to work
           for everyone &mdash; it has to work for you.
         </p>
-        <p className="hiring">Flock is hiring</p>
+        <p className="hiring">
+          Flock is hiring &middot; <b>flockcover.com/careers</b>
+        </p>
         <aside className="notes">
           9:15–9:45{'\n\n'}
           It's September 2026 and nobody knows if this is right, including me.
@@ -1008,9 +1010,7 @@ export default function Slides() {
           watching the process. Don't push the analogy far; they aren't the
           same, and the differences are a longer talk.{'\n\n'}
           NUMBERS IN RESERVE: activation 57% against a 50% target. Both key
-          results met. Ticket volumes only if pushed. Then the hiring line and stop. Say where
-          we're hiring out loud if it's relevant — it's not on the slide, so the
-          deck stays true wherever this is given.{'\n\n'}
+          results met. Ticket volumes only if pushed. Then the hiring line and stop.{'\n\n'}
           ⚠ Verify the model claim before this is said — transcript audio was
           rough.
         </aside>

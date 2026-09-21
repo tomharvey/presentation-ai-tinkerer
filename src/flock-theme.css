@@ -312,11 +312,19 @@ body,
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: var(--track-mono-caps);
-  font-size: 0.38em;
+  font-size: 0.42em;
   color: var(--light-coal);
   margin: 0;
   max-width: none;
   white-space: nowrap;
+}
+/* the address has to be readable from the back — it's the one thing on this
+   slide anybody might act on */
+.reveal .hiring b {
+  color: var(--dark-coal);
+  font-weight: 500;
+  border-bottom: 2px solid rgba(25, 40, 45, 0.35);
+  padding-bottom: 0.08em;
 }
 
 /* --- progress / controls --------------------------------------------- */
