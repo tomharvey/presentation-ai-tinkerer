@@ -128,7 +128,7 @@ const PURPOSES = [
 const TARGETS = [
   { fig: '+20%', label: 'more sales' },
   { fig: '1,000', label: 'signups a day' },
-  { fig: '\u2212100', label: 'calls a day' },
+  { fig: '\u2212100', label: 'support requests' },
   { fig: '+15%', label: 'weekly returns' },
 ]
 
@@ -605,8 +605,8 @@ export default function Slides() {
               COLD OPEN — TARGETS variant of the thinking site.{'\n\n'}
               Same slide, but the guesses are numbers somebody is actually
               carrying. "Twenty percent more sales. A thousand signups a day. A
-              hundred fewer calls. Fifteen percent more people coming back."
-              {'\n\n'}
+              hundred fewer support requests. Fifteen percent more people coming
+              back."{'\n\n'}
               "Somebody in that building has every one of those on a slide with
               their name against it. Not one of them has ever been said TO the
               thing that's supposed to deliver it."{'\n\n'}
