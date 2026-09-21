@@ -1070,7 +1070,10 @@ export default function Slides() {
           spare time — it's forced on you. */}
       <section>
         <p className="kicker muted">What&rsquo;s left</p>
-        <h2>This is the most software engineering I&rsquo;ve done in twenty-five years</h2>
+        <h2>
+          You don&rsquo;t build the thing any more.{' '}
+          <span className="second">You build what builds it.</span>
+        </h2>
         <div className="versus">
           <div className="side">
             <p className="where">In it &middot; an instruction about one thing</p>
@@ -1093,7 +1096,7 @@ export default function Slides() {
             </div>
           </div>
         </div>
-        <p className="punch">Building the system that builds the system.</p>
+        <p className="punch">So the only thing left to care about is why.</p>
         <aside className="notes">
           NEVER CUT — this is the turn the whole talk hinges on, and it now
           carries the payoff that used to have its own slide{'\n\n'}
@@ -1128,22 +1131,30 @@ export default function Slides() {
           NO NAMES, NO NUMBERS, NO TOOLING. This half of the slide is an
           argument, not evidence.{'\n\n'}
           ─────────────────────────────────{'\n'}
-          THEN THE PAYOFF — this used to be its own slide{'\n'}
+          THEN THE QUESTION THIS SLIDE ANSWERS{'\n'}
           ─────────────────────────────────{'\n\n'}
-          "So if the why is the job now — is that a smaller job? It is not."
-          {'\n\n'}
-          SAY THIS ONE STRAIGHT, IT'S TRUE AND IT LANDS: "this is the most
-          software engineering I have done in twenty-five years of software
-          engineering. Building the systems was never this. Building the system
-          that builds the systems — that's engineering. I've fallen back in love
-          with it, and there was a long stretch where I hadn't."{'\n\n'}
-          And the correction people need: software engineering isn't over. It
-          changed.{'\n\n'}
-          THE HONEST COST IS ENTIRELY SPOKEN — nothing on screen carries it, and
-          the title sounds like a boast until you do. "Months of it. And almost
-          none of it was typing code." Then the three: teaching it what the
-          business is and what it isn't; writing down the things that only lived
-          in people's heads; deciding, out loud, what good looks like.{'\n\n'}
+          "So you've got goals. Auditability. A memory. Guardrails. And you've
+          stepped out of the loop. Which leaves a fair question: what is your
+          job now?"{'\n\n'}
+          CALL BACK TO THE SECOND SLIDE — "we stopped caring about the what. And
+          this is what's on the other side of that. You don't build the thing.
+          You build what builds it."{'\n\n'}
+          THE ANALOGY, LIGHTLY — don't lean on it, one sentence: "it's not a
+          million miles from going from writing code to running a team. You stop
+          producing the thing and start building something that produces it."
+          Then move on; the room can finish that thought themselves.{'\n\n'}
+          AND SAY WHY IT'S NOT A DEMOTION — "that's a real engineering problem.
+          Arguably a harder one. Months of this, and almost none of it was
+          typing code: teaching it what the business is and what it isn't,
+          writing down the things that only lived in people's heads, and
+          deciding out loud what good looks like."{'\n\n'}
+          THE CORRECTION PEOPLE NEED — software engineering isn't over. It
+          changed. If you want the personal version, it's honest and it isn't a
+          boast: "I'd fallen out of love with it somewhere along the way, and I
+          hadn't noticed until it came back."{'\n\n'}
+          ⚠ NOT "the most engineering I've done in twenty-five years" — tried
+          and cut. It reads as a boast and this room doesn't care how it rates
+          against your career. They care what the job is now.{'\n\n'}
           ⚠ TONE — the weeds were compulsory and YOU WERE IN THEM TOO. Never
           "people were doing it wrong."{'\n\n'}
           ⚠ ONE EXAMPLE ONLY, and it stays the export one. A second was tried
