@@ -98,6 +98,12 @@ function useSlideStages(count, gap) {
    thinking. The guesses are the audience's competence; the empty bubble is the
    gap.
 
+   The title is a QUESTION, not a claim. Asserting "your software doesn't know
+   its purpose" tells people in the room they've got it wrong before they've
+   heard anything, and some of them will have got it right. Asking lets them
+   answer for themselves — and it makes the close the same question a second
+   time, with "do you?" on the end.
+
    This replaced a list of things the software could answer about itself, which
    read as dull on a trial run. Note the wording throughout is PURPOSE, not
    "why it exists" — the latter tested as too existential and made the software
@@ -424,7 +430,7 @@ export default function Slides() {
         {COLD_OPEN === 'guess' && (
           <>
             <p className="kicker">AI Tinkerers · Tom Harvey</p>
-            <h1>Your software doesn&rsquo;t know its purpose</h1>
+            <h1>Does your software know its purpose?</h1>
             <PurposeGuess />
             <aside className="notes">
               0:00–1:30 · NEVER CUT{'\n\n'}
@@ -461,6 +467,11 @@ export default function Slides() {
               off — and then they stop. DO NOT FILL THE SILENCE. The last line
               takes about a second and a half longer than you will want it to.
               {'\n\n'}
+              ASK THE TITLE OUT LOUD, don't just let it sit there. "Does your
+              software know what it's for?" Give them a second to answer it in
+              their own heads — some of them will say yes, and they may be
+              right. That's fine. You're not telling them they're wrong, you're
+              asking a question you'll ask again at the end.{'\n\n'}
               WALK THE CARD. Notice every one of those is about its own shape —
               size, layout, colour. It answers them instantly, and has been able to
               for twenty years. The last one it has never been able to
@@ -499,7 +510,7 @@ export default function Slides() {
               <div className="fog" />
               <p className="stamp">Feature factory &middot; est. long before any of this</p>
             </div>
-            <h1>Your software doesn&rsquo;t know its purpose</h1>
+            <h1>Does your software know its purpose?</h1>
             <aside className="notes">
               COLD OPEN — ALTERNATE A · the feature factory{'\n\n'}
               Let it run in silence for a few seconds before you say anything.{'\n\n'}
@@ -554,7 +565,7 @@ export default function Slides() {
               <path className="lead" d="M150 18 L150 6" />
               <text className="q" x="150" y="0" textAnchor="middle">what is this for?</text>
             </svg>
-            <h1>Your software doesn&rsquo;t know its purpose</h1>
+            <h1>Does your software know its purpose?</h1>
             <aside className="notes">
               COLD OPEN — ALTERNATE B · the self-portrait{'\n\n'}
               "This is our homepage. Ask it anything about how it's put together
@@ -843,6 +854,12 @@ export default function Slides() {
           evidence can make it louder or narrower.{'\n\n'}
           "That's the difference. Not more output. Output that knows what it's
           for."{'\n\n'}
+          A SECOND EXAMPLE IF THE ROOM IS TECHNICAL — "tell it no function longer
+          than ten lines and it will spend all afternoon torturing something to
+          get to ten. Tell it WHY — because we can't hold more than that in our
+          heads when we're reading it at 2am — and it'll make a sensible call
+          every time, including the times ten was the wrong number." Works the
+          same on people, which is the point.{'\n\n'}
           THE ASYMMETRY — inside the loop every instruction you give is a WHAT.
           It works because you were standing there when it was needed. From
           above it you aren't standing there, so you can't give that kind of
@@ -935,7 +952,42 @@ export default function Slides() {
           you, well enough that you'd let go of a piece of control. That part is
           on you, and nobody can hand it to you."{'\n\n'}
           THE CLOSE — the opening question. Then a beat. Then "do you?"{'\n\n'}
-          NEVER ADD A THIRD QUESTION. Then the hiring line and stop. Say where
+          NEVER ADD A THIRD QUESTION.{'\n\n'}
+          ─────────────────────────────────{'\n'}
+          Q&A — prepared from the run-through{'\n'}
+          ─────────────────────────────────{'\n\n'}
+          PIVOT DEVICE, if a question is vague or unhelpful: "can I answer a
+          subtly different question?" Acknowledge it, then go where you're
+          useful. (Ed's "can I tell you a story?" works too, but you find it a
+          trick — don't use something you don't believe.){'\n\n'}
+          "WE TRIED AI AND IT DIDN'T WORK." Answer with a question: "what's your
+          role?" Technical, sales, finance? The answer is completely different
+          for each, and a generic one helps nobody. Then: what did you actually
+          try, and what didn't work about it?{'\n\n'}
+          "WE TRIED IT AND IT WAS TERRIBLE." Usually true, and usually out of
+          date. People tried these tools a year ago when they were slow and
+          broke constantly. They aren't any more. Nothing was fixed by them —
+          it just got better underneath.{'\n\n'}
+          "I DON'T SEE HOW IT APPLIES TO ME." They haven't found their killer
+          app yet. The IBM PC sold in millions because of Excel, not because it
+          was a PC. The iPhone landed because of the bounce when you pulled a
+          list past the end — that's what people remember. Nobody adopts a
+          category, they adopt the one thing that changes their week. Ask what
+          their worst hour of the week is.{'\n\n'}
+          "HOW DO YOU TRUST SOMETHING NON-DETERMINISTIC?" Separate the two
+          questions. "How much money did we make last month" must be exact and
+          should go through something deterministic. "What's interesting in
+          these numbers" is a different job entirely, and the thing being
+          non-deterministic is the point. People lose faith because they pointed
+          it at the first kind.{'\n\n'}
+          "ISN'T THIS JUST MANAGING PEOPLE?" Partly, and that's good news for
+          engineers — the gap most of them have on the way up is management.
+          Trusting someone, building an environment where they can do the work,
+          letting them find their own way, and measuring the output rather than
+          watching the process. Don't push the analogy far; they aren't the
+          same, and the differences are a longer talk.{'\n\n'}
+          NUMBERS IN RESERVE: activation 57% against a 50% target. Both key
+          results met. Ticket volumes only if pushed. Then the hiring line and stop. Say where
           we're hiring out loud if it's relevant — it's not on the slide, so the
           deck stays true wherever this is given.{'\n\n'}
           ⚠ Verify the model claim before this is said — transcript audio was
