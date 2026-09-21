@@ -1188,7 +1188,7 @@ body,
   top: 0;
   width: 412px;
   transform-origin: 14% 118%;
-  animation: thoughtCycle 2.4s cubic-bezier(0.32, 0, 0.5, 1) both;
+  animation: thoughtCycle 2.4s linear both;
 }
 .reveal .thinksite .thought svg { width: 100%; height: auto; display: block; overflow: visible; }
 .reveal .thinksite .thought path { fill: none; stroke: var(--flock-yellow); stroke-width: 3; stroke-linejoin: round; }
@@ -1206,7 +1206,7 @@ body,
   border: 3px solid var(--flock-yellow);
   border-radius: 50%;
   transform-origin: 50% 100%;
-  animation: trailCycle 2.4s cubic-bezier(0.32, 0, 0.5, 1) both;
+  animation: trailCycle 2.4s linear both;
 }
 .reveal .thinksite .trail.t1 { width: 27px; height: 27px; left: 330px; top: 138px; animation-delay: -0.06s; }
 .reveal .thinksite .trail.t2 { width: 16px; height: 16px; left: 308px; top: 176px; animation-delay: -0.12s; }
@@ -1215,19 +1215,43 @@ body,
    A thought that floats off reads as one that was never resolved — a pop
    in place reads as one that was answered and dismissed. */
 @keyframes thoughtCycle {
-  0% { opacity: 0; transform: translate(0, 0) scale(0.55); }
-  12% { opacity: 1; transform: translate(0, 0) scale(1); }
-  56% { opacity: 1; transform: translate(0, 0) scale(1); }
-  72% { opacity: 0.75; transform: translate(52px, -30px) scale(1.16); }
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.55);
+    animation-timing-function: cubic-bezier(0.18, 0.9, 0.32, 1);
+  }
+  12% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    animation-timing-function: linear;
+  }
+  /* the one pause — it holds here, then leaves in a single unbroken move */
+  52% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    animation-timing-function: cubic-bezier(0.42, 0, 0.9, 0.86);
+  }
   100% { opacity: 0; transform: translate(168px, -96px) scale(1.55); }
 }
 
 /* the trail drifts with it but doesn't travel as far — it belongs to the
    thinker, not to the thought */
 @keyframes trailCycle {
-  0% { opacity: 0; transform: translate(0, 0) scale(0.55); }
-  12% { opacity: 1; transform: translate(0, 0) scale(1); }
-  56% { opacity: 1; transform: translate(0, 0) scale(1); }
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.55);
+    animation-timing-function: cubic-bezier(0.18, 0.9, 0.32, 1);
+  }
+  12% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    animation-timing-function: linear;
+  }
+  52% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    animation-timing-function: cubic-bezier(0.42, 0, 0.9, 0.86);
+  }
   100% { opacity: 0; transform: translate(46px, -30px) scale(1.2); }
 }
 
