@@ -790,9 +790,6 @@ export default function Slides() {
             <p className="who">Where it got to</p>
           </div>
         </div>
-        <p className="ratio-caption">
-          …of the people who have tried it, coming back in more than one week.
-        </p>
         <aside className="notes">
           2:40–3:40 · STEP ONE — NEVER CUT{'\n\n'}
           "Everything after this depends on this bit, and it's the bit everyone
@@ -817,10 +814,10 @@ export default function Slides() {
           THE NUMBERS, SAID PLAINLY: "we asked for twenty percent of the people
           who tried it to keep coming back. It's fifty-nine." Let that sit.
           Don't dress it up.{'\n\n'}
-          ⚠ SAY IT PRECISELY. It is NOT "60% of users are weekly active". It is
-          59% of the users who ever tried it, coming back in MORE THAN ONE WEEK
-          — 208 of 352. The looser version is checkable and wrong, and this is a
-          room that will check.{'\n\n'}
+          ⚠ SAY THE DENOMINATOR OUT LOUD — it is no longer on the slide. It is
+          NOT "59% of users". It is 59% OF THE PEOPLE WHO EVER TRIED IT, coming
+          back in more than one week — 208 of 352. The looser version is
+          checkable and wrong, and this is a room that will check.{'\n\n'}
           IN RESERVE, if anyone wants the other half: 57% of customers have used
           it at least once, against a 50% target — 330 of 576, rising to 64%
           among those who've had a fair chance at it. Both key results are met.
