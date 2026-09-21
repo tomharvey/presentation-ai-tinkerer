@@ -47,18 +47,19 @@ Nine slides. Read the titles alone and you get the whole thing:
 1. Your software doesn't know its purpose
 2. We stopped caring about the what. We care about the why.
 
-Then the four things that make one of these work, in the order they have to
+Then the five things that make one of these work, in the order they have to
 happen — you can't audit against a goal you never set, and you can't judge
 history without one either:
 
 3. **Feedback loop** — give it a goal. Make it improve itself.
-4. **Make it auditable** — if it can't explain itself, you've just hired it a babysitter
+4. **Make it auditable** — "the agent did it" is not a reason. It's just sloppy.
 5. **Give it a memory** — it adds up everything it finds. It spots what doesn't fit.
-6. **Make it scale** — a loop with you in it runs at your speed
+6. **Guardrails** — a prompt is a request. A boundary is a fact.
+7. **Make it scale** — a loop with you in it runs at your speed
 
-7. You can't shape a loop without knowing what it's for
-8. This is the most software engineering I've done in twenty-five years
-9. Does your software know its purpose? Do you?
+8. You can't shape a loop without knowing what it's for
+9. This is the most software engineering I've done in twenty-five years
+10. Does your software know its purpose? Do you?
 
 ## Stack
 

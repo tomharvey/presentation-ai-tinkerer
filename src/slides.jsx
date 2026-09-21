@@ -428,17 +428,21 @@ const STALL = {
 
 const smooth = (u) => u * u * (3 - 2 * u)
 
+/* It labours while the person is on it — it does not halt. A dead stop reads as
+   broken; a crawl reads as a queue, which is the actual claim. */
+const CRAWL = 0.12
+
 function stallAt(p) {
   const { runTo, stopBy, holdTo, goBy } = STALL
   if (p < runTo) return { speed: 1, person: 0 }
   if (p < stopBy) {
     const u = smooth((p - runTo) / (stopBy - runTo))
-    return { speed: 1 - u, person: u }
+    return { speed: 1 - u * (1 - CRAWL), person: u }
   }
-  if (p < holdTo) return { speed: 0, person: 1 }
+  if (p < holdTo) return { speed: CRAWL, person: 1 }
   if (p < goBy) {
     const u = smooth((p - holdTo) / (goBy - holdTo))
-    return { speed: u, person: 1 - u }
+    return { speed: CRAWL + u * (1 - CRAWL), person: 1 - u }
   }
   return { speed: 1, person: 0 }
 }
@@ -506,7 +510,6 @@ function InOrAbove() {
         r="56"
         style={{ strokeDashoffset: left.offset }}
       />
-      <path className="head" d="M181 104 L191 104 L186 116 Z" opacity={0.25 + left.person * 0.75} />
       <circle className="you" cx="130" cy="52" r="10" opacity={left.person} />
       <text className="tiny" x="142" y="190" textAnchor="middle">
         every pass comes through you
@@ -796,7 +799,7 @@ export default function Slides() {
    person is back in the loop, which is what step four argues against. If the human is the one checking, the human is back in the loop,
    which is the thing step four spends its whole slide arguing against. */}
       <section>
-        <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Feedback loop</p>
+        <p className="step"><span className="n">1</span> <span className="of">of five</span> &middot; Feedback loop</p>
         <h2>
           Give it a goal.{' '}
           <span className="second">Make it improve itself.</span>
@@ -861,7 +864,7 @@ export default function Slides() {
 
       {/* 4 ────────────────────────────────────── 3:40–4:40 */}
       <section>
-        <p className="step"><span className="n">2</span> <span className="of">of four</span> &middot; Make it auditable</p>
+        <p className="step"><span className="n">2</span> <span className="of">of five</span> &middot; Make it auditable</p>
         <SloppyVerdict />
         <div className="exchange">
           <div className="ask">Why is this top of the list?</div>
@@ -914,7 +917,7 @@ export default function Slides() {
           view of what it had already concluded, it can't tell repetition from
           progress. Same visual, now doing the job it was always best at. */}
       <section>
-        <p className="step"><span className="n">3</span> <span className="of">of four</span> &middot; Give it a memory</p>
+        <p className="step"><span className="n">3</span> <span className="of">of five</span> &middot; Give it a memory</p>
         <h2>
           It adds up everything it finds.{' '}
           <span className="second">It spots what doesn&rsquo;t fit.</span>
@@ -961,9 +964,71 @@ export default function Slides() {
         </aside>
       </section>
 
+      {/* 6 ────────────────────────────────────── guardrails */}
+      {/* Step four. The one everybody nods along to and almost nobody builds,
+          because asking politely feels like it should be enough. It isn't, and
+          in a regulated business that gap is the whole risk.
+
+          The distinction is where the limit lives: in the instruction, where it
+          can be argued with, or in the tooling, where there is nothing to argue
+          with. Content from the Jay build — compliance documentation inside the
+          loop, and hard edges on the tools so a breach is detectable rather
+          than merely discouraged. */}
+      <section>
+        <p className="step"><span className="n">4</span> <span className="of">of five</span> &middot; Guardrails</p>
+        <h2>
+          A prompt is a request.{' '}
+          <span className="second">A boundary is a fact.</span>
+        </h2>
+        <div className="versus">
+          <div className="side">
+            <p className="where">In the instructions</p>
+            <p className="said">
+              &ldquo;Don&rsquo;t tell anyone what cover to buy.&rdquo;
+            </p>
+            <p className="life">It probably won&rsquo;t. You asked nicely.</p>
+          </div>
+          <div className="side up">
+            <p className="where">In the tooling</p>
+            <p className="said">
+              There is no tool that answers questions about cover.
+            </p>
+            <p className="life">It can&rsquo;t. There is nothing to talk round.</p>
+          </div>
+        </div>
+        <aside className="notes">
+          STEP FOUR · GUARDRAILS{'\n\n'}
+          "Everyone nods along to this one and almost nobody builds it, because
+          asking politely feels like it ought to be enough."{'\n\n'}
+          WE'RE REGULATED. There are things our product must never do — it must
+          not tell a customer what insurance to buy. So where do you put that
+          rule?{'\n\n'}
+          LEFT — in the instructions. And it'll probably hold. Probably is doing
+          a lot of work in that sentence, and "probably" is not a compliance
+          position.{'\n\n'}
+          RIGHT — in the tooling. The thing it would need in order to do the
+          wrong thing does not exist. It isn't resisting temptation; there's
+          nothing there.{'\n\n'}
+          "A prompt is a request. A boundary is a fact. And the difference only
+          shows up on the day something goes wrong."{'\n\n'}
+          THE PART THAT SURPRISED ME — our compliance lead wrote documentation
+          for the system, not for the people. It sits inside the loop. Which
+          means when something does step over a line, we find out, because the
+          edges are somewhere you can watch.{'\n\n'}
+          BRIDGE — "wherever you're doing this: if your safety story is 'we told
+          it not to', you don't have a safety story. Move the limit somewhere it
+          can't be argued with."{'\n\n'}
+          ⚠ Don't name the compliance lead from the stage. "Our compliance lead"
+          is enough.{'\n\n'}
+          IF YOU'RE OVER TIME this is the slide to drop — it's the only one of
+          the five that isn't load-bearing for the argument, and it's the one a
+          regulated-industry room will ask about anyway.
+        </aside>
+      </section>
+
       {/* 6 ────────────────────────────────────── 5:40–7:00 */}
       <section className="invert" data-background-color="#f6f404">
-        <p className="step"><span className="n">4</span> <span className="of">of four</span> &middot; Make it scale</p>
+        <p className="step"><span className="n">5</span> <span className="of">of five</span> &middot; Make it scale</p>
         <h2>A loop with you in it runs at your speed</h2>
         <InOrAbove />
         <p className="punch">
@@ -981,8 +1046,8 @@ export default function Slides() {
           creates babysitters and bottlenecks."{'\n\n'}
           LEFT — you're a station on it. Every revolution has to come through
           you, so the whole thing moves at whatever pace you can manage. Point
-          at it: it visibly slows down when the person appears, and stops
-          altogether while they're there.{'\n\n'}
+          at it: it drops to a crawl the moment the person appears, and stays
+          there until they're gone.{'\n\n'}
           "And that's not a criticism of the person. It's arithmetic. However
           fast you are, that's the ceiling."{'\n\n'}
           RIGHT — you're outside it. You don't make the decisions any more, you
