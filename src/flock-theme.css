@@ -620,22 +620,6 @@ body,
 }
 
 /* loop diagram — animated reveal, stage by stage */
-.reveal .loop-svg .stage {
-  opacity: 0;
-  transition: opacity 340ms ease;
-}
-.reveal .loop-svg.lit-1 .s1,
-.reveal .loop-svg.lit-2 .s1,
-.reveal .loop-svg.lit-2 .s2,
-.reveal .loop-svg.lit-3 .s1,
-.reveal .loop-svg.lit-3 .s2,
-.reveal .loop-svg.lit-3 .s3,
-.reveal .loop-svg.lit-4 .s1,
-.reveal .loop-svg.lit-4 .s2,
-.reveal .loop-svg.lit-4 .s3,
-.reveal .loop-svg.lit-4 .s4 {
-  opacity: 1;
-}
 
 .reveal .loop-svg .flow {
   stroke-dasharray: 7 7;
@@ -651,10 +635,7 @@ body,
   .reveal .loop-svg .flow {
     animation: none;
   }
-  .reveal .loop-svg .stage {
-    transition: none;
   }
-}
 
 /* a real customer message — the product not knowing what it's for */
 .reveal .message {
@@ -2174,3 +2155,22 @@ body,
 
 /* slide 8 needs air between the punch and the breakdown under it */
 .reveal .worklist { margin-top: 0.75rem; }
+
+/* Targets variant: a figure needs a label to mean anything, so the thought
+   carries two lines rather than one. */
+.reveal .thinksite .thought text.fig {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 46px;
+  letter-spacing: var(--track-headline);
+  fill: var(--flock-yellow);
+}
+.reveal .thinksite .thought text.lbl {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 19px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  fill: var(--flock-yellow);
+  opacity: 0.72;
+}

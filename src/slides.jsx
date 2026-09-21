@@ -21,9 +21,10 @@ import { useEffect, useRef, useState } from 'react'
      · or open the deck with ?open=belt / ?open=portrait
 
    'guess'    — the room can guess its purpose; the software itself cannot
+   'targets'  — the same, but the guesses are numbers somebody is carrying
    'belt'     — the feature factory, which predates all of this
    'portrait' — the homepage that can describe everything about itself but why */
-const COLD_OPENS = ['guess', 'belt', 'portrait']
+const COLD_OPENS = ['guess', 'targets', 'belt', 'portrait']
 
 function useColdOpen() {
   const [which, setWhich] = useState(() => {
@@ -120,6 +121,17 @@ const PURPOSES = [
   'Retain users',
 ]
 
+/* The same guesses as actual targets — the version somebody in the building
+   is genuinely carrying. A number needs a label to mean anything, so these
+   render on two lines rather than one. Keep the figure to about 6 characters
+   and the label under 20, or they crowd the cloud. */
+const TARGETS = [
+  { fig: '+20%', label: 'more sales' },
+  { fig: '1,000', label: 'signups a day' },
+  { fig: '\u2212100', label: 'calls a day' },
+  { fig: '+15%', label: 'weekly returns' },
+]
+
 /* Scalloped outline: thirteen arcs around an ellipse, each bump given a
    slightly different radius so the edge reads as drawn rather than generated.
    An even walk produces a rosette, which looks mechanical. A border-radius
@@ -135,14 +147,17 @@ const CLOUD =
   '0 1 55.7 51.9 A33.0 33.0 0 0 1 108.8 31.4 A44.7 44.7 0 0 1 ' +
   '186.0 25.5 Z'
 
-function ThinkingSite() {
+function ThinkingSite({ metric = false }) {
+  const items = metric ? TARGETS : PURPOSES
   const [i, setI] = useState(0)
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const id = setInterval(() => setI((n) => (n + 1) % PURPOSES.length), 2800)
+    const id = setInterval(() => setI((n) => (n + 1) % items.length), 2800)
     return () => clearInterval(id)
-  }, [])
+  }, [items.length])
+
+  const item = items[i]
 
   return (
     <div className="thinksite">
@@ -150,9 +165,20 @@ function ThinkingSite() {
       <span className="trail t2" key={`b-${i}`} />
       <span className="trail t1" key={`a-${i}`} />
       <div className="thought" key={i}>
-        <svg viewBox="0 0 372 168" role="img" aria-label={PURPOSES[i]}>
+        <svg
+          viewBox="0 0 372 168"
+          role="img"
+          aria-label={metric ? `${item.fig} ${item.label}` : item}
+        >
           <path d={CLOUD} />
-          <text x="186" y="93" textAnchor="middle">{PURPOSES[i]}</text>
+          {metric ? (
+            <>
+              <text className="fig" x="186" y="86" textAnchor="middle">{item.fig}</text>
+              <text className="lbl" x="186" y="114" textAnchor="middle">{item.label}</text>
+            </>
+          ) : (
+            <text x="186" y="93" textAnchor="middle">{item}</text>
+          )}
         </svg>
       </div>
 
@@ -179,37 +205,39 @@ function ThinkingSite() {
 }
 
 /* ---------------------------------------------------------------- slide 2 */
+/* The whole diagram is present from the moment the slide arrives. It used to
+   build box by box; that was cut — there's nothing to discover in the order,
+   and the build made the room wait to see a picture they could have read at
+   once. The only motion left is the dashes travelling round, which is the one
+   thing that says "this keeps going". */
 function LoopDiagram() {
-  const [lit, ref] = useSlideStages(4, 620)
-
   return (
     <svg
-      ref={ref}
-      className={`loop-svg lit-${lit}`}
+      className="loop-svg"
       viewBox="0 0 760 210"
       role="img"
       aria-label="Customers act, it notices, work with intent, it ships, and it watches what changed"
     >
-      <g className="stage s1">
+      <g>
         <rect x="4" y="52" width="150" height="58" rx="3" />
         <text x="79" y="86" textAnchor="middle">Customers act</text>
       </g>
 
-      <g className="stage s2">
+      <g>
         <line className="flow" x1="160" y1="81" x2="208" y2="81" />
         <path d="M200 75 L210 81 L200 87 Z" fill="#3b484c" stroke="none" />
         <rect x="214" y="52" width="130" height="58" rx="3" />
         <text x="279" y="86" textAnchor="middle">It notices</text>
       </g>
 
-      <g className="stage s3">
+      <g>
         <line className="flow" x1="350" y1="81" x2="398" y2="81" />
         <path d="M390 75 L400 81 L390 87 Z" fill="#3b484c" stroke="none" />
         <rect className="hl" x="404" y="42" width="180" height="78" rx="3" />
         <text className="hl" x="494" y="86" textAnchor="middle">Work with intent</text>
       </g>
 
-      <g className="stage s4">
+      <g>
         <line className="flow" x1="590" y1="81" x2="638" y2="81" />
         <path d="M630 75 L640 81 L630 87 Z" fill="#3b484c" stroke="none" />
         <rect x="644" y="52" width="110" height="58" rx="3" />
@@ -566,6 +594,24 @@ export default function Slides() {
               ⚠ The customer message is SPOKEN, not shown — the screen carries the
               idea, not the anecdote. If you'd rather show the real screenshot, it
               belongs as a second beat after the card, not instead of it.
+            </aside>
+          </>
+        )}
+        {COLD_OPEN === 'targets' && (
+          <>
+            <h1>Does your software know its purpose?</h1>
+            <ThinkingSite metric />
+            <aside className="notes">
+              COLD OPEN — TARGETS variant of the thinking site.{'\n\n'}
+              Same slide, but the guesses are numbers somebody is actually
+              carrying. "Twenty percent more sales. A thousand signups a day. A
+              hundred fewer calls. Fifteen percent more people coming back."
+              {'\n\n'}
+              "Somebody in that building has every one of those on a slide with
+              their name against it. Not one of them has ever been said TO the
+              thing that's supposed to deliver it."{'\n\n'}
+              Sharper than the word version for a room that carries targets;
+              softer if the room is mostly builders. Press C to switch.
             </aside>
           </>
         )}
