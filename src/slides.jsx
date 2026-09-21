@@ -854,12 +854,6 @@ export default function Slides() {
           evidence can make it louder or narrower.{'\n\n'}
           "That's the difference. Not more output. Output that knows what it's
           for."{'\n\n'}
-          A SECOND EXAMPLE IF THE ROOM IS TECHNICAL — "tell it no function longer
-          than ten lines and it will spend all afternoon torturing something to
-          get to ten. Tell it WHY — because we can't hold more than that in our
-          heads when we're reading it at 2am — and it'll make a sensible call
-          every time, including the times ten was the wrong number." Works the
-          same on people, which is the point.{'\n\n'}
           THE ASYMMETRY — inside the loop every instruction you give is a WHAT.
           It works because you were standing there when it was needed. From
           above it you aren't standing there, so you can't give that kind of
@@ -875,6 +869,11 @@ export default function Slides() {
           "Neither can you."{'\n\n'}
           NO NAMES, NO NUMBERS, NO TOOLING. This slide is an argument, not
           evidence.{'\n\n'}
+          ⚠ ONE EXAMPLE ONLY, and it stays the export one. A second was tried
+          (function length: tell it ten lines and it tortures something to reach
+          ten) and cut — it connects to nothing else in the talk and only lands
+          for half the room, where the export thread has already run through
+          slides 1 and 3.{'\n\n'}
           ⚠ The two must stay RELATED — the left has to be something the right
           could plausibly produce. Unrelated examples were tried and nobody could
           see the connection. Both also sit on the export thread running through
