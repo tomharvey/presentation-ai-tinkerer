@@ -292,6 +292,14 @@ function WhatThenWhy() {
    two slides earlier already says: customers act, it notices. "Told" implies a
    person feeding it, which is the opposite of the argument.
 
+   EVERYTHING, not "what" — one word carrying the holistic point. It isn't
+   weighing the item in front of it, it's weighing all of them. The fuller
+   version of that idea lives in the spoken notes, where it has room to breathe.
+
+   And no "should": the slide describes a system that exists rather than giving
+   advice, which is the difference between this talk and most of the others in
+   the room.
+
    "Evidence stacks up / conflicts cut it back" was tried first and was too
    terse to decode without the slides before it.
 
@@ -908,8 +916,8 @@ export default function Slides() {
       <section>
         <p className="step"><span className="n">3</span> <span className="of">of four</span> &middot; Give it a memory</p>
         <h2>
-          It should add up what it finds.{' '}
-          <span className="second">And spot what doesn&rsquo;t fit.</span>
+          It adds up everything it finds.{' '}
+          <span className="second">It spots what doesn&rsquo;t fit.</span>
         </h2>
         <TicketBoard />
         <aside className="notes">
@@ -920,6 +928,10 @@ export default function Slides() {
           WITHOUT ONE, the fourth time it finds the same thing is just a fourth
           job. WITH one, it's the reason to believe the first three — or, when it
           cuts the other way, the reason to stop.{'\n\n'}
+          SAY THE HOLISTIC BIT OUT LOUD, it's too long for the slide: "and the
+          important part is that it isn't looking at the thing in front of it.
+          It's looking at everything it has ever found, all at once. That's what
+          the memory buys you — not recall, perspective."{'\n\n'}
           SO WATCH WHAT HAPPENS. Four different people, four sets of words, one
           finding — and it was right every single time. That isn't forgetfulness.
           That is evidence.{'\n\n'}
