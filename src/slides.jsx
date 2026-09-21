@@ -1109,28 +1109,6 @@ export default function Slides() {
           You don&rsquo;t build the thing any more.{' '}
           <span className="second">You build what builds it.</span>
         </h2>
-        <div className="versus">
-          <div className="side">
-            <p className="where">In it &middot; an instruction about one thing</p>
-            <p className="said">
-              &ldquo;Add a button to that table that downloads a CSV.&rdquo;
-            </p>
-            <p className="life">You get a button. That&rsquo;s all you asked for.</p>
-          </div>
-          <div className="side up">
-            <p className="where">Above it &middot; an instruction about what good looks like</p>
-            <p className="said">
-              &ldquo;People should be able to get at their own data without
-              asking us.&rdquo;
-            </p>
-            <p className="life">You get a button that knows why it&rsquo;s there.</p>
-            <div className="carries">
-              <span>Tied to the goal you set</span>
-              <span>Able to explain itself</span>
-              <span>With a place in the history</span>
-            </div>
-          </div>
-        </div>
         <p className="punch">
           So the only thing left to care about is why.{' '}
           <span className="counter">That is not a smaller job.</span>
@@ -1138,19 +1116,24 @@ export default function Slides() {
         <aside className="notes">
           NEVER CUT — this is the turn the whole talk hinges on, and it now
           carries the payoff that used to have its own slide{'\n\n'}
+          ⚠ NOTHING ON SCREEN BUT THE TITLE AND THE PUNCH. The two-column
+          example used to live here and was cut for being too busy — the room
+          should be watching you, not reading. Every bit of it below is SPOKEN,
+          so slow down and let the empty slide do the work.{'\n\n'}
           "Here's the bit I didn't expect. Moving above the loop doesn't just
           free you up. It takes something away from you."{'\n\n'}
-          READ THE LEFT ONE FIRST. That is a perfectly good instruction. Precise,
-          unambiguous, and you'd get exactly that button.{'\n\n'}
-          NOW THE RIGHT ONE — and say this explicitly, because it's the whole
-          slide: "the left-hand one is something the right-hand one would have
+          THE EXAMPLE, SPOKEN, TWO INSTRUCTIONS — hold up one hand for each.
+          "Add a button to that table that downloads a spreadsheet." Perfectly
+          good instruction. Precise. You'd get exactly that button. Or: "people
+          should be able to get at their own data without asking us."{'\n\n'}
+          THEN THE POINT: "the first one is something the second one would have
           produced anyway." Ask for the button, you get a button. Ask for the
           outcome, and you still get the button — but it arrives carrying
           everything we just spent five minutes on.{'\n\n'}
-          WALK THE THREE, THEY'RE THE CALLBACK — it's tied to the goal you set,
-          so you can tell whether it worked. It can explain itself, so nobody
-          has to shrug. And it has a place in the history, so the next piece of
-          evidence can make it louder or narrower.{'\n\n'}
+          COUNT THE THREE ON YOUR FINGERS, THEY'RE THE CALLBACK — tied to the
+          goal you set, so you can tell whether it worked. Able to explain
+          itself, so nobody has to shrug. And it has a place in the history, so
+          the next piece of evidence can make it louder or narrower.{'\n\n'}
           "That's the difference. Not more output. Output that knows what it's
           for."{'\n\n'}
           THE ASYMMETRY — inside the loop every instruction you give is a WHAT.
