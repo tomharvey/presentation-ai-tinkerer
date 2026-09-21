@@ -102,7 +102,11 @@ function useSlideStages(count, gap) {
    thing never arrives at an answer and never will, because nobody told it.
 
    Thought bubble, not speech: the trailing circles are what make that read,
-   and it's why the shape is a lumpy oval rather than a rounded rectangle. */
+   and it's why the outline is scalloped rather than a rounded rectangle.
+
+   Each guess swells, holds, then drifts up and to the right, growing as it
+   fades. A thought that floats off reads as unresolved; one that pops in place
+   reads as answered and dismissed, which is the opposite of the point. */
 const PURPOSES = [
   'Sign people up',
   'Sell them something',
@@ -128,7 +132,7 @@ function ThinkingSite() {
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const id = setInterval(() => setI((n) => (n + 1) % PURPOSES.length), 2000)
+    const id = setInterval(() => setI((n) => (n + 1) % PURPOSES.length), 2400)
     return () => clearInterval(id)
   }, [])
 
@@ -667,7 +671,7 @@ export default function Slides() {
           has to come first. The numbers here are the inarguable ones. */}
       <section>
         <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Give it a purpose</p>
-        <h2>Tell it what good looks like, then check whether it got there</h2>
+        <h2>Tell it what good looks like, then check it got there</h2>
         <div className="goal">
           <p className="lbl">What we told it it was for</p>
           <p className="words">
@@ -781,7 +785,7 @@ export default function Slides() {
         <h2>A memory turns repetition into evidence</h2>
         <TicketBoard />
         <p className="punch">
-          Evidence should make it louder, or narrower &mdash; never just longer.
+          Evidence should make it louder, or narrower.
         </p>
         <aside className="notes">
           4:40–5:40 · STEP THREE{'\n\n'}
