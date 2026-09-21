@@ -1186,19 +1186,19 @@ body,
 .reveal .thinksite .thought {
   position: absolute;
   z-index: 2;
-  left: 430px;
-  top: 0;
-  width: 440px;
+  left: 448px;
+  top: 24px;
+  width: 392px;
   transform-origin: 14% 118%;
   animation: thoughtCycle 2.8s linear both;
 }
 .reveal .thinksite .thought svg { width: 100%; height: auto; display: block; overflow: visible; }
-.reveal .thinksite .thought path { fill: none; stroke: var(--flock-yellow); stroke-width: 3; stroke-linejoin: round; }
+.reveal .thinksite .thought path { fill: none; stroke: var(--flock-yellow); stroke-width: 2.4; stroke-linejoin: round; }
 .reveal .thinksite .thought text {
   font-family: var(--font-mono);
   font-weight: 500;
-  font-size: 23px;
-  letter-spacing: 1px;
+  font-size: 25px;
+  letter-spacing: 0.9px;
   text-transform: uppercase;
   fill: var(--flock-yellow);
 }
@@ -1206,7 +1206,7 @@ body,
 .reveal .thinksite .trail {
   position: absolute;
   z-index: 2;
-  border: 3px solid var(--flock-yellow);
+  border: 2px solid var(--flock-yellow);
   border-radius: 50%;
   transform-origin: 50% 100%;
   animation: trailCycle 2.8s linear both;
@@ -2048,23 +2048,11 @@ body,
 
 /* The verdict — lands a beat after the title, so the room reaches
    "not a reason" on its own before you name it. */
-/* Sits inside the headline and flows with it — the verdict is the end of the
-   sentence, not a second thought parked underneath. inline-block so it can
-   still be nudged as it arrives; it wraps as one phrase. */
-.reveal .verdict {
-  display: inline-block;
+/* The second half of a two-part title. It ran as a delayed reveal; that was
+   cut — the pause belongs to the speaker, not the slide. Colour alone does
+   the separating now. */
+.reveal .second {
   color: var(--flock-yellow);
-  opacity: 0;
-  animation: verdictIn 0.42s 2.6s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
-}
-
-@keyframes verdictIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal .verdict { opacity: 1; animation: none; }
 }
 
 /* What comes back when the instruction carries a purpose — a direct callback
