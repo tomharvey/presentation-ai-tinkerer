@@ -698,10 +698,10 @@ export default function Slides() {
    is the question slide 1 asks, a goal is the answerable form you can hand to
    a machine and measure. */}
       <section>
-        <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Give it a goal</p>
-        <h2>Tell it what good looks like, then check it got there</h2>
+        <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Feedback loop</p>
+        <h2>Give it a goal, then check it got there</h2>
         <div className="goal">
-          <p className="lbl">What we told it it was for</p>
+          <p className="lbl">The goal we gave it</p>
           <p className="words">
             &ldquo;Users should come back to this week after week, not try it
             once and forget it.&rdquo;
