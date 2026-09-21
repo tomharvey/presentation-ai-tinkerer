@@ -45,7 +45,7 @@ Switch without touching the code:
 Nine slides. Read the titles alone and you get the whole thing:
 
 1. Your software doesn't know its purpose
-2. We stopped writing down what to build
+2. We stopped caring about the what. We care about the why.
 
 Then the four things that make one of these work, in the order they have to
 happen — you can't audit against a goal you never set, and you can't judge

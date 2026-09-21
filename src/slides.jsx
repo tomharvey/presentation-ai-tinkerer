@@ -258,14 +258,19 @@ function LoopDiagram() {
 /* ---------------------------------------------------------------- slide 2 */
 /* The first half is the loss, the second is what replaced it. Both are on
    screen together — the delayed reveal was tried and cut. Say the first half,
-   pause, then say the second: the beat belongs to you, not the slide. */
+   pause, then say the second: the beat belongs to you, not the slide.
+
+   "The what" rather than "what we build": the latter reads as not caring
+   whether the thing is any good, which is the opposite of the argument and
+   exactly the fear this room already has. "The what" reads as the category of
+   decision, which is what actually moved. */
 function WhatThenWhy() {
   const [run, ref] = useReplayOnEnter()
   return (
     <div ref={ref} key={run} style={{ width: '100%' }}>
       <h2>
-        We stopped writing down what to build.{' '}
-        <span className="second">We write down why.</span>
+        We stopped caring about the what.{' '}
+        <span className="second">We care about the why.</span>
       </h2>
     </div>
   )
@@ -711,10 +716,14 @@ export default function Slides() {
         <aside className="notes">
           1:30–2:45 · The diagram builds itself in four steps — let it land
           before you talk over the last one.{'\n\n'}
-          "Nobody here writes down what to build any more." Let that sit — it
-          sounds like a loss, and for a second it should.{'\n\n'}
-          THEN SAY THE SECOND HALF YOURSELF: "we write down why." It's already
-          on screen — the pause is yours to take, not the slide's.{'\n\n'}
+          "We stopped caring about the what." Let that sit — it sounds careless,
+          and for a second it should.{'\n\n'}
+          THEN SAY THE SECOND HALF YOURSELF: "we care about the why." It's
+          already on screen — the pause is yours to take, not the slide's.
+          {'\n\n'}
+          ⚠ Say "the what", not "what we build". The second version sounds like
+          you stopped caring whether it's any good, which is the fear this room
+          already has and the opposite of the point.{'\n\n'}
           WALK THE FOUR BOXES — customers act, it notices, it writes the work up
           WITH THE INTENT ATTACHED, it ships. Then the arrow back: it watches
           what changed.{'\n\n'}
