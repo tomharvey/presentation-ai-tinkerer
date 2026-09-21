@@ -30,12 +30,12 @@ npm run build    # static bundle in dist/
 Three openers are built. One shows at a time, so the deck is always nine slides.
 Switch without touching the code:
 
-- **Press `C`** while the deck has focus — cycles card → belt → portrait
+- **Press `C`** while the deck has focus — cycles guess → belt → portrait
 - or open the deck with **`?open=belt`** / **`?open=portrait`**
 
 | Value | What it opens on |
 |---|---|
-| `card` | The software's own self-description — every line answerable except the last |
+| `guess` | The room guesses what a page is for. Every guess is plausible. The page itself has nothing |
 | `belt` | A feature factory, which predates all of this; the machines only sped the line up |
 | `portrait` | A homepage that can tell you everything about itself except why it exists |
 
@@ -43,15 +43,15 @@ Switch without touching the code:
 
 Nine slides. Read the titles alone and you get the whole thing:
 
-1. Your software doesn't know why it exists
+1. Your software doesn't know its purpose
 2. Every ticket now carries the reason it exists
-3. It didn't hallucinate — it forgot what it had already said
-4. Speeding up one stage just moves the queue
-5. A loop has to explain itself, or you'll end up babysitting it
+3. It couldn't tell a new idea from more evidence
+4. The queue didn't disappear — it moved behind a person
+5. If it can't explain itself, you've just hired it a babysitter
 6. Judgement moves from inside the loop to above it
-7. Our product team is doing both, and the line keeps moving
-8. Handing over the *what* makes the *why* your job
-9. Does your software know why it exists? Do you?
+7. You can't shape a loop without knowing what it's for
+8. This is the most software engineering I've done in twenty-five years
+9. Does your software know its purpose? Do you?
 
 ## Stack
 

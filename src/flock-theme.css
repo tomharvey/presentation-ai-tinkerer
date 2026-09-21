@@ -1070,3 +1070,111 @@ body,
   .reveal .board .tk { opacity: 1; transform: none; animation: none; }
   .reveal .beltbox .crate { animation: none; }
 }
+
+/* =====================================================================
+   Purpose bubbles (slide 1) — the room can guess what it's for.
+   It can't. Replaces the list version, which read as dull on a trial run.
+   ===================================================================== */
+
+.reveal .guessbox {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  height: 240px;
+}
+
+.reveal .guessbox .page {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 96px;
+  border: 2px solid var(--light-coal);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.2);
+  display: grid;
+  align-content: center;
+  gap: 6px;
+  padding: 0 14px;
+}
+.reveal .guessbox .page i { display: block; height: 6px; border-radius: 2px; background: var(--light-coal); }
+.reveal .guessbox .page i.w1 { width: 70%; }
+.reveal .guessbox .page i.w2 { width: 90%; }
+.reveal .guessbox .page i.cta { width: 44%; height: 12px; background: var(--flock-yellow); margin-top: 4px; }
+
+.reveal .guessbox .guess {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.34em;
+  letter-spacing: var(--track-mono-caps);
+  text-transform: uppercase;
+  color: var(--dark-grey);
+  background: rgba(59, 72, 76, 0.55);
+  border-radius: 12px;
+  padding: 0.3rem 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  animation: guessIn 0.34s ease-out forwards;
+}
+.reveal .guessbox .guess:nth-of-type(1) { left: 2%;  top: 4px;  animation-delay: 0.5s; }
+.reveal .guessbox .guess:nth-of-type(2) { right: 4%; top: 26px; animation-delay: 1.05s; }
+.reveal .guessbox .guess:nth-of-type(3) { left: 8%;  top: 74px; animation-delay: 1.5s; }
+.reveal .guessbox .guess:nth-of-type(4) { right: 1%; top: 96px; animation-delay: 1.85s; }
+
+@keyframes guessIn { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+
+/* what the page itself offers */
+.reveal .guessbox .itsown {
+  position: absolute;
+  left: 50%;
+  bottom: 104px;
+  transform: translateX(-50%);
+  border: 2px solid var(--flock-yellow);
+  border-radius: 12px;
+  padding: 0.3rem 1.5rem;
+  opacity: 0;
+  animation: guessIn 0.4s 3.4s ease-out forwards;
+}
+.reveal .guessbox .itsown .dots {
+  display: flex;
+  gap: 5px;
+}
+.reveal .guessbox .itsown .dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--flock-yellow);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+.reveal .guessbox .itsown .dots span:nth-child(2) { animation-delay: 0.2s; }
+.reveal .guessbox .itsown .dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes pulse { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+
+.reveal .guessbox .tail {
+  position: absolute;
+  left: 50%;
+  bottom: 96px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top-color: var(--flock-yellow);
+  opacity: 0;
+  animation: guessIn 0.4s 3.4s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .guessbox .guess,
+  .reveal .guessbox .itsown,
+  .reveal .guessbox .tail { opacity: 1; animation: none; }
+  .reveal .guessbox .itsown .dots span { animation: none; opacity: 1; }
+}
+
+.reveal .closing-note {
+  font-size: 0.5em;
+  line-height: 1.35;
+  color: var(--light-coal);
+  max-width: 30ch;
+  margin: 0 0 1.1rem;
+}

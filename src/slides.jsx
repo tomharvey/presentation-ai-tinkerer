@@ -20,10 +20,10 @@ import { useEffect, useRef, useState } from 'react'
      · press C while the deck has focus, to cycle card → belt → portrait
      · or open the deck with ?open=belt / ?open=portrait
 
-   'card'     — the software's own self-description, every line answerable but the last
+   'guess'    — the room can guess its purpose; the software itself cannot
    'belt'     — the feature factory, which predates all of this
    'portrait' — the homepage that can describe everything about itself but why */
-const COLD_OPENS = ['card', 'belt', 'portrait']
+const COLD_OPENS = ['guess', 'belt', 'portrait']
 
 function useColdOpen() {
   const [which, setWhich] = useState(() => {
@@ -93,26 +93,33 @@ function useSlideStages(count, gap) {
 }
 
 /* ---------------------------------------------------------------- slide 1 */
-/* The interrogation. Every question gets an instant answer and they arrive
-   faster and faster — the thing is showing off — then a long silence, and the
-   last line lands with nothing after it but a cursor. Hold the pause. If you
-   talk over it, it dies.
+/* The room can guess what a page is for — four guesses land, fast, and every
+   one is plausible. Then the page's own bubble arrives and it is empty, still
+   thinking. The guesses are the audience's competence; the empty bubble is the
+   gap.
 
-   Everything it CAN answer is about its own form: size, layout, colour. Load
-   times and visitor counts were here and were cut deliberately — a system that
-   knows those already holds outcome data, which undercuts the whole argument
-   that it is blind to its own effect. Keep this list to shape only. */
-function SelfKnowledge() {
+   This replaced a list of things the software could answer about itself, which
+   read as dull on a trial run. Note the wording throughout is PURPOSE, not
+   "why it exists" — the latter tested as too existential and made the software
+   sound sentient, which is the wrong argument entirely. */
+function PurposeGuess() {
   const [run, ref] = useReplayOnEnter()
   return (
     <div ref={ref} style={{ width: '100%' }}>
-      <div className="selfknow" key={run}>
-        <p className="head">Everything it can tell you about itself</p>
-        <div className="line"><span>What it looks like on a phone</span><span className="val">yes</span></div>
-        <div className="line"><span>What colour the button is</span><span className="val">yes</span></div>
-        <div className="line"><span>Where everything sits on the page</span><span className="val">yes</span></div>
-        <div className="line"><span>What size every word is</span><span className="val">yes</span></div>
-        <div className="line unknown"><span>Why it exists</span><span className="val"><span className="caret" /></span></div>
+      <div className="guessbox" key={run}>
+        <span className="guess">Sign people up</span>
+        <span className="guess">Sell shoes</span>
+        <span className="guess">Get them to come back</span>
+        <span className="guess">Take their money</span>
+        <div className="tail" />
+        <div className="itsown">
+          <div className="dots"><span /><span /><span /></div>
+        </div>
+        <div className="page">
+          <i className="w1" />
+          <i className="w2" />
+          <i className="cta" />
+        </div>
       </div>
     </div>
   )
@@ -340,16 +347,35 @@ export default function Slides() {
           slides; that inflated the count to 11 and made it look like slides 2
           and 3 had gone missing.) */}
       <section>
-        {COLD_OPEN === 'card' && (
+        {COLD_OPEN === 'guess' && (
           <>
             <p className="kicker">AI Tinkerers · Tom Harvey</p>
-            <h1>Your software doesn&rsquo;t know why it exists</h1>
-            <SelfKnowledge />
+            <h1>Your software doesn&rsquo;t know its purpose</h1>
+            <PurposeGuess />
             <aside className="notes">
               0:00–1:30 · NEVER CUT{'\n\n'}
-              ⌨ PRESS C to cycle this opener: card → feature factory →
-              self-portrait. Or open the deck with ?open=belt / ?open=portrait.
-              Nothing to edit.{'\n\n'}
+              ⌨ PRESS C to cycle this opener: guesses → feature factory →
+              self-portrait. Or open with ?open=belt / ?open=portrait.{'\n\n'}
+              BEFORE ANY OF THIS — walk up and CLOSE THE LAPTOP LID. Let them
+              wonder. Then:{'\n\n'}
+              "This is a story about an engineering team. But what I'm really
+              hoping to get across is something that applies well outside
+              engineering — how you build trust in an AI system. If you're not
+              on an engineering team, come and find me afterwards and tell me
+              whether I managed it. If you are on one, come and find me too."
+              {'\n\n'}
+              That does two jobs: it tells the non-engineers in the room this is
+              for them, and it gives everyone a question to hold for ten minutes
+              so you don't have to bolt examples on.{'\n\n'}
+              WHO YOU ARE — 30 seconds, no more. Software engineer for
+              twenty-five years. Head of engineering, VP engineering, CTO.
+              Co-founded companies. Always small startups, so never stopped
+              writing code. Head of AI at Flock, a London insurtech — "Admiral
+              liked it enough to pay £110m for the business."{'\n\n'}
+              ⚠ Your name badge may say founder of Rosenfeld. Clear it up in one
+              line: that's the passion project, the energy one; today is the day
+              job, because it's the one with thousands of real users behind it.
+              {'\n\n'}
               "Your landing page. Does it know that its job is to sell?" It knows
               what colour the button is. It knows where everything sits and how big
               every word is. It knows its own shape perfectly, down to the pixel.
@@ -379,7 +405,7 @@ export default function Slides() {
               with the thing that got built.{'\n\n'}
               BRIDGE — "you don't need a product for this to be true. You need
               something you shipped and stopped asking questions about."{'\n\n'}
-              10 sec on Flock, INCLUDING: "Admiral liked it enough to pay £109m for
+              10 sec on Flock, INCLUDING: "Admiral liked it enough to pay £110m for
               the business." Then straight into slide 2.{'\n\n'}
               ⚠ The customer message is SPOKEN, not shown — the screen carries the
               idea, not the anecdote. If you'd rather show the real screenshot, it
@@ -399,7 +425,7 @@ export default function Slides() {
               <div className="fog" />
               <p className="stamp">Feature factory &middot; est. long before any of this</p>
             </div>
-            <h1>Your software doesn&rsquo;t know why it exists</h1>
+            <h1>Your software doesn&rsquo;t know its purpose</h1>
             <aside className="notes">
               COLD OPEN — ALTERNATE A · the feature factory{'\n\n'}
               Let it run in silence for a few seconds before you say anything.{'\n\n'}
@@ -452,9 +478,9 @@ export default function Slides() {
               <text x="320" y="134">16 / 24 / 48px</text>
 
               <path className="lead" d="M150 18 L150 6" />
-              <text className="q" x="150" y="0" textAnchor="middle">why does this exist?</text>
+              <text className="q" x="150" y="0" textAnchor="middle">what is this for?</text>
             </svg>
-            <h1>Your software doesn&rsquo;t know why it exists</h1>
+            <h1>Your software doesn&rsquo;t know its purpose</h1>
             <aside className="notes">
               COLD OPEN — ALTERNATE B · the self-portrait{'\n\n'}
               "This is our homepage. Ask it anything about how it's put together
@@ -477,7 +503,7 @@ export default function Slides() {
 
       {/* 2 ────────────────────────────────────── 1:30–2:45 */}
       <section>
-        <p className="kicker muted">What we did about it</p>
+        <p className="kicker muted">The loop</p>
         <h2>We stopped writing our own to-do list</h2>
         <LoopDiagram />
         <aside className="notes">
@@ -491,9 +517,18 @@ export default function Slides() {
           And it watches what happens after it ships. The interesting arrow is
           the one going back. Without it you haven't got a loop, you've got an
           expensive suggestion box.{'\n\n'}
+          IT ALSO HAS TO KNOW ITS OWN HISTORY. Models are terrible at the
+          passage of time — every run is a fresh one straight out of the box. So
+          it gets fed what it has already done and how that went: what's a
+          long-running problem, what's new, what it tried before. Without that
+          it has no way to tell progress from repetition.{'\n\n'}
+          DOES IT WORK — and these are the numbers to say out loud, because they
+          are the inarguable ones: "the product this runs on is about retention.
+          Our target was 20% of users coming back every week. It's 60%."{'\n\n'}
           BRIDGE — "keep the why next to the output, not in a chat you're about
           to close."{'\n\n'}
-          NO COUNTS. No throughput. If they want volumes they can ask afterwards.
+          NO TICKET COUNTS. The retention numbers are outcome, which is the point
+          — throughput is not, so leave it out unless asked.
         </aside>
       </section>
 
@@ -585,6 +620,15 @@ export default function Slides() {
           tooling is a fact. And start where being wrong is survivable — an
           internal tool breaking is annoying; paying somebody the wrong amount is
           not.{'\n\n'}
+          WHY THIS MATTERS, SAID PLAINLY — "the audit trail isn't paperwork.
+          It's how you build trust in the thing. And you only ever hand over
+          control of something you trust."{'\n\n'}
+          IF THERE'S ROOM, the strongest thing from the run-through: you stop
+          telling the system how you work and start asking it. "I could tell you
+          what I wrote in the standards document five years ago. Everyone's gone
+          a different way since. So don't ask me — ask the code what the coding
+          standards are, and it'll tell you." The system is what the system does.
+          {'\n\n'}
           BRIDGE — "all three work at any size. Keep the why. Put the limit
           somewhere it can't be argued with. Start where being wrong is cheap."
           {'\n\n'}
@@ -598,7 +642,10 @@ export default function Slides() {
         <p className="kicker">The hinge</p>
         <h2>Being in the loop doesn&rsquo;t scale, because you don&rsquo;t</h2>
         <InOrAbove />
-        <p className="punch">Both are judgement. Only one is a job you can do at volume.</p>
+        <p className="punch">
+          A human in the loop sounds responsible. It just makes babysitters and
+          bottlenecks.
+        </p>
         <aside className="notes">
           5:35–6:30 · NEVER CUT. This is the hinge of the whole talk.{'\n\n'}
           In it: you interrupt. "No — do it this way." Every pass comes back to
@@ -626,12 +673,12 @@ export default function Slides() {
         <h2>You can&rsquo;t shape a loop without knowing what it&rsquo;s for</h2>
         <div className="versus">
           <div className="side">
-            <p className="where">Standing in it</p>
+            <p className="where">In it &middot; an instruction about one thing</p>
             <p className="said">&ldquo;Move that button to the left.&rdquo;</p>
             <p className="life">Works once. Then it&rsquo;s gone.</p>
           </div>
           <div className="side up">
-            <p className="where">Standing above it</p>
+            <p className="where">Above it &middot; an instruction about what good looks like</p>
             <p className="said">
               &ldquo;People should be able to get at their own data without
               asking us.&rdquo;
@@ -667,11 +714,8 @@ export default function Slides() {
       {/* 8 ────────────────────────────────────── 7:50–9:15 */}
       <section>
         <p className="kicker muted">What&rsquo;s left</p>
-        <h2>This is a bigger job than the one it replaced</h2>
-        <p className="punch">
-          You don&rsquo;t write the list any more. You build the thing that writes
-          the list &mdash; and that never stops needing you.
-        </p>
+        <h2>This is the most software engineering I&rsquo;ve done in twenty-five years</h2>
+        <p className="punch">Building the system that builds the system.</p>
         <aside className="notes">
           7:50–9:15 · NEVER CUT the why-becomes-the-job beat{'\n\n'}
           Her answer, unprompted: working out the right thing to build.
@@ -679,6 +723,17 @@ export default function Slides() {
           judgement to THAT, and building the systems that surface which thing
           matters most.{'\n\n'}
           "So if the why is now the job — is that a smaller job? It is not."{'\n\n'}
+          SAY THIS ONE STRAIGHT, IT'S TRUE AND IT LANDS: "this is the most
+          software engineering I have done in twenty-five years of software
+          engineering. Building the systems was never this. Building the system
+          that builds the systems — that's engineering. I've fallen back in love
+          with it, and there was a long stretch where I hadn't."{'\n\n'}
+          And the correction people need: software engineering isn't over. It
+          changed.{'\n\n'}
+          THE HONEST COST — this has been a serious time investment, and most of
+          it went on teaching it what Flock actually does. Coding standards were
+          about 1% of it; the rest is knowledge that only existed in a few
+          people's heads.{'\n\n'}
           Getting lost in the what was a TRAP, and for thirty years it was
           COMPULSORY. Everybody fell into it, because the job genuinely required
           somebody down there. What's changed is that it's optional now — and
@@ -698,8 +753,12 @@ export default function Slides() {
 
       {/* 9 ────────────────────────────────────── 9:15–9:45 */}
       <section className="invert" data-background-color="#f6f404">
-        <p className="close-q">Does your software know why it exists?</p>
+        <p className="close-q">Does your software know its purpose?</p>
         <p className="close-q second">Do you?</p>
+        <p className="closing-note">
+          Go and build your own way of trusting it. It doesn&rsquo;t have to work
+          for everyone &mdash; it has to work for you.
+        </p>
         <p className="hiring">Flock is hiring</p>
         <aside className="notes">
           9:15–9:45{'\n\n'}
@@ -714,6 +773,11 @@ export default function Slides() {
           PRODUCT.{'\n\n'}
           BRIDGE — "if you're choosing tools, stop optimising which model and
           start looking at what you've built around it."{'\n\n'}
+          THE ONE THING THEY SHOULD LEAVE WITH — say it before the questions:
+          "if you take one thing away: go and build your own way of trusting
+          this stuff. Not whether it works in the abstract. Whether it works for
+          you, well enough that you'd let go of a piece of control. That part is
+          on you, and nobody can hand it to you."{'\n\n'}
           THE CLOSE — the opening question. Then a beat. Then "do you?"{'\n\n'}
           NEVER ADD A THIRD QUESTION. Then the hiring line and stop. Say where
           we're hiring out loud if it's relevant — it's not on the slide, so the
