@@ -762,14 +762,15 @@ export default function Slides() {
    is the question slide 1 asks, a goal is the answerable form you can hand to
    a machine and measure.
 
-   "It keeps score", not "check it got there" — the measuring has to be inside
-   the loop. If the human is the one checking, the human is back in the loop,
+   "It knows if it's working", not "check it got there" — the measuring has to
+   be inside the loop. "Knows" is also the verb the opening slide uses, so the
+   two hook together. If the human is the one checking, the human is back in the loop,
    which is the thing step four spends its whole slide arguing against. */}
       <section>
         <p className="step"><span className="n">1</span> <span className="of">of four</span> &middot; Feedback loop</p>
         <h2>
           Give it a goal.{' '}
-          <span className="second">It keeps score.</span>
+          <span className="second">It knows if it&rsquo;s working.</span>
         </h2>
         <div className="goal">
           <p className="lbl">The goal we gave it</p>
