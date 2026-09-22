@@ -79,12 +79,15 @@ The deck builds to static files and is set up to publish to GitHub Pages via
 `.github/workflows/deploy.yml`. `base` is `'./'` so it works at any path — local
 dev, Pages project path, or a file:// copy on a laptop at the venue.
 
-**Two things have to happen by hand before it goes live:**
+The repo is public (as of 22 Sept). **One manual step remains:** on GitHub go to
+**Settings > Pages > Build and deployment > Source**, and choose **GitHub
+Actions** (not "Deploy from a branch"). Then re-run the latest workflow, or push
+anything. The site lands at
+<https://tomharvey.github.io/presentation-ai-tinkerer/>.
 
-1. **Settings > Pages > Source: "GitHub Actions".** The workflow builds without
-   it but the deploy step fails.
-2. **The repo has to be public** — on a free plan Pages will not serve from a
-   private repo.
+Until that's set, the workflow's `build` job succeeds and `deploy` fails on
+`actions/deploy-pages` — which is exactly what the failed runs before this
+point were.
 
 ⚠ **Read this before making it public.** The deck states Jay's retention figure
 (59% of activated customers, from the owned dashboard), the £110m Admiral
@@ -96,6 +99,23 @@ call, not a side effect of wanting a link.
 `CUE-CARD.md` is gitignored on purpose. It is personal delivery notes — which
 numbers keep coming out wrong, which words drift — and it belongs in the private
 vault, not on the open web.
+
+### Running it offline, which is the backup that actually matters
+
+⚠ **Double-clicking `dist/index.html` does not work.** It opens to a blank deck
+— zero slides. The build is ES modules, and browsers refuse to load those over
+`file://`. Verified, not assumed.
+
+The deck needs to be *served*, even locally. Any of these work with no network:
+
+```
+npm run dev        # what you've been using
+npm run preview    # serves the production build
+cd dist && python3 -m http.server 8000
+```
+
+Pages is a convenience, not a fallback — if the venue wifi is down, so is the
+hosted copy. `npm run dev` on the laptop is the real backup.
 
 ## Speaker notes
 
