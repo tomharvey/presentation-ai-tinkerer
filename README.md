@@ -93,9 +93,9 @@ aloud at the meetup, so none of it is secret — but a Pages site is permanently
 indexed, which is not the same as said once in a room. That is a deliberate
 call, not a side effect of wanting a link.
 
-And **delete `CUE-CARD.md` before going public.** It is Tom's personal delivery
-notes — which numbers he keeps getting wrong, which words he drifts on. It
-belongs in the private vault, not on the open web.
+`CUE-CARD.md` is gitignored on purpose. It is personal delivery notes — which
+numbers keep coming out wrong, which words drift — and it belongs in the private
+vault, not on the open web.
 
 ## Stack
 

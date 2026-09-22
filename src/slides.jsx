@@ -453,15 +453,14 @@ export default function Slides() {
           </p>
         </div>
         <aside className="notes">
-          HOLDING SLIDE — nothing happens here.{'\n\n'}
-          This is up while you walk on and while whoever introduces you is
-          talking. Don't start on it.{'\n\n'}
-          Your opening move is with the LID CLOSED: "this is a story about an
-          engineering team, but what I'm really hoping to get across is
-          something that applies well outside engineering — how you build trust
-          in an AI system." Then open the lid and advance.{'\n\n'}
-          ⚠ The clock (totalTime 600) starts when the deck does, so don't
-          advance off this until you're actually starting.
+          1 OPEN{'\n\n'}
+          vans · your parcel · all need insuring{'\n'}
+          that's Flock. data = secret sauce{'\n'}
+          crash less · safer · MORE MONEY{'\n'}
+          head of AI = the whole company{'\n'}
+          data + AI = why Admiral paid £110m{'\n\n'}
+          → prod+eng story — but everyone wants AI doing more of their job{'\n\n'}
+          Say the bridge. Advance. THEN pause while they read.
         </aside>
       </section>
 
@@ -477,78 +476,11 @@ export default function Slides() {
             <h1 className="tight">Does your software know its purpose?</h1>
             <ThinkingSite />
             <aside className="notes">
-              0:00–1:30 · NEVER CUT{'\n\n'}
-              ⌨ PRESS C to cycle this opener: guesses → feature factory →
-              self-portrait. Or open with ?open=belt / ?open=portrait.{'\n\n'}
-              BEFORE ANY OF THIS — walk up and CLOSE THE LAPTOP LID. Let them
-              wonder. Then:{'\n\n'}
-              "This is a story about an engineering team. But what I'm really
-              hoping to get across is something that applies well outside
-              engineering — how you build trust in an AI system. If you're not
-              on an engineering team, come and find me afterwards and tell me
-              whether I managed it. If you are on one, come and find me too."
-              {'\n\n'}
-              That does two jobs: it tells the non-engineers in the room this is
-              for them, and it gives everyone a question to hold for ten minutes
-              so you don't have to bolt examples on.{'\n\n'}
-              WHO YOU ARE — 30 seconds, no more. Software engineer for
-              twenty-five years. Head of engineering, VP engineering, CTO.
-              Co-founded companies. Always small startups, so never stopped
-              writing code. Head of AI at Flock, a London insurtech — "Admiral
-              liked it enough to pay £110m for the business."{'\n\n'}
-              ⚠ Your name badge may say founder of Rosenfeld. Clear it up in one
-              line: that's the passion project, the energy one; today is the day
-              job, because it's the one with thousands of real users behind it.
-              {'\n\n'}
-              "Your landing page. Does it know that its job is to sell?" It knows
-              what colour the button is. It knows where everything sits and how big
-              every word is. It knows its own shape perfectly, down to the pixel.
-              {'\n\n'}
-              WHAT IT HAS NO IDEA ABOUT IS WHETHER ANY OF IT IS FOR ANYTHING. It has
-              never once found out whether a single person bought a single thing.
-              {'\n\n'}
-              LET IT PLAY. The answers come back faster and faster — it is showing
-              off — and then they stop. DO NOT FILL THE SILENCE. The last line
-              takes about a second and a half longer than you will want it to.
-              {'\n\n'}
-              ASK THE TITLE OUT LOUD, don't just let it sit there. "Does your
-              software know what it's for?" Give them a second to answer it in
-              their own heads — some of them will say yes, and they may be
-              right. That's fine. You're not telling them they're wrong, you're
-              asking a question you'll ask again at the end.{'\n\n'}
-              LET THE BUBBLE GO ROUND AT LEAST TWICE before you move on. The
-              first cycle looks like an answer; the second is when the room
-              works out it's never going to land on one. That realisation is
-              the slide — don't step on it.{'\n\n'}
-              "Take money. Sign up users. Cut the calls. Retain users."
-              {'\n\n'}
-              "Every one of those is a real answer somebody in the building would
-              give you — and they don't agree with each other. Not one of them
-              has ever been said TO this thing. So it keeps guessing, and it'll
-              keep guessing for as long as it's up."{'\n\n'}
-              WALK THE CARD. Notice every one of those is about its own shape —
-              size, layout, colour. It answers them instantly, and has been able to
-              for twenty years. The last one it has never been able to
-              answer, and — this is the part — nobody ever thought that was strange.
-              {'\n\n'}
-              THEN THE REAL ONE, SPOKEN. "Last month a customer wrote to us: just
-              give me a CSV of this, what do you mean you can't do that, that's
-              ridiculous. Our product knows how to draw that table. Perfectly. What
-              it has never known is that the table is only there so somebody can go
-              and DO something with the numbers."{'\n\n'}
-              "And somebody's job was to read that and write down 'maybe we should
-              add an export'. That is a real job. I don't think it's a job any
-              more."{'\n\n'}
-              The intent existed once — written somewhere nobody kept, a chat thread,
-              someone's head, a job closed eighteen months ago. It never travelled
-              with the thing that got built.{'\n\n'}
-              BRIDGE — "you don't need a product for this to be true. You need
-              something you shipped and stopped asking questions about."{'\n\n'}
-              10 sec on Flock, INCLUDING: "Admiral liked it enough to pay £110m for
-              the business." Then straight into slide 2.{'\n\n'}
-              ⚠ The customer message is SPOKEN, not shown — the screen carries the
-              idea, not the anecdote. If you'd rather show the real screenshot, it
-              belongs as a second beat after the card, not instead of it.
+              2 WHY{'\n\n'}
+              we always cared. now the SOFTWARE has to.{'\n'}
+              does the landing page know it's there for 1,000 signups?{'\n\n'}
+              Don't read the targets — they're illustration, not a list.{'\n\n'}
+              → so we stopped caring what. we tell it why.
             </aside>
           </>
         )}
@@ -557,16 +489,11 @@ export default function Slides() {
             <h1 className="tight">Does your software know its purpose?</h1>
             <ThinkingSite metric />
             <aside className="notes">
-              COLD OPEN — TARGETS variant of the thinking site.{'\n\n'}
-              Same slide, but the guesses are numbers somebody is actually
-              carrying. "Twenty percent more sales. A thousand signups a day. A
-              hundred fewer support requests. Fifteen percent more people coming
-              back."{'\n\n'}
-              "Somebody in that building has every one of those on a slide with
-              their name against it. Not one of them has ever been said TO the
-              thing that's supposed to deliver it."{'\n\n'}
-              Sharper than the word version for a room that carries targets;
-              softer if the room is mostly builders. Press C to switch.
+              2 WHY{'\n\n'}
+              we always cared. now the SOFTWARE has to.{'\n'}
+              does the landing page know it's there for 1,000 signups?{'\n\n'}
+              Don't read the targets — they're illustration, not a list.{'\n\n'}
+              → so we stopped caring what. we tell it why.
             </aside>
           </>
         )}
@@ -584,22 +511,11 @@ export default function Slides() {
             </div>
             <h1 className="tight">Does your software know its purpose?</h1>
             <aside className="notes">
-              COLD OPEN — ALTERNATE A · the feature factory{'\n\n'}
-              Let it run in silence for a few seconds before you say anything.{'\n\n'}
-              "This is a feature factory. Things come down the line, they're
-              perfectly well made, they get shipped, and they disappear. Nobody
-              standing at the line can tell you why any of them were built."{'\n\n'}
-              THE MOVE — AND THIS IS THE WHOLE REASON TO USE THIS OPENER:{'\n\n'}
-              "Now — none of this is about AI. We invented the feature factory
-              decades ago. We were doing this when the roadmap was a spreadsheet
-              and the tickets were index cards. Nobody needed a language model to
-              lose track of why they were building something."{'\n\n'}
-              "All the machines did was speed the line up."{'\n\n'}
-              That reframe is the point. The room arrives braced for another talk
-              about what AI is doing to us, and you tell them the problem is
-              thirty years older than the tools — which buys you their attention
-              for the next nine minutes.{'\n\n'}
-              THEN the title lands, and go to the loop.
+              2 WHY{'\n\n'}
+              we always cared. now the SOFTWARE has to.{'\n'}
+              does the landing page know it's there for 1,000 signups?{'\n\n'}
+              Don't read the targets — they're illustration, not a list.{'\n\n'}
+              → so we stopped caring what. we tell it why.
             </aside>
           </>
         )}
@@ -639,20 +555,11 @@ export default function Slides() {
             </svg>
             <h1 className="tight">Does your software know its purpose?</h1>
             <aside className="notes">
-              COLD OPEN — ALTERNATE B · the self-portrait{'\n\n'}
-              "This is our homepage. Ask it anything about how it's put together
-              and it will tell you. What colour is that button — it knows. How big
-              is the heading — it knows. Where does everything sit — it knows that
-              too."{'\n\n'}
-              POINT AT THE LABEL WITH NOTHING UNDER IT.{'\n\n'}
-              "That one it has never been able to answer. And the strange part
-              isn't that it can't. It's that nobody ever thought that was odd."{'\n\n'}
-              ⚠ THE WIREFRAME IS A GUESS. I could not reach flockcover.com from
-              here — no outbound network — so this is the shape every B2B homepage
-              shares: nav, hero, one call to action, three cards. CHECK IT AGAINST
-              THE REAL PAGE before you show it. If it doesn't match, the room full
-              of people who have seen your site will notice and it undercuts you.
-              The three labels are illustrative too.
+              2 WHY{'\n\n'}
+              we always cared. now the SOFTWARE has to.{'\n'}
+              does the landing page know it's there for 1,000 signups?{'\n\n'}
+              Don't read the targets — they're illustration, not a list.{'\n\n'}
+              → so we stopped caring what. we tell it why.
             </aside>
           </>
         )}
@@ -664,42 +571,10 @@ export default function Slides() {
         <WhatThenWhy />
         <LoopDiagram />
         <aside className="notes">
-          1:30–2:45 · The diagram builds itself in four steps — let it land
-          before you talk over the last one.{'\n\n'}
-          "We stopped caring about the what." Let that sit — it sounds careless,
-          and for a second it should.{'\n\n'}
-          THEN SAY THE SECOND HALF YOURSELF: "we care about the why." It's
-          already on screen — the pause is yours to take, not the slide's.
-          {'\n\n'}
-          ⚠ Say "the what", not "what we build". The second version sounds like
-          you stopped caring whether it's any good, which is the fear this room
-          already has and the opposite of the point.{'\n\n'}
-          WALK THE FOUR BOXES — customers act, it notices, it writes the work up
-          WITH ITS PURPOSE ATTACHED, it ships. Then the arrow back: it watches
-          what changed.{'\n\n'}
-          LEAN ON THAT WORD — it's the same one the title asked about. "Work with
-          purpose. Not a task — a task with the reason it exists still attached
-          to it. That's the bit that used to fall off."{'\n\n'}
-          ⚠ Don't say "backlog", "tickets", "pipeline" or "life cycle" — say what
-          it is: the list of what we're going to build next, and who wrote it.
-          {'\n\n'}
-          That reason is the intent travelling with the work — the thing that
-          used to evaporate.{'\n\n'}
-          And it watches what happens after it ships. The interesting arrow is
-          the one going back. Without it you haven't got a loop, you've got an
-          expensive suggestion box.{'\n\n'}
-          IT ALSO HAS TO KNOW ITS OWN HISTORY. Models are terrible at the
-          passage of time — every run is a fresh one straight out of the box. So
-          it gets fed what it has already done and how that went: what's a
-          long-running problem, what's new, what it tried before. Without that
-          it has no way to tell progress from repetition.{'\n\n'}
-          DOES IT WORK — and these are the numbers to say out loud, because they
-          are the inarguable ones: "the product this runs on is about retention.
-          Our target was 20% of users coming back every week. It's 60%."{'\n\n'}
-          BRIDGE — "keep the why next to the output, not in a chat you're about
-          to close."{'\n\n'}
-          NO TICKET COUNTS. The retention numbers are outcome, which is the point
-          — throughput is not, so leave it out unless asked.
+          3 LOOP{'\n\n'}
+          reads sessions, logs, errors{'\n'}
+          FINDS AND FIXES — never "tells me"{'\n\n'}
+          → none of it works without trust. four things built that trust
         </aside>
       </section>
 
@@ -747,44 +622,12 @@ export default function Slides() {
           </div>
         </div>
         <aside className="notes">
-          2:40–3:40 · STEP ONE — NEVER CUT{'\n\n'}
-          "Everything after this depends on this bit, and it's the bit everyone
-          skips."{'\n\n'}
-          You have to give it a goal. Not a task — a goal. Not what to do, what
-          good looks like. That sentence is roughly what we handed it for this product.
-          {'\n\n'}
-          ⚠ SAY "USERS", NOT "FLEET MANAGERS" — nobody outside insurance knows
-          what a fleet manager is, and the word costs you a beat while they work
-          it out. Same for "fleets": say customers.{'\n\n'}
-          AND THEN — and this is the half people miss — IT needs a way to measure
-          itself against that. Not you. The checking has to live inside the loop.
-          {'\n\n'}
-          "If I'm the one checking, I'm back in the loop — and we'll get to why
-          that doesn't work in a few minutes."{'\n\n'}
-          WHY IT MATTERS — "and that's the whole thing. Something that can tell
-          whether it's hitting its goal is something that can correct itself
-          when it isn't. Without the goal there's nothing to correct towards.
-          That's the difference between a system that improves and one that just
-          runs."{'\n\n'}
-          A goal it can't measure isn't a goal, it's a mood.{'\n\n'}
-          THE NUMBERS, SAID PLAINLY: "we asked for twenty percent of the people
-          who tried it to keep coming back. It's fifty-nine." Let that sit.
-          Don't dress it up.{'\n\n'}
-          ⚠ SAY THE DENOMINATOR OUT LOUD — it is no longer on the slide. It is
-          NOT "59% of users". It is 59% OF THE PEOPLE WHO EVER TRIED IT, coming
-          back in more than one week — 208 of 352. The looser version is
-          checkable and wrong, and this is a room that will check.{'\n\n'}
-          IN RESERVE, if anyone wants the other half: 57% of customers have used
-          it at least once, against a 50% target — 330 of 576, rising to 64%
-          among those who've had a fair chance at it. Both key results are met.
-          {'\n\n'}
-          BRIDGE — "you don't need any of this machinery to do the first part.
-          Most software has never been told what it's for. Write the sentence."
-          {'\n\n'}
-          ⚠ SOURCE: OKR 2 target from the Q3 OKR doc; figures from the Jay launch
-          dashboard, last updated 17 September 2026. These are the only numbers
-          in the talk. Re-check the dashboard on the morning if you can — it
-          moves.
+          4 GOAL{'\n\n'}
+          it's aware of it · it measures itself{'\n'}
+          20% → 59% OF THOSE WHO USE IT{'\n'}
+          in two months{'\n\n'}
+          Never "of our customers". 208 of 352 activated.{'\n\n'}
+          → but it does things I didn't want
         </aside>
       </section>
 
@@ -802,39 +645,12 @@ export default function Slides() {
           </div>
         </div>
         <aside className="notes">
-          3:40–4:40 · STEP TWO{'\n\n'}
-          START WITH THE SHRUG, because everyone in the room has seen it. "You
-          ask why something got built, and you get this." Point at the grey one.
-          {'\n\n'}
-          "That's everywhere at the moment. It is the end of the conversation.
-          Nobody can do anything with it."{'\n\n'}
-          LET THE FIRST HALF SIT for a second — the room gets to "well, that's
-          not really a reason" by itself — then say the second half: "it's just
-          sloppy." Both are on screen; the timing is yours.{'\n\n'}
-          Saying it before they've arrived there reads as a telling-off. Saying
-          it after reads as the obvious conclusion, and they've already agreed.
-          {'\n\n'}
-          "We made a decision early on that turned out to matter more than
-          anything else. We decided it was more important that it could tell us
-          WHY it did something than that it got the thing right first time."
-          {'\n\n'}
-          NOW THE SECOND ONE — "that's a reason. You can argue with it. You can
-          check it. You can decide it's the wrong call." Every item it raises
-          traces back to a real person doing a real thing.{'\n\n'}
-          THE TEST — "if you can't answer for what it did, you haven't delegated
-          the work. You've just lost track of it."{'\n\n'}
-          WHY THIS MATTERS, PLAINLY — "the audit trail isn't paperwork. It's how
-          you build trust in the thing. And you only ever hand over control of
-          something you trust."{'\n\n'}
-          IF THERE'S ROOM — you stop telling the system how you work and start
-          asking it. "I could tell you what I wrote in the standards document
-          five years ago. Everyone's gone a different way since. Don't ask me —
-          ask the code what the coding standards are." The system is what the
-          system does.{'\n\n'}
-          BRIDGE — "at any size: keep the why next to the thing, not in a chat
-          you're about to close."{'\n\n'}
-          CUT FROM HERE, NOW Q&amp;A MATERIAL: guardrails in tools not prompts,
-          and sorting work by blast radius.
+          5 AUDIT{'\n\n'}
+          I MADE A CONTROVERSIAL CALL:{'\n'}
+          why it did it > whether it was right{'\n'}
+          "that number's wrong" / "the agents did it"{'\n'}
+          every line traces back to a user{'\n\n'}
+          → applies to everyone — knowing why doesn't stop it
         </aside>
       </section>
 
@@ -883,55 +699,11 @@ export default function Slides() {
         </div>
 
         <aside className="notes">
-          STEP FOUR · GUARDRAILS — AND THIS IS THE ANSWER TO THE DANGER STEP ONE
-          CREATED, so it cannot be cut without leaving that danger open.{'\n\n'}
-          OPEN BY GOING BACK — "I told you at the start we gave it a goal.
-          Customers should use this at least once a week. Here's the thing
-          nobody says about goals: it will hit it."{'\n\n'}
-          "And there are cheap ways to hit that number. Email all of them every
-          Monday. Make something they only needed once a month into something
-          they have to do every week. Or just quietly change what counts as
-          using it."{'\n\n'}
-          ⚠ THE LINE THAT MAKES THE ROOM SIT UP — "that isn't the system going
-          wrong. That's the system doing exactly what I asked. I'm the one who
-          wrote the goal." Take the blame here; it's true and it stops the
-          slide sounding like a warning about AI.{'\n\n'}
-          SO THE GOAL ISN'T ENOUGH. A goal says where to get to. It says
-          nothing about what you're not prepared to do on the way. That's what
-          a guardrail is.{'\n\n'}
-          WALK THE THREE RUNGS, THEY ESCALATE:{'\n'}
-          1 · TELL IT NOT TO — instructions. It'll probably hold. "Probably" is
-          doing a lot of work in that sentence, and probably is not a position
-          you can defend to a regulator.{'\n'}
-          2 · TEST THAT IT DIDN'T — this is where evals live. You can say the
-          word "evals" in this room, they'll know it. Elsewhere say "tests that
-          check what it actually did, not what it said it did." The honest
-          framing: this doesn't stop anything, it tells you. But you cannot fix
-          what you never find out about, and most people have no rung two at
-          all.{'\n'}
-          3 · DON'T GIVE IT THE TOOL — the strongest and the cheapest. The thing
-          it would need in order to do the wrong thing does not exist. It isn't
-          resisting temptation; there's nothing there.{'\n\n'}
-          CLOSE ON THE PRINCIPLE — say it, it is deliberately not on the slide
-          because the slide was already full: "a prompt is a request. A boundary
-          is a fact. And the difference only shows up on the day something goes
-          wrong."{'\n\n'}
-          OUR REAL ONE, IF YOU WANT A SECOND EXAMPLE AND HAVE THE TIME — we're
-          regulated, and our product must never tell a customer what insurance
-          to buy. That rule does not live in the instructions. There is no tool
-          that answers that question.{'\n\n'}
-          IF SOMEONE ASKS "how do you know what the limits are?" — that's the
-          real unsolved one and you should say so. You need an agreed
-          description of what the business actually is, and most companies
-          don't have one written down anywhere. Ours is half-built. Don't say
-          "ontology" from the stage unless they say it first.{'\n\n'}
-          ⚠ Don't name the compliance lead, or anyone else, from the stage.
-          {'\n\n'}
-          ⚠ NO TEST COUNTS, NO TOOL NAMES, NO INTERNAL VOLUMES. The shape is
-          the point, not our numbers.{'\n\n'}
-          ⚠ THE OLD VERSION OF THIS SLIDE led on compliance — "don't tell anyone
-          what cover to buy." Cut: it made guardrails look like a regulated-
-          industry problem somebody else has. Every goal has a cheap route.
+          6 GUARD{'\n\n'}
+          £10 every Monday · ON GOAL, still wrong{'\n'}
+          NOT AI'S JOB TO EARN YOUR TRUST{'\n'}
+          plead → evals → no email tool at all{'\n\n'}
+          → now I can trust it. so why am I still sat in the middle of it?
         </aside>
       </section>
 
@@ -945,29 +717,12 @@ export default function Slides() {
           bottlenecks.
         </p>
         <aside className="notes">
-          5:40–7:00 · STEP FOUR — NEVER CUT, this is the hinge{'\n\n'}
-          SET IT UP WITH THE BOTTLENECK, SPOKEN — "so it worked, and then it
-          worked too well. It raised more than we could get through. And we hit
-          the thing every engineering team hits: something writes a lot of code
-          and now there's a lot of code to review. All we'd done was move the
-          queue along one place — and put a person in front of it."{'\n\n'}
-          "Humans in the loop sounds like the responsible answer. It mostly
-          creates babysitters and bottlenecks."{'\n\n'}
-          LEFT — you're a station on it. Every revolution has to come through
-          you, so the whole thing moves at whatever pace you can manage. Point
-          at it: it drops to a crawl the moment the person appears, and stays
-          there until they're gone.{'\n\n'}
-          "And that's not a criticism of the person. It's arithmetic. However
-          fast you are, that's the ceiling."{'\n\n'}
-          RIGHT — you're outside it. You don't make the decisions any more, you
-          change the shape of the thing that makes them. Point at it: "and notice
-          that isn't a circle. It's still a loop. A loop doesn't have to be a
-          neat circle to be a loop."{'\n\n'}
-          HOW YOU ACTUALLY DO IT — go back through the audit trail, find where it
-          decided something you didn't want, see the assumptions it was working
-          from, and change those. You're not correcting the output. You're
-          reshaping what produces it.{'\n\n'}
-          NO BRIDGE HERE — this beat is already about them.
+          7 SCALE{'\n\n'}
+          100 to review. no fun. no speed-up{'\n'}
+          BABYSITTER OR BOTTLENECK{'\n'}
+          audit log → new goal / tighter guardrail{'\n'}
+          SHAPE the loop, don't sit in it{'\n\n'}
+          → sounds like I automated my job
         </aside>
       </section>
 
@@ -988,92 +743,12 @@ export default function Slides() {
           <span className="counter">That is not a smaller job.</span>
         </p>
         <aside className="notes">
-          NEVER CUT — this is the turn the whole talk hinges on, and it now
-          carries the payoff that used to have its own slide{'\n\n'}
-          ⚠ NOTHING ON SCREEN BUT THE TITLE AND THE PUNCH. The two-column
-          example used to live here and was cut for being too busy — the room
-          should be watching you, not reading. Every bit of it below is SPOKEN,
-          so slow down and let the empty slide do the work.{'\n\n'}
-          "Here's the bit I didn't expect. Moving above the loop doesn't just
-          free you up. It takes something away from you."{'\n\n'}
-          THE EXAMPLE, SPOKEN, TWO INSTRUCTIONS — hold up one hand for each.
-          "Add a button to that table that downloads a spreadsheet." Perfectly
-          good instruction. Precise. You'd get exactly that button. Or: "people
-          should be able to get at their own data without asking us."{'\n\n'}
-          THEN THE POINT: "the first one is something the second one would have
-          produced anyway." Ask for the button, you get a button. Ask for the
-          outcome, and you still get the button — but it arrives carrying
-          everything we've just been through.{'\n\n'}
-          COUNT THE TWO ON YOUR FINGERS, THEY'RE THE CALLBACK — tied to the goal
-          you set, so you can tell whether it worked. And able to explain
-          itself, so nobody has to shrug.{'\n\n'}
-          ⚠ THERE USED TO BE A THIRD, "a place in the history", calling back to
-          a memory slide that was cut for time. Don't say it — it lands on
-          something this room never saw.{'\n\n'}
-          "That's the difference. Not more output. Output that knows what it's
-          for."{'\n\n'}
-          THE ASYMMETRY — inside the loop every instruction you give is a WHAT.
-          It works because you were standing there when it was needed. From
-          above it you aren't standing there, so you can't give that kind of
-          instruction at all. The only lever left is changing the conditions.
-          {'\n\n'}
-          THE POINT, SLOWLY — "and you cannot change the conditions sensibly
-          without a definition of better. A definition of better is a why. So
-          the why isn't the thing you get to think about once you've got spare
-          time. It's the only instruction that still works from up there. It is
-          forced on you."{'\n\n'}
-          THE CALLBACK — "which is the same sentence I opened with. That system
-          couldn't improve itself without knowing what it was for." Beat.
-          "Neither can you."{'\n\n'}
-          NO NAMES, NO NUMBERS, NO TOOLING. This half of the slide is an
-          argument, not evidence.{'\n\n'}
-          ─────────────────────────────────{'\n'}
-          THEN THE QUESTION THIS SLIDE ANSWERS{'\n'}
-          ─────────────────────────────────{'\n\n'}
-          "So you've got goals. Auditability. Guardrails. And you've stepped
-          out of the loop. Which leaves a fair question: what is your job
-          now?"{'\n\n'}
-          CALL BACK TO THE SECOND SLIDE — "we stopped caring about the what. And
-          this is what's on the other side of that. You don't build the thing.
-          You build what builds it."{'\n\n'}
-          THE ANALOGY, LIGHTLY — don't lean on it, one sentence: "it's not a
-          million miles from going from writing code to running a team. You stop
-          producing the thing and start building something that produces it."
-          Then move on; the room can finish that thought themselves.{'\n\n'}
-          ⚠⚠ THE MISREADING TO KILL, AND IT'S THE MOST IMPORTANT THING ON THE
-          SLIDE — half this room has heard "hand it to the AI and stop thinking"
-          and either believes it or resents it. Said carelessly, "the only thing
-          left to care about is why" sounds exactly like that: fewer things to
-          worry about, less to do. Say the counter out loud, don't rely on the
-          screen: "that is not a smaller job. There is a real system to build
-          here, and it is hard to build."{'\n\n'}
-          AND THEN THE EVIDENCE FOR IT — "months of this, and almost none of it
-          was typing code: teaching it what the business is and what it isn't,
-          writing down the things that only lived in people's heads, and
-          deciding out loud what good looks like." That list IS the engineering.
-          {'\n\n'}
-          "You are not handing your job over. You are being handed a harder
-          one."{'\n\n'}
-          THE CORRECTION PEOPLE NEED — software engineering isn't over. It
-          changed. If you want the personal version, it's honest and it isn't a
-          boast: "I'd fallen out of love with it somewhere along the way, and I
-          hadn't noticed until it came back."{'\n\n'}
-          ⚠ NOT "the most engineering I've done in twenty-five years" — tried
-          and cut. It reads as a boast and this room doesn't care how it rates
-          against your career. They care what the job is now.{'\n\n'}
-          ⚠ TONE — the weeds were compulsory and YOU WERE IN THEM TOO. Never
-          "people were doing it wrong."{'\n\n'}
-          ⚠ ONE EXAMPLE ONLY, and it stays the export one. A second was tried
-          (function length: tell it ten lines and it tortures something to reach
-          ten) and cut — it connects to nothing else in the talk and only lands
-          for half the room, where the export thread has already run through
-          slides 1 and 3.{'\n\n'}
-          ⚠ The two must stay RELATED — the left has to be something the right
-          could plausibly produce. Unrelated examples were tried and nobody could
-          see the connection. Both also sit on the export thread running through
-          slides 1 and 3, so the room has met this need twice already.{'\n\n'}
-          ⚠ The right-hand instruction should be something you'd genuinely say.
-          Swap it for your own wording if it rings false — it's carrying a lot.
+          8 JOB{'\n\n'}
+          missing colon, session replays — GLAD to hand those over{'\n'}
+          one Notion page → WAR AND PEACE{'\n'}
+          the thing only one person knows{'\n'}
+          NOT a smaller job{'\n\n'}
+          → which made the why matter MORE
         </aside>
       </section>
 
@@ -1089,62 +764,10 @@ export default function Slides() {
           Flock is hiring &middot; <b>flockcover.com/careers</b>
         </p>
         <aside className="notes">
-          9:15–9:45{'\n\n'}
-          It's September 2026 and nobody knows if this is right, including me.
-          {'\n\n'}
-          The model isn't the variable any more — I took the strongest one out of
-          my own setup and what came back was still good enough, from something
-          you can reportedly run on a machine at home. Six months ago I'd have
-          said the price of this was going up. Now I think it goes to roughly
-          zero.{'\n\n'}
-          IF THE MODEL IS A COMMODITY, THE THING YOU WRAP AROUND IT IS THE WHOLE
-          PRODUCT.{'\n\n'}
-          BRIDGE — "if you're choosing tools, stop optimising which model and
-          start looking at what you've built around it."{'\n\n'}
-          THE ONE THING THEY SHOULD LEAVE WITH — say it before the questions:
-          "if you take one thing away: go and build your own way of trusting
-          this stuff. Not whether it works in the abstract. Whether it works for
-          you, well enough that you'd let go of a piece of control. That part is
-          on you, and nobody can hand it to you."{'\n\n'}
-          THE CLOSE — the opening question. Then a beat. Then "do you?"{'\n\n'}
-          NEVER ADD A THIRD QUESTION.{'\n\n'}
-          ─────────────────────────────────{'\n'}
-          Q&A — prepared from the run-through{'\n'}
-          ─────────────────────────────────{'\n\n'}
-          PIVOT DEVICE, if a question is vague or unhelpful: "can I answer a
-          subtly different question?" Acknowledge it, then go where you're
-          useful. (Ed's "can I tell you a story?" works too, but you find it a
-          trick — don't use something you don't believe.){'\n\n'}
-          "WE TRIED AI AND IT DIDN'T WORK." Answer with a question: "what's your
-          role?" Technical, sales, finance? The answer is completely different
-          for each, and a generic one helps nobody. Then: what did you actually
-          try, and what didn't work about it?{'\n\n'}
-          "WE TRIED IT AND IT WAS TERRIBLE." Usually true, and usually out of
-          date. People tried these tools a year ago when they were slow and
-          broke constantly. They aren't any more. Nothing was fixed by them —
-          it just got better underneath.{'\n\n'}
-          "I DON'T SEE HOW IT APPLIES TO ME." They haven't found their killer
-          app yet. The IBM PC sold in millions because of Excel, not because it
-          was a PC. The iPhone landed because of the bounce when you pulled a
-          list past the end — that's what people remember. Nobody adopts a
-          category, they adopt the one thing that changes their week. Ask what
-          their worst hour of the week is.{'\n\n'}
-          "HOW DO YOU TRUST SOMETHING NON-DETERMINISTIC?" Separate the two
-          questions. "How much money did we make last month" must be exact and
-          should go through something deterministic. "What's interesting in
-          these numbers" is a different job entirely, and the thing being
-          non-deterministic is the point. People lose faith because they pointed
-          it at the first kind.{'\n\n'}
-          "ISN'T THIS JUST MANAGING PEOPLE?" Partly, and that's good news for
-          engineers — the gap most of them have on the way up is management.
-          Trusting someone, building an environment where they can do the work,
-          letting them find their own way, and measuring the output rather than
-          watching the process. Don't push the analogy far; they aren't the
-          same, and the differences are a longer talk.{'\n\n'}
-          NUMBERS IN RESERVE: activation 57% against a 50% target. Both key
-          results met. Ticket volumes only if pushed. Then the hiring line and stop.{'\n\n'}
-          ⚠ Verify the model claim before this is said — transcript audio was
-          rough.
+          9 CLOSE{'\n\n'}
+          does your software know its purpose?{'\n'}
+          DO YOU?    [ S I L E N C E ]{'\n\n'}
+          those are the people we're hiring
         </aside>
       </section>
     </>
