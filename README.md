@@ -97,6 +97,16 @@ call, not a side effect of wanting a link.
 numbers keep coming out wrong, which words drift — and it belongs in the private
 vault, not on the open web.
 
+## Speaker notes
+
+Press `S`. The notes are the cue card and nothing else — for each slide, the
+phrases to land and the one bridge line into the next slide. They used to carry
+the full run sheet, tone notes and sourcing; that was too busy to read while
+talking, and all of it still lives in the vault script.
+
+Two conventions: CAPITALS are sentences to land exactly, and the `→` line is the
+bridge. Say the bridge, advance, then pause while the room reads the new slide.
+
 ## Stack
 
 reveal.js 5 + React 18 + Vite. Typography and colour derive from Flock's brand
