@@ -73,6 +73,30 @@ things, not one: the eyebrows read *of four*, slide 8's spoken callback goes
 back to three ("and a place in the history"), and you need a minute from
 somewhere.
 
+## Hosting
+
+The deck builds to static files and is set up to publish to GitHub Pages via
+`.github/workflows/deploy.yml`. `base` is `'./'` so it works at any path — local
+dev, Pages project path, or a file:// copy on a laptop at the venue.
+
+**Two things have to happen by hand before it goes live:**
+
+1. **Settings > Pages > Source: "GitHub Actions".** The workflow builds without
+   it but the deploy step fails.
+2. **The repo has to be public** — on a free plan Pages will not serve from a
+   private repo.
+
+⚠ **Read this before making it public.** The deck states Jay's retention figure
+(59% of activated customers, from the owned dashboard), the £110m Admiral
+acquisition figure, and the goal sentence given to the system. All of it is said
+aloud at the meetup, so none of it is secret — but a Pages site is permanently
+indexed, which is not the same as said once in a room. That is a deliberate
+call, not a side effect of wanting a link.
+
+And **delete `CUE-CARD.md` before going public.** It is Tom's personal delivery
+notes — which numbers he keeps getting wrong, which words he drifts on. It
+belongs in the private vault, not on the open web.
+
 ## Stack
 
 reveal.js 5 + React 18 + Vite. Typography and colour derive from Flock's brand
